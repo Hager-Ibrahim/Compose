@@ -10,6 +10,7 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.fragment.app.Fragment
 import androidx.compose.ui.platform.ComposeView
 
@@ -21,13 +22,16 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         return ComposeView(requireContext()).apply {
-
-
+            setContent {
+                Surface(color = Color.White) {
+                    TextExample()
+                }
+            }
         }
     }
 
     @Composable
     fun TextExample(){
-
+        Text(text = "Hager")
     }
 }
