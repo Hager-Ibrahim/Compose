@@ -11,6 +11,9 @@ import androidx.compose.ui.Modifier
 import androidx.fragment.app.Fragment
 import androidx.compose.ui.platform.ComposeView
 import com.example.compose.components.MainScreen.MainScreenFinal
+import com.example.compose.components.state.LoginStateFirst
+import com.example.compose.components.state.LoginStateSecond
+import com.example.compose.components.state.LoginStateThird
 
 class MainFragment : Fragment() {
 
@@ -25,7 +28,7 @@ class MainFragment : Fragment() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    MainScreenFinal()
+                    LoginStateFirst()
                 }
             }
         }

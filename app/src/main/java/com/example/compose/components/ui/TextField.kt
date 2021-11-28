@@ -15,7 +15,7 @@ fun AuthTextField(hint: String) {
     DefaultTextField(hint = hint, modifier = Modifier
         .fillMaxWidth()
         .padding(start = 24.dp, end = 24.dp, bottom = 4.dp)
-        .requiredHeight(50.dp))
+        .requiredHeight(52.dp))
 }
 
 @Composable
