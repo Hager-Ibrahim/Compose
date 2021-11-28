@@ -1,4 +1,4 @@
-package com.example.compose.components.ui
+package com.example.compose.commons.presenration.textField
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.TextField
@@ -11,22 +11,28 @@ import androidx.compose.material.Text
 
 
 @Composable
-fun AuthTextField(hint: String) {
+fun AuthTextField(
+    hint: String,
+    text: String,
+    onTextChanged: (String)-> Unit) {
     DefaultTextField(hint = hint, modifier = Modifier
         .fillMaxWidth()
         .padding(start = 24.dp, end = 24.dp, bottom = 4.dp)
-        .requiredHeight(52.dp))
+        .requiredHeight(52.dp),
+    text, onTextChanged)
 }
 
 @Composable
 fun DefaultTextField(
     hint: String,
-    modifier: Modifier
+    modifier: Modifier,
+    text: String,
+    onTextChanged: (String)-> Unit
 ) {
     TextField(
-        value = "",
+        value = text,
         onValueChange = {
-
+            onTextChanged(it)
         },
         modifier =modifier,
         colors = TextFieldDefaults.textFieldColors(
