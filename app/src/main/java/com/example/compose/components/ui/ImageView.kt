@@ -1,4 +1,4 @@
-package com.example.compose.components
+package com.example.compose.components.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.runtime.Composable
