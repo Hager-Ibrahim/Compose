@@ -7,12 +7,10 @@ import android.view.ViewGroup
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.fragment.app.Fragment
 import androidx.compose.ui.platform.ComposeView
-import com.example.compose.components.ui.DefaultButton
-import com.example.compose.components.ui.DefaultTextField
+import com.example.compose.components.alignment.TestAlignments
 
 class MainFragment : Fragment() {
 
@@ -27,7 +25,7 @@ class MainFragment : Fragment() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    MainScreenFinal()
+                    MainScreenFirst()
                 }
             }
         }
