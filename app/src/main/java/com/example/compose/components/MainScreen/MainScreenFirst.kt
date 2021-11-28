@@ -1,4 +1,4 @@
-package com.example.compose.components
+package com.example.compose.components.MainScreen
 
 import androidx.compose.runtime.Composable
 import com.example.compose.components.ui.AuthTextField

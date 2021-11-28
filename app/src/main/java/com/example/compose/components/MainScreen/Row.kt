@@ -1,4 +1,4 @@
-package com.example.compose.components
+package com.example.compose.components.MainScreen
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.material.Text

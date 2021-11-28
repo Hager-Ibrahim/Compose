@@ -13,5 +13,6 @@ fun ImageFromRes(imageId: Int, modifier: Modifier) {
         painter = painterResource(id = imageId),
         contentDescription = "",
         modifier = modifier,
+        contentScale = ContentScale.Crop
         )
 }
