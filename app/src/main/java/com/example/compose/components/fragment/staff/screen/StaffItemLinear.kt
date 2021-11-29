@@ -15,18 +15,7 @@ import com.example.compose.commons.presenration.imageView.ImageFromRes
 import com.example.compose.commons.presenration.shapes.DefaultShape
 import com.example.compose.commons.presenration.text.DefaultText
 
-@Composable
-fun StaffCard() {
-    Card(
-        elevation = 2.dp,
-        modifier = Modifier
-            .wrapContentHeight()
-            .fillMaxWidth()
-            .padding(8.dp)
-    ) {
-        StaffItem()
-    }
-}
+
 
 @Composable
 fun StaffItem() {
