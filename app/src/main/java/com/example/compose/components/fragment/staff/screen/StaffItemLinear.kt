@@ -1,4 +1,4 @@
-package com.example.compose.components.fragment.staff
+package com.example.compose.components.fragment.staff.screen
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
