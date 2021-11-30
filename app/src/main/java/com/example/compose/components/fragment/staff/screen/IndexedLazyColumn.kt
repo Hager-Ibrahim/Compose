@@ -7,13 +7,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import com.example.compose.components.fragment.staff.StaffViewModel
 import androidx.compose.foundation.lazy.items
+import androidx.compose.runtime.livedata.observeAsState
 
 @Composable
 fun IndexedLazyColumn(viewModel: StaffViewModel) {
+    val staff = viewModel.staff.observeAsState().value
+
     LazyColumn(
         contentPadding = PaddingValues(12.dp)
     ){
-        viewModel.staff.forEachIndexed() { index,data->
+        staff?.forEachIndexed() { index,data->
             item {
                 if(index in setOf(2,7,9)){
                     StaffHeader()
@@ -26,13 +29,15 @@ fun IndexedLazyColumn(viewModel: StaffViewModel) {
 
 @Composable
 fun UpdateStaff(viewModel: StaffViewModel) {
+    val staff = viewModel.staff.observeAsState().value ?: emptyList()
+
     LazyColumn(
     contentPadding = PaddingValues(12.dp)
     ) {
         item {
             StaffHeader()
         }
-        items(viewModel.staff) { staff ->
+        items(staff) { staff ->
             StaffCard(staff){
                 viewModel.removeStaff(it)
             }

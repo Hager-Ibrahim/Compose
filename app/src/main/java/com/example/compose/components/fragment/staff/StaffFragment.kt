@@ -14,6 +14,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.unit.dp
@@ -41,11 +42,14 @@ class StaffFragment : Fragment() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    LazyColumn(
-                        //contentPadding = PaddingValues(12.dp)
-                    ) {
-                        viewModel.staff.forEach {
-
+                    val staff = viewModel.staff.observeAsState().value
+                    LazyColumn {
+                        staff?.forEach {
+                            item {
+                                StaffCard(staff = it, onClick = {
+                                    viewModel.removeStaff(it)
+                                })
+                            }
                         }
 
                     }
