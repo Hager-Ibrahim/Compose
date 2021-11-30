@@ -2,12 +2,9 @@ package com.example.compose.components.fragment.staff.screen
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredHeight
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.layoutId
 import androidx.compose.ui.unit.dp
@@ -15,13 +12,12 @@ import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.ConstraintSet
 import androidx.constraintlayout.compose.Dimension
-import com.example.compose.R
-import com.example.compose.commons.presenration.imageView.ImageFromRes
 import com.example.compose.commons.presenration.shapes.DefaultShape
 import com.example.compose.commons.presenration.text.DefaultText
+import com.example.compose.components.fragment.staff.model.StaffUIModel
 
 @Composable
-fun FullStaffItem() {
+fun StaffItem(staff: StaffUIModel) {
     val constraints = ConstraintSet {
         val image = createRefFor("image")
         val name = createRefFor("name")
@@ -72,18 +68,10 @@ fun FullStaffItem() {
             .requiredHeight(80.dp)
             .padding(12.dp)
     ) {
-        ImageFromRes(
-            imageId = R.drawable.ic_launcher_background,
-            modifier = Modifier
-                .size(50.dp)
-                .clip(CircleShape)
-                .wrapContentWidth()
-                .layoutId("image")
 
-        )
 
         DefaultText(
-            text = "Staff name",
+            text = staff.name,
             color = Color(0xFF34495e),
             fontSize = 18.sp,
             Modifier
@@ -93,7 +81,7 @@ fun FullStaffItem() {
         )
 
         DefaultText(
-            text = "Android Developer",
+            text = staff.jobTitle,
             color = Color(0xFF9b9b9b),
             fontSize = 16.sp,
             Modifier
@@ -104,7 +92,7 @@ fun FullStaffItem() {
 
         DefaultShape(CircleShape, 10.dp, Color(0xFF7ed321),"status")
         DefaultText(
-            text = "3 h",
+            text = staff.todayTime,
             color = Color(0xFF9b9b9b),
             fontSize = 14.sp,
             Modifier
