@@ -1,4 +1,4 @@
-package com.example.compose.components.fragment.login
+package com.example.compose.components.fragment.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -24,6 +24,7 @@ class MainFragment : Fragment() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
+
                 }
             }
         }
