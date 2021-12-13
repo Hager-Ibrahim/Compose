@@ -33,7 +33,7 @@ class LoginFragment : Fragment() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    LoginScreenFirst()
+                    LoginScreenSecond(viewModel)
                 }
             }
         }
