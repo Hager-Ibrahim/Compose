@@ -42,19 +42,21 @@ class StaffFragment : Fragment() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    val staff = viewModel.staff.observeAsState().value
+                    val staff = viewModel.staff.observeAsState().value ?: arrayListOf()
                     LazyColumn {
-                        staff?.forEach {
-                            item {
-                                StaffCard(staff = it, onClick = {
-                                    viewModel.removeStaff(it)
-                                })
-                            }
-                        }
+                        staff.forEach {
 
+                        }
                     }
                 }
             }
         }
     }
 }
+//StaffCard(staff = it, onClick ={} )
+
+
+
+//StaffCard(staff = it, onClick = {
+//    viewModel.removeStaff(it)
+//})

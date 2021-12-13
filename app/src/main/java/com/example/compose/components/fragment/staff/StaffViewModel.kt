@@ -11,8 +11,6 @@ class StaffViewModel : ViewModel(){
     val staff: LiveData<List<StaffUIModel>>
         get() = _staff
 
-    //var staff by mutableStateOf(dummyStaffList())
-
     init {
         dummyStaffList()
     }
