@@ -12,8 +12,8 @@ import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.ConstraintSet
 import androidx.constraintlayout.compose.Dimension
-import com.example.compose.commons.presenration.shapes.DefaultShape
-import com.example.compose.commons.presenration.text.DefaultText
+import com.example.compose.ui.theme.presenration.shapes.DefaultShape
+import com.example.compose.ui.theme.presenration.text.DefaultText
 import com.example.compose.components.fragment.staff.model.StaffUIModel
 
 @Composable

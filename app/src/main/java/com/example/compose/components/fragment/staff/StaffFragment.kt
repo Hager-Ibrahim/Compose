@@ -14,20 +14,21 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.unit.dp
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
-import com.example.compose.components.fragment.staff.screen.IndexedLazyColumn
-import com.example.compose.components.fragment.staff.screen.StaffCard
-import com.example.compose.components.fragment.staff.screen.StaffHeader
-import com.example.compose.components.fragment.staff.screen.UpdateStaff
+import com.example.compose.components.fragment.login.LoginViewModel
+import com.example.compose.components.fragment.staff.screen.*
 
 
 class StaffFragment : Fragment() {
 
     private lateinit var viewModel: StaffViewModel
+    val screen1ViewModel: LoginViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,21 +43,9 @@ class StaffFragment : Fragment() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    val staff = viewModel.staff.observeAsState().value ?: arrayListOf()
-                    LazyColumn {
-                        staff.forEach {
-
-                        }
-                    }
+                   StaffScreen(viewModel)
                 }
             }
         }
     }
 }
-//StaffCard(staff = it, onClick ={} )
-
-
-
-//StaffCard(staff = it, onClick = {
-//    viewModel.removeStaff(it)
-//})

@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.compose.components.fragment.login.MainFragment"
+        android:name="com.example.compose.components.fragment.main.MainFragment"
         android:label="MainFragment" />
     <fragment
         android:id="@+id/loginFragment"

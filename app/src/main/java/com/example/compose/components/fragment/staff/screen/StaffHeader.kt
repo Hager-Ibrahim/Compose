@@ -6,7 +6,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.compose.commons.presenration.text.DefaultText
+import com.example.compose.ui.theme.presenration.text.DefaultText
 
 @Composable
 fun StaffHeader() {
