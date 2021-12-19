@@ -31,9 +31,9 @@ const val PASSWORD_KEY="password"
 
 sealed class Screens(val route: String) {
     object LoginScreen : Screens("login")
-    object StaffScreen : Screens("staff/{$EMAIL_KEY}/{$PASSWORD_KEY}") {
+    object StaffScreen : Screens("staff/{$EMAIL_KEY}?password={password}") {
         fun passData(email: String, password: String): String {
-            return "staff/$email/$password"
+            return "staff/$email?password=$password"
         }
     }
 }

@@ -30,10 +30,12 @@ fun SetupMainNavGraphFifth(navHostController: NavHostController) {
                 type = NavType.StringType
             }, navArgument(PASSWORD_KEY){
                 type = NavType.StringType
+                defaultValue=""
+
             })
         ) {
             Log.d("TAG", "args email: ${it.arguments?.getString(EMAIL_KEY)}")
-            Log.d("TAG", "args email: ${it.arguments?.getString(PASSWORD_KEY)}")
+            Log.d("TAG", "args password: ${it.arguments?.getString(PASSWORD_KEY)}")
 
             val staffViewModel: StaffViewModel = viewModel()
             StaffScreen(staffViewModel)
