@@ -1,5 +1,6 @@
 package com.example.compose.components.fragment.login.screen
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -14,7 +15,8 @@ import com.example.compose.ui.common.button.DefaultButton
 import com.example.compose.ui.theme.presenration.imageView.ImageFromRes
 import com.example.compose.ui.theme.presenration.textField.AuthTextField
 import com.example.compose.components.fragment.login.LoginViewModel
-import com.example.compose.ui.navigation.Screens
+import com.example.compose.ui.common.extentions.navigateAndReplaceStartRoute
+import com.example.compose.ui.navigation.HOME_ROUTE
 
 //@Composable
 //fun LoginScreen(
@@ -58,6 +60,8 @@ fun LoginScreen(
     val email = loginViewModel.email.collectAsState()
     val password = loginViewModel.password.observeAsState()
 
+    Log.d("TAG", "LoginScreen: ")
+
     Column(modifier = Modifier.background(Color.White)) {
         ImageFromRes(
             R.drawable.login,
@@ -78,8 +82,8 @@ fun LoginScreen(
             loginViewModel.updatePassword(it)
         }
         DefaultButton(buttonText = "Login") {
-            navController.navigate(
-                route =  Screens.StaffScreen.passData(email.value, password.value?:""))
+            navController.navigateAndReplaceStartRoute(HOME_ROUTE)
         }
     }
 }
+

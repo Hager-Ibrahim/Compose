@@ -1,5 +1,6 @@
 package com.example.compose.components.fragment.staff
 
+import android.util.Log
 import androidx.compose.runtime.*
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -45,6 +46,11 @@ class StaffViewModel : ViewModel(){
                 "Custom Staff",
                 "Android Developer",true,"2h")
         }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        Log.d("TAG", "onCleared: staff")
     }
 
 }

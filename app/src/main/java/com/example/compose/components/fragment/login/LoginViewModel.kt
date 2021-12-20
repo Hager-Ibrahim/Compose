@@ -1,5 +1,6 @@
 package com.example.compose.components.fragment.login
 
+import android.util.Log
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -21,6 +22,11 @@ class LoginViewModel: ViewModel() {
 
     fun updateEmail(newValue: String){
         _email.value = newValue
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        Log.d("TAG", "onCleared: login")
     }
 
 }

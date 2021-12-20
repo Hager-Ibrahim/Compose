@@ -1,9 +1,8 @@
-package com.example.compose.ui.navigation
+package com.example.compose.ui.navigation.navHost
 
-import androidx.navigation.NavHostController
-import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -12,9 +11,10 @@ import com.example.compose.components.fragment.login.LoginViewModel
 import com.example.compose.components.fragment.login.screen.LoginScreen
 import com.example.compose.components.fragment.staff.StaffViewModel
 import com.example.compose.components.fragment.staff.screen.StaffScreen
+import com.example.compose.ui.navigation.Screens
 
 @Composable
-fun SetupMainNavGraphFifth(navHostController: NavHostController) {
+fun SetupMainNavGraphSecond(navHostController: NavHostController) {
     NavHost(
         navController = navHostController,
         startDestination = Screens.LoginScreen.route
@@ -25,18 +25,12 @@ fun SetupMainNavGraphFifth(navHostController: NavHostController) {
             LoginScreen(loginViewModel, navHostController)
         }
 
-        composable(route = Screens.StaffScreen.route,
-            arguments = listOf(navArgument(EMAIL_KEY) {
+        composable(route = Screens.StaffScreen.route+"/{email}",
+            arguments = listOf(navArgument("email") {
                 type = NavType.StringType
-            }, navArgument(PASSWORD_KEY){
-                type = NavType.StringType
-                defaultValue=""
-
             })
         ) {
-            Log.d("TAG", "args email: ${it.arguments?.getString(EMAIL_KEY)}")
-            Log.d("TAG", "args password: ${it.arguments?.getString(PASSWORD_KEY)}")
-
+           // Log.d("TAG", "args email: ${it.arguments?.getString("email")}")
             val staffViewModel: StaffViewModel = viewModel()
             StaffScreen(staffViewModel)
         }

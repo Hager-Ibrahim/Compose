@@ -1,9 +1,9 @@
 package com.example.compose.ui.navigation
 
-//sealed class Screens(val route: String) {
-//    object LoginScreen: Screens("login")
-//    object StaffScreen: Screens("staff")
-//}
+sealed class Screens(val route: String) {
+    object LoginScreen: Screens("login")
+    object StaffScreen: Screens("staff")
+}
 
 
 //sealed class Screens(val route: String) {
@@ -29,11 +29,14 @@ package com.example.compose.ui.navigation
 const val EMAIL_KEY ="email"
 const val PASSWORD_KEY="password"
 
-sealed class Screens(val route: String) {
-    object LoginScreen : Screens("login")
-    object StaffScreen : Screens("staff/{$EMAIL_KEY}?password={password}") {
-        fun passData(email: String, password: String): String {
-            return "staff/$email?password=$password"
-        }
-    }
-}
+const val AUTH_ROUTE="auth"
+const val HOME_ROUTE="home"
+
+//sealed class Screens(val route: String) {
+//    object LoginScreen : Screens("login")
+//    object StaffScreen : Screens("staff/{$EMAIL_KEY}?password={password}") {
+//        fun passData(email: String, password: String): String {
+//            return "staff/$email?password=$password"
+//        }
+//    }
+//}
