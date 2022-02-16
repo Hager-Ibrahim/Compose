@@ -1,6 +1,5 @@
 package com.example.compose.components.fragment.login.screen
 
-import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -18,39 +17,6 @@ import com.example.compose.components.fragment.login.LoginViewModel
 import com.example.compose.ui.common.extentions.navigateAndReplaceStartRoute
 import com.example.compose.ui.navigation.HOME_ROUTE
 
-//@Composable
-//fun LoginScreen(
-//    loginViewModel: LoginViewModel,
-//    navController: NavController
-//) {
-//    val email = loginViewModel.email.collectAsState()
-//    val password = loginViewModel.password.observeAsState()
-//
-//    Column(modifier = Modifier.background(Color.White)) {
-//        ImageFromRes(
-//            R.drawable.login,
-//            modifier = Modifier
-//                .fillMaxWidth()
-//                .weight(1F)
-//        )
-//        AuthTextField(
-//            hint = "Email",
-//            email.value
-//        ) {
-//            loginViewModel.updateEmail(it)
-//        }
-//        AuthTextField(
-//            hint = "Password",
-//            password.value ?: ""
-//        ) {
-//            loginViewModel.updatePassword(it)
-//        }
-//        DefaultButton(buttonText = "Login") {
-//            navController.navigate(route =  "${Screens.StaffScreen.route}/${email.value}")
-//        }
-//    }
-//}
-
 
 @Composable
 fun LoginScreen(
@@ -59,8 +25,6 @@ fun LoginScreen(
 ) {
     val email = loginViewModel.email.collectAsState()
     val password = loginViewModel.password.observeAsState()
-
-    Log.d("TAG", "LoginScreen: ")
 
     Column(modifier = Modifier.background(Color.White)) {
         ImageFromRes(
