@@ -1,4 +1,4 @@
-package com.example.compose.components.fragment.staff.screen
+package com.example.compose.modules.fragment.staff.screen
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable

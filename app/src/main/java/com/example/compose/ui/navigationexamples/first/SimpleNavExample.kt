@@ -1,4 +1,4 @@
-package com.example.compose.components.fragment.main
+package com.example.compose.ui.navigationexamples.first
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxSize
@@ -8,8 +8,25 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavController
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 
+@Composable
+fun SetupNavGraph(navHostController: NavHostController) {
+    NavHost(
+        navController = navHostController,
+        startDestination = "main_screen"){
 
+        composable(route = "main_screen"){
+            MainScreen(navHostController)
+        }
+
+        composable(route = "detail_screen"){
+            DetailsScreen()
+        }
+    }
+}
 
 @Composable
 fun MainScreen(navController: NavController) {

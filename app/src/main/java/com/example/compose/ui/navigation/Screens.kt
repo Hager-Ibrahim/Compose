@@ -1,5 +1,11 @@
 package com.example.compose.ui.navigation
 
+
+
+const val AUTH_ROUTE="auth"
+const val HOME_ROUTE="home"
+
+
 sealed class Screens(val route: String) {
     object LoginScreen: Screens("login")
     object StaffScreen: Screens("staff")
@@ -29,8 +35,6 @@ sealed class Screens(val route: String) {
 const val EMAIL_KEY ="email"
 const val PASSWORD_KEY="password"
 
-const val AUTH_ROUTE="auth"
-const val HOME_ROUTE="home"
 
 //sealed class Screens(val route: String) {
 //    object LoginScreen : Screens("login")

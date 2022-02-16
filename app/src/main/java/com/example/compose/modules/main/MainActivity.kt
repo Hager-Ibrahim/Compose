@@ -1,10 +1,11 @@
-package com.example.compose.components.activity
+package com.example.compose.modules.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.navigation.compose.rememberNavController
 import com.example.compose.ui.navigation.navHost.SetupMainNavGraph
+import com.example.compose.ui.navigationexamples.first.SetupNavGraph
 import com.example.compose.ui.theme.ComposeTheme
 
 class MainActivity : AppCompatActivity() {
@@ -13,7 +14,8 @@ class MainActivity : AppCompatActivity() {
         setContent {
             ComposeTheme() {
                 val navController = rememberNavController()
-                SetupMainNavGraph(navController)
+                SetupNavGraph(navController)
+                //SetupMainNavGraph(navController)
             }
         }
     }

@@ -4,8 +4,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
-import com.example.compose.components.fragment.staff.StaffViewModel
-import com.example.compose.components.fragment.staff.screen.StaffScreen
+import com.example.compose.modules.staff.StaffViewModel
+import com.example.compose.modules.fragment.staff.screen.StaffScreen
 import com.example.compose.ui.navigation.HOME_ROUTE
 import com.example.compose.ui.navigation.Screens
 

@@ -1,4 +1,4 @@
-package com.example.compose.components.fragment.staff.model
+package com.example.compose.modules.staff.model
 
 data class StaffUIModel(
     val id: Int,

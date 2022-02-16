@@ -1,4 +1,4 @@
-package com.example.compose.components.fragment.staff.screen
+package com.example.compose.modules.fragment.staff.screen
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredHeight
@@ -14,7 +14,7 @@ import androidx.constraintlayout.compose.ConstraintSet
 import androidx.constraintlayout.compose.Dimension
 import com.example.compose.ui.theme.presenration.shapes.DefaultShape
 import com.example.compose.ui.theme.presenration.text.DefaultText
-import com.example.compose.components.fragment.staff.model.StaffUIModel
+import com.example.compose.modules.staff.model.StaffUIModel
 
 @Composable
 fun StaffItem(staff: StaffUIModel) {

@@ -1,11 +1,10 @@
-package com.example.compose.components.fragment.staff
+package com.example.compose.modules.staff
 
 import android.util.Log
-import androidx.compose.runtime.*
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.compose.components.fragment.staff.model.StaffUIModel
+import com.example.compose.modules.staff.model.StaffUIModel
 
 class StaffViewModel : ViewModel(){
     private val _staff = MutableLiveData<List<StaffUIModel>>()

@@ -1,4 +1,4 @@
-package com.example.compose.components.fragment.login.screen
+package com.example.compose.modules.login.screen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -13,7 +13,7 @@ import com.example.compose.R
 import com.example.compose.ui.common.button.DefaultButton
 import com.example.compose.ui.theme.presenration.imageView.ImageFromRes
 import com.example.compose.ui.theme.presenration.textField.AuthTextField
-import com.example.compose.components.fragment.login.LoginViewModel
+import com.example.compose.modules.login.LoginViewModel
 import com.example.compose.ui.common.extentions.navigateAndReplaceStartRoute
 import com.example.compose.ui.navigation.HOME_ROUTE
 
@@ -46,6 +46,7 @@ fun LoginScreen(
             loginViewModel.updatePassword(it)
         }
         DefaultButton(buttonText = "Login") {
+          //  navController.navigate(HOME_ROUTE)
             navController.navigateAndReplaceStartRoute(HOME_ROUTE)
         }
     }
