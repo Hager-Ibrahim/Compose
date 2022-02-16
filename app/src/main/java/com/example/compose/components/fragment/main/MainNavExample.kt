@@ -25,7 +25,7 @@ fun MainScreen(navController: NavController) {
 }
 
 @Composable
-fun DetailScreen() {
+fun DetailsScreen() {
     Surface(
         color = Color.White,
         modifier = Modifier.fillMaxSize()) {

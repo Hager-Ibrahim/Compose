@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.navigation.compose.rememberNavController
-import com.example.compose.ui.navigation.*
+import com.example.compose.ui.navigation2.forth.SetupNavGraph
 import com.example.compose.ui.theme.ComposeTheme
 
 class MainActivity : AppCompatActivity() {
@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         setContent {
             ComposeTheme() {
                 val navController = rememberNavController()
-                SetupMainNavGraphFifth(navController)
+                SetupNavGraph(navController)
             }
         }
     }
