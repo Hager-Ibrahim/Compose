@@ -1,5 +1,6 @@
 package com.example.compose.ui.commons.textField
 
+import android.util.Log
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.TextField
 import androidx.compose.material.TextFieldDefaults
@@ -44,5 +45,26 @@ fun DefaultTextField(
             Text(hint)
         }
 
+    )
+}
+@Composable
+fun StateTextField(value: String, onValueChanged: (String)-> Unit){
+    TextField(
+        value = value,
+        onValueChange = {
+            onValueChanged(it)
+        },
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(start = 24.dp, end = 24.dp, bottom = 4.dp)
+            .requiredHeight(52.dp),
+        colors = TextFieldDefaults.textFieldColors(
+            textColor = Color(0xFF354b60),
+            backgroundColor = Color(0xFFe1e5e9),
+            focusedIndicatorColor = Color.Transparent,
+            unfocusedIndicatorColor = Color.Transparent,
+        ), placeholder = {
+            Text("Password")
+        }
     )
 }

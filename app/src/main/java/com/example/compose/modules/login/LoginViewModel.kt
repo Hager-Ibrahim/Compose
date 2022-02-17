@@ -10,7 +10,6 @@ class LoginViewModel: ViewModel() {
     val password: LiveData<String>
         get() = _password
 
-
     private val _email = MutableStateFlow("")
     val email = _email.asStateFlow()
 

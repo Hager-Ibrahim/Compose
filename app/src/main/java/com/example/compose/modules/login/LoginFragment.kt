@@ -11,7 +11,7 @@ import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.lifecycle.ViewModelProvider
-import com.example.compose.modules.login.screen.LoginScreenSecond
+import com.example.compose.modules.login.stateexamples.forth.LoginScreen
 
 
 class LoginFragment : Fragment() {
@@ -31,7 +31,7 @@ class LoginFragment : Fragment() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    LoginScreenSecond(viewModel)
+                    LoginScreen(viewModel)
                 }
             }
         }
