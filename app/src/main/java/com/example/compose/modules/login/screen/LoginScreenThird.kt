@@ -1,22 +1,23 @@
-package com.example.compose.components.fragment.login.screen
+package com.example.compose.modules.login.screen
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import com.example.compose.R
-import com.example.compose.commons.presenration.button.DefaultButton
-import com.example.compose.commons.presenration.imageView.ImageFromRes
-import com.example.compose.commons.presenration.textField.AuthTextField
-import com.example.compose.components.fragment.login.LoginViewModel
+import com.example.compose.ui.commons.button.DefaultButton
+import com.example.compose.ui.commons.imageView.ImageFromRes
+import com.example.compose.ui.commons.textField.AuthTextField
+import com.example.compose.modules.login.LoginViewModel
 
 @Composable
-fun LoginScreenSecond(
+fun LoginScreenThird(
     loginViewModel: LoginViewModel
 ) {
-    val email = loginViewModel.email
-    val password = loginViewModel.password
+    val email = loginViewModel.email.collectAsState()
+    val password = loginViewModel.password.observeAsState()
 
     Column() {
         ImageFromRes(
@@ -27,7 +28,7 @@ fun LoginScreenSecond(
         )
         AuthTextField(
             hint = "Email",
-            email.value ?: ""
+            email.value
         ) {
             loginViewModel.updateEmail(it)
         }

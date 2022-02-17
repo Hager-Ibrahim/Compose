@@ -1,7 +1,6 @@
-package com.example.compose.commons.presenration.button
+package com.example.compose.ui.commons.button
 
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.material.Button

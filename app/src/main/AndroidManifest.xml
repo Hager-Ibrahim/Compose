@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Compose"
         tools:targetApi="31">
         <activity
-            android:name=".components.activity.MainActivity"
+            android:name=".modules.main.MainActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:exported="true" >
             <intent-filter>
