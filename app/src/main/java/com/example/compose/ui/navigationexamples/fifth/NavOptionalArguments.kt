@@ -1,4 +1,4 @@
-package com.example.compose.ui.navigationexamples.forth
+package com.example.compose.ui.navigationexamples.fifth
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,7 +11,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.*
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.compose.ui.navigationexamples.forth.Screens.*
+import com.example.compose.ui.navigationexamples.fifth.Screens.*
 
 @Composable
 fun SetupNavGraph(navHostController: NavHostController) {
@@ -78,7 +78,7 @@ fun DetailsScreen(id: Int?, name: String?) {
         modifier = Modifier.fillMaxSize()
     ) {
 
-        Text("Detail screen id: $id  name: $name", fontSize = 12.sp)
+        Text("Detail screen id: $id  name: $name", fontSize = 18.sp)
     }
 
 }
