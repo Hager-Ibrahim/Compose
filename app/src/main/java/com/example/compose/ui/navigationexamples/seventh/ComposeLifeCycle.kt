@@ -72,6 +72,12 @@ class MainViewModel @Inject constructor() : ViewModel() {
 
         // cancel task - the composable has left the composition
     }
+
+    override fun onCleared() {
+        super.onCleared()
+        Log.d("TAG", "onCleared: ")
+
+    }
 }
 
 sealed class Screens(val route: String) {
