@@ -5,10 +5,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.example.compose.R
+import com.example.compose.modules.login.stateexamples.fifth.LoginViewModel
 import com.example.compose.ui.commons.button.DefaultButton
 import com.example.compose.ui.commons.imageView.ImageFromRes
 import com.example.compose.ui.commons.textField.AuthTextField
-import com.example.compose.modules.login.LoginViewModel
 
 @Composable
 fun LoginScreenSecond(

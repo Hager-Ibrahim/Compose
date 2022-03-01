@@ -1,4 +1,4 @@
-package com.example.compose.modules.login.sideeffectsexamples.first
+package com.example.compose.modules.login.stateexamples.sixth
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -63,7 +63,8 @@ fun LoginContent(
             StateTextField(value = text,
                 onValueChanged = {
                     onTextChange(it)
-                })
+                },"Email")
+
 
             Spacer(modifier = Modifier.padding(12.dp))
             DefaultButton("Login") {

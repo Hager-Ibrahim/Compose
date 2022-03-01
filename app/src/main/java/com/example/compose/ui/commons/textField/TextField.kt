@@ -48,7 +48,7 @@ fun DefaultTextField(
     )
 }
 @Composable
-fun StateTextField(value: String, onValueChanged: (String)-> Unit){
+fun StateTextField(value: String, onValueChanged: (String)-> Unit, text: String?="Password"){
     TextField(
         value = value,
         onValueChange = {
@@ -64,7 +64,7 @@ fun StateTextField(value: String, onValueChanged: (String)-> Unit){
             focusedIndicatorColor = Color.Transparent,
             unfocusedIndicatorColor = Color.Transparent,
         ), placeholder = {
-            Text("Password")
+            Text(text?:"")
         }
     )
 }
