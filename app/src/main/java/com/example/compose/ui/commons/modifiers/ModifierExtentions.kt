@@ -1,4 +1,4 @@
-package com.example.compose.ui.commons
+package com.example.compose.ui.commons.modifiers
 
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
