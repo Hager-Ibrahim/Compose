@@ -1,4 +1,4 @@
-package com.example.compose.modules.login.stateexamples.fifth
+package com.example.compose.modules.login.stateexamples.forth
 
 
 import androidx.compose.foundation.layout.Column
@@ -19,45 +19,33 @@ import com.example.compose.ui.commons.textField.StateTextField
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
-@Composable
-fun LoginScreen(viewModel: LoginViewModel) {
-
-    val email = viewModel.email.collectAsState()
-    val password = viewModel.password.observeAsState()
-
-    LoginContent(
-        email = email.value,
-        password = password.value ?:"",
-        onEmailChanged = {
-            viewModel.updateEmail(it)
-        }) {
-        viewModel.updatePassword(it)
-    }
-}
 
 @Composable
-fun LoginContent(
-    email: String,
-    password: String,
-    onEmailChanged: (String) -> Unit,
-    onPasswordChanged: (String) -> Unit,
+fun LoginScreen(
+    viewModel: LoginViewModel,
 ) {
     Surface(
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colors.background
     ) {
+        val email = viewModel.email.collectAsState()
+        val password = viewModel.password.observeAsState()
+
         Column() {
 
-            StateTextField(value = email,
+            StateTextField(value = email.value,
                 onValueChanged = {
-                    onEmailChanged(it)
-                },"Email")
+                    viewModel.updateEmail(it)
+                }, "Email"
+            )
+
             Spacer(modifier = Modifier.padding(4.dp))
 
-            StateTextField(value = password,
+            StateTextField(value = password.value ?: "",
                 onValueChanged = {
-                    onPasswordChanged(it)
-                },"Password")
+                    viewModel.updatePassword(it)
+                }, "Password"
+            )
 
             Spacer(modifier = Modifier.padding(12.dp))
             DefaultButton("Login") {

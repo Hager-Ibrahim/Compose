@@ -1,4 +1,4 @@
-package com.example.compose.modules.login.stateexamples.sixth
+package com.example.compose.modules.login.stateexamples.sixth2
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer

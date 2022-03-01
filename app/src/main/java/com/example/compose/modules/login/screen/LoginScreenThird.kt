@@ -7,7 +7,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import com.example.compose.R
-import com.example.compose.modules.login.stateexamples.fifth.LoginViewModel
+import com.example.compose.modules.login.stateexamples.forth.LoginViewModel
 import com.example.compose.ui.commons.button.DefaultButton
 import com.example.compose.ui.commons.imageView.ImageFromRes
 import com.example.compose.ui.commons.textField.AuthTextField
