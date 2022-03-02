@@ -7,8 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.lifecycle.ViewModelProvider
-import com.example.compose.modules.login.stateexamples.sixth.LoginScreen
-import com.example.compose.modules.login.stateexamples.sixth.LoginViewModel
+import com.example.compose.modules.login.stateexamples.ninth.LoginScreen
+import com.example.compose.modules.login.stateexamples.ninth.LoginViewModel
+import com.example.compose.modules.staff.openStaff
 
 
 class LoginFragment : Fragment() {
@@ -25,6 +26,9 @@ class LoginFragment : Fragment() {
         return ComposeView(requireContext()).apply {
             setContent {
                 LoginScreen(viewModel)
+                {
+                    openStaff()
+                }
             }
         }
     }
