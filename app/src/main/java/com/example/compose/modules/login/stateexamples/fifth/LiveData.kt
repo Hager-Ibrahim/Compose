@@ -1,4 +1,4 @@
-package com.example.compose.modules.login.stateexamples.seventh
+package com.example.compose.modules.login.stateexamples.fifth
 
 
 import androidx.compose.foundation.layout.Column
@@ -13,30 +13,26 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.compose.ui.commons.textField.StateTextField
 import androidx.lifecycle.ViewModel
+import com.example.compose.modules.login.stateexamples.seventh.LoginViewModel
 
 @Composable
-fun LoginScreen(viewModel: LoginViewModel){
-    val email = viewModel.email.observeAsState()
-
-    LoginContent(email.value?:""){
-        viewModel.updateEmail(it)
-    }
-}
-@Composable
-fun LoginContent(
-     email: String,
-     onEmailChanged: (String)-> Unit
+fun LoginScreen(
+    viewModel: LoginViewModel
 ) {
     Surface(
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colors.background
     ) {
+
+        val email = viewModel.email.observeAsState()
+
         Column {
 
+
             StateTextField(
-                value = email ,
+                value = email.value ?:"",
                 onValueChanged = {
-                    onEmailChanged(it)
+                    viewModel.updateEmail(it)
                 }, "Email"
             )
         }
