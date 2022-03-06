@@ -1,4 +1,4 @@
-package com.example.compose.components
+package com.example.compose.modules.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +10,7 @@ import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import androidx.fragment.app.Fragment
 import androidx.compose.ui.platform.ComposeView
-import com.example.compose.components.alignment.TestAlignments
+import com.example.compose.modules.main.examples.first.MainScreenFirst
 
 class MainFragment : Fragment() {
 

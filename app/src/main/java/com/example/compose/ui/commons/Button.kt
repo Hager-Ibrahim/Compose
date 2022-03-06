@@ -1,7 +1,6 @@
-package com.example.compose.components.ui
+package com.example.compose.ui.commons
 
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.material.Button

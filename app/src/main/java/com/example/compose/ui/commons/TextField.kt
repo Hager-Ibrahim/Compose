@@ -1,4 +1,4 @@
-package com.example.compose.components.ui
+package com.example.compose.ui.commons
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.TextField
