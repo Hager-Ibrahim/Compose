@@ -1,4 +1,4 @@
-package com.example.compose.components
+package com.example.compose.modules.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,15 +9,8 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.fragment.app.Fragment
 import androidx.compose.ui.platform.ComposeView
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.material.TextField
-import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
 
 class MainFragment : Fragment() {
 

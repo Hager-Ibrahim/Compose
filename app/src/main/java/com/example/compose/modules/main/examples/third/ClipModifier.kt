@@ -1,4 +1,4 @@
-package com.example.compose.components
+package com.example.compose.modules.main.examples.third
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
