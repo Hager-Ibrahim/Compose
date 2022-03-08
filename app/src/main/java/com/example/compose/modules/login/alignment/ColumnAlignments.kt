@@ -1,4 +1,4 @@
-package com.example.compose.modules.alignment
+package com.example.compose.modules.login.alignment
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.Text

@@ -1,4 +1,4 @@
-package com.example.compose.modules.main.examples.second
+package com.example.compose.modules.login.examples.second
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable

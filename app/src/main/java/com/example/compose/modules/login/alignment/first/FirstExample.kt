@@ -1,4 +1,4 @@
-package com.example.compose.modules.alignment.first
+package com.example.compose.modules.login.alignment.first
 
 import androidx.compose.runtime.Composable
 

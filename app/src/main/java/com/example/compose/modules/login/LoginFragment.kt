@@ -1,4 +1,4 @@
-package com.example.compose.modules.main
+package com.example.compose.modules.login
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,9 +10,9 @@ import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import androidx.fragment.app.Fragment
 import androidx.compose.ui.platform.ComposeView
-import com.example.compose.modules.main.examples.first.LoginScreen
+import com.example.compose.modules.login.examples.first.LoginScreen
 
-class MainFragment : Fragment() {
+class LoginFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,

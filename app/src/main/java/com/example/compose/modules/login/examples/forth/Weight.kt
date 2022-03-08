@@ -1,4 +1,4 @@
-package com.example.compose.modules.main.examples.forth
+package com.example.compose.modules.login.examples.forth
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth

@@ -1,4 +1,4 @@
-package com.example.compose.modules.main.examples.first
+package com.example.compose.modules.login.examples.first
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
