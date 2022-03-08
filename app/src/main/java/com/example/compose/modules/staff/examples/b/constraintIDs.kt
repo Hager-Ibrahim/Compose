@@ -1,7 +1,8 @@
-package com.example.compose.modules.staff.examples.second
+package com.example.compose.modules.staff.examples.b
 
 import androidx.compose.runtime.Composable
 import androidx.constraintlayout.compose.ConstraintSet
+import androidx.constraintlayout.widget.ConstraintSet
 
 @Composable
 fun StaffItem() {
