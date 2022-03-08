@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import com.example.compose.modules.main.examples.second.ModifierExample
 
 class MainFragment : Fragment() {
 
@@ -25,15 +26,12 @@ class MainFragment : Fragment() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    EditTextExample()
+                    ModifierExample()
                 }
             }
         }
     }
 
-    @Composable
-    fun EditTextExample() {
-        
-    }
+
 
 }
