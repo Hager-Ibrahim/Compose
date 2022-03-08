@@ -1,54 +1,43 @@
-package com.example.compose.modules.login.stateexamples.seventh
-
+package com.example.compose.modules.login.stateexamples.f
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.*
-import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
-import androidx.lifecycle.LiveData
-
-import androidx.lifecycle.MutableLiveData
 import com.example.compose.ui.commons.textField.StateTextField
+import kotlinx.coroutines.flow.asStateFlow
 import androidx.lifecycle.ViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
 
 @Composable
-fun LoginScreen(viewModel: LoginViewModel){
-    val email = viewModel.email.observeAsState()
-
-    LoginContent(email.value?:""){
-        viewModel.updateEmail(it)
-    }
-}
-@Composable
-fun LoginContent(
-     email: String,
-     onEmailChanged: (String)-> Unit
+fun LoginScreen(
+    viewModel: LoginViewModel
 ) {
     Surface(
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colors.background
     ) {
-        Column {
 
+        val email = viewModel.email.collectAsState()
+
+        Column {
             StateTextField(
-                value = email ,
+                value = email.value ?:"",
                 onValueChanged = {
-                    onEmailChanged(it)
+                    viewModel.updateEmail(it)
                 }, "Email"
             )
         }
     }
 }
 
+
 class LoginViewModel : ViewModel() {
 
-
-    private val _email = MutableLiveData<String>()
-    val email: LiveData<String>
-        get() = _email
+    private val _email = MutableStateFlow("")
+    val email = _email.asStateFlow()
 
     fun updateEmail(newValue: String) {
         _email.value = newValue

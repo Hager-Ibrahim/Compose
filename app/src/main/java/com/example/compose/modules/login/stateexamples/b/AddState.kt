@@ -1,4 +1,4 @@
-package com.example.compose.modules.login.stateexamples.second
+package com.example.compose.modules.login.stateexamples.b
 
 import android.util.Log
 import androidx.compose.foundation.layout.Column
