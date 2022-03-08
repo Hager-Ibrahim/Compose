@@ -10,7 +10,7 @@ import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import androidx.fragment.app.Fragment
 import androidx.compose.ui.platform.ComposeView
-import com.example.compose.modules.login.examples.first.LoginScreen
+import com.example.compose.modules.login.examples.a.LoginScreen
 
 class LoginFragment : Fragment() {
 

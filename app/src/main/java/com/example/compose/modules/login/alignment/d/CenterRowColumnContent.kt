@@ -1,4 +1,4 @@
-package com.example.compose.modules.login.alignment.third
+package com.example.compose.modules.login.alignment.d
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.ui.Alignment
@@ -22,7 +22,9 @@ fun AlignmentExample() {
             modifier = Modifier
                 .fillMaxWidth()
                 .height(200.dp)
-                .border(BorderStroke(1.dp, color = Color.Gray))
+                .border(BorderStroke(1.dp, color = Color.Gray),
+                ),
+            verticalArrangement = Arrangement.Center
         ) {
             Text(
                 text = "Test",
@@ -37,7 +39,8 @@ fun AlignmentExample() {
             modifier = Modifier
                 .width(200.dp)
                 .height(200.dp)
-                .border(BorderStroke(1.dp, color = Color.Gray))
+                .border(BorderStroke(1.dp, color = Color.Gray)),
+            horizontalArrangement = Arrangement.Center
         ) {
             Text(
                 text = "Test",

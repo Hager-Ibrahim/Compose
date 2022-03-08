@@ -1,4 +1,4 @@
-package com.example.compose.modules.login.alignment.seventh
+package com.example.compose.modules.login.alignment.g
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border

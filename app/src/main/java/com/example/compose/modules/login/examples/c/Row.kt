@@ -1,4 +1,4 @@
-package com.example.compose.modules.login.examples.third
+package com.example.compose.modules.login.examples.c
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.material.Text

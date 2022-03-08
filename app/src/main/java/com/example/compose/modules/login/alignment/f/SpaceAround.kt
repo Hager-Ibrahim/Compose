@@ -1,4 +1,4 @@
-package com.example.compose.modules.login.alignment.fifth
+package com.example.compose.modules.login.alignment.f
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
@@ -16,11 +16,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 /**
- * Arrangement.SpaceBetween:
- * places first item in the main axis start and the last item
- * in the main axis end, then distribute the remaining items
- * evenly in the space left.
+ * Arrangement.SpaceAround:
+ * puts the same amount of space in the left and the right of each item
+ * (in a Row, or top and bottom in a Column)
+ *.Notice that spaces in the middle will be twice as large as
+ * spaces in the ends.
  */
+
 @Preview
 @Composable
 fun AlignmentExample() {
@@ -29,7 +31,7 @@ fun AlignmentExample() {
             .fillMaxWidth()
             .height(200.dp)
             .border(BorderStroke(1.dp, color = Color.Gray)),
-        verticalArrangement = Arrangement.SpaceBetween,
+        verticalArrangement = Arrangement.SpaceAround,
         horizontalAlignment = CenterHorizontally
     ) {
         Text(
