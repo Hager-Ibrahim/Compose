@@ -9,13 +9,11 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.sp
 import com.example.compose.ui.theme.ComposeTheme
-import com.example.compose.ui.theme.Shapes
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +23,7 @@ class MainActivity : ComponentActivity() {
             ComposeTheme(false) {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
+                    color = MaterialTheme.colors.background,
                 ) {
                     FirstComposeFun()
                 }
@@ -41,8 +39,10 @@ class MainActivity : ComponentActivity() {
 fun FirstComposeFun() {
     Text(
         text = stringResource(id = R.string.hello),
+        fontSize = 16.sp,
+        color = MaterialTheme.colors.primary,
+        fontFamily = FontFamily(Font(R.font.cairo_bold)),
         maxLines = 1,
-        modifier = Modifier.clip(Shapes.medium),
-        color = MaterialTheme.colors.primary)
+        )
 }
 
