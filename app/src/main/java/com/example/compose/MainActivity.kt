@@ -20,6 +20,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             ComposeTheme() {
                 Surface(
+                    modifier = Modifier.fillMaxSize(),
                     color = Color.White
                 ) {
                     FirstComposeFun()
