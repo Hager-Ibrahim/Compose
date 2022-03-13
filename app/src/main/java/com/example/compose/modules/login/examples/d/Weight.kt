@@ -10,7 +10,7 @@ import com.example.compose.ui.commons.DefaultButton
 import com.example.compose.ui.commons.ImageFromRes
 
 @Composable
-fun MainScreen() {
+fun LoginScreen() {
     Column() {
         ImageFromRes(
             R.drawable.login,
