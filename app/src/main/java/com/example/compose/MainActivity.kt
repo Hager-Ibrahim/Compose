@@ -9,11 +9,13 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.sp
 import com.example.compose.ui.theme.AppTheme
+import com.example.compose.ui.theme.Purple700
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,3 +47,24 @@ fun FirstComposeFun() {
         )
 }
 
+@Composable
+fun FirstComposeFun2() {
+    Text(
+        text = stringResource(id = R.string.hello),
+        fontSize = 16.sp,
+        color = Purple700,
+        fontFamily = FontFamily(Font(R.font.cairo_bold)),
+        maxLines = 1,
+    )
+}
+
+@Composable
+fun FirstComposeFun3() {
+    Text(
+        text = stringResource(id = R.string.hello),
+        fontSize = 16.sp,
+        color = Color.Blue,
+        fontFamily = FontFamily(Font(R.font.cairo_bold)),
+        maxLines = 1,
+    )
+}
