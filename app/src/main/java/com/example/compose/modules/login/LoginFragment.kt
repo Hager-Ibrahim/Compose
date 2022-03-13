@@ -10,7 +10,8 @@ import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import androidx.fragment.app.Fragment
 import androidx.compose.ui.platform.ComposeView
-import com.example.compose.modules.login.examples.a.LoginScreen
+import com.example.compose.modules.login.alignment.a.AlignmentExample
+import com.example.compose.modules.login.examples.d.LoginScreen
 
 class LoginFragment : Fragment() {
 
@@ -26,6 +27,7 @@ class LoginFragment : Fragment() {
                     color = MaterialTheme.colors.background
                 ) {
                     LoginScreen()
+                    //AlignmentExample()
                 }
             }
         }

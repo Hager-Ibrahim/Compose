@@ -16,11 +16,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 /**
- * Arrangement.SpaceAround:
- * puts the same amount of space in the left and the right of each item
- * (in a Row, or top and bottom in a Column)
- *.Notice that spaces in the middle will be twice as large as
- * spaces in the ends.
+Arrangement.SpaceEvenly:
+puts the same amount of space between items,
+the start and the end. It differentiates from space around
+because the spacing in start and end is the same as the spacing
+in the middle
  */
 
 @Preview
@@ -31,7 +31,7 @@ fun AlignmentExample() {
             .fillMaxWidth()
             .height(200.dp)
             .border(BorderStroke(1.dp, color = Color.Gray)),
-        verticalArrangement = Arrangement.SpaceAround,
+        verticalArrangement = Arrangement.SpaceEvenly,
         horizontalAlignment = CenterHorizontally
     ) {
         Text(
