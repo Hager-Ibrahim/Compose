@@ -1,8 +1,7 @@
-package com.example.compose.modules.main.examples.first
+package com.example.compose.modules.main.examples.a
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.TextField
-import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview

@@ -9,9 +9,8 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.fragment.app.Fragment
 import androidx.compose.ui.platform.ComposeView
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.example.compose.modules.main.examples.second.ModifierExample
+import com.example.compose.modules.main.examples.a.ModifierExample
 
 class MainFragment : Fragment() {
 

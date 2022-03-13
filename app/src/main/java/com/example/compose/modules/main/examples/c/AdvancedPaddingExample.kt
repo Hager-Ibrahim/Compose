@@ -1,4 +1,4 @@
-package com.example.compose.modules.main.examples.third
+package com.example.compose.modules.main.examples.c
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.fillMaxWidth

@@ -1,7 +1,6 @@
-package com.example.compose.modules.main.examples.forth
+package com.example.compose.modules.main.examples.d
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
