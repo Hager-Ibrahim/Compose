@@ -1,4 +1,4 @@
-package com.example.compose.modules.main.examples.a
+package com.example.compose.modules.main.examples.b
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.TextField
@@ -15,7 +15,6 @@ fun ModifierExample() {
         Modifier
             .wrapContentHeight()
             .fillMaxWidth()
-            .padding(24.dp),
     )
 }
 
@@ -27,6 +26,5 @@ fun FixedHeightWidthExample() {
         Modifier
             .height(100.dp)
             .width(200.dp)
-            .padding(24.dp),
     )
 }

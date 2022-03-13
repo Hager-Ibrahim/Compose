@@ -1,4 +1,4 @@
-package com.example.compose.modules.main.examples.d
+package com.example.compose.modules.main.examples.e
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.dp
 
 @Preview
 @Composable
-fun ClipModifier() {
+fun ModifierExample() {
     Text(
         text = "Text with Clipped background",
         color = Color.White,
