@@ -1,9 +1,7 @@
 package com.example.compose.modules.staff.examples.d
 
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.requiredHeight
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.wrapContentWidth
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -15,10 +13,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.ConstraintSet
+import androidx.constraintlayout.compose.Dimension
 import com.example.compose.R
 import com.example.compose.ui.commons.imageView.ImageFromRes
 import com.example.compose.ui.commons.text.DefaultText
-import kotlinx.coroutines.NonDisposableHandle.parent
 
 @Preview(showBackground = true)
 @Composable
@@ -32,7 +30,6 @@ fun StaffItem() {
         constrain(image) {
             top.linkTo(parent.top)
             start.linkTo(parent.start)
-            bottom.linkTo(parent.bottom)
         }
 
         constrain(name) {
@@ -46,7 +43,6 @@ fun StaffItem() {
         constrain(title) {
             top.linkTo(name.bottom)
             start.linkTo(name.start)
-            bottom.linkTo(parent.bottom)
 //            end.linkTo(parent.end)
 //            width = Dimension.fillToConstraints
         }
@@ -57,8 +53,8 @@ fun StaffItem() {
     ConstraintLayout(
         constraints,
         modifier = Modifier
-            .requiredHeight(80.dp)
-            .padding(12.dp)
+            .fillMaxHeight()
+            .padding(12.dp),
     ) {
 
         ImageFromRes(
@@ -78,6 +74,7 @@ fun StaffItem() {
             fontSize = 18.sp,
             Modifier
                 .padding(horizontal = 12.dp)
+                .background(Color.Red)
                 .layoutId("name")
 
         )
