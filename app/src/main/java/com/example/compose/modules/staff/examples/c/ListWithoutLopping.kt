@@ -1,4 +1,4 @@
-package com.example.compose.modules.staff.examples.third
+package com.example.compose.modules.staff.examples.c
 
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.lazy.LazyColumn
