@@ -1,21 +1,18 @@
 package com.example.compose.modules.staff
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import androidx.compose.runtime.mutableStateListOf
 import androidx.lifecycle.ViewModel
 import com.example.compose.modules.staff.model.StaffUIModel
 
 class StaffViewModel : ViewModel(){
-    private val _staff = MutableLiveData<List<StaffUIModel>>()
-    val staff: LiveData<List<StaffUIModel>>
-        get() = _staff
 
+    var staffList = mutableStateListOf<StaffUIModel>()
     init {
         dummyStaffList()
     }
 
     private fun dummyStaffList() {
-        val staffList = ArrayList<StaffUIModel>().apply {
+        val list = ArrayList<StaffUIModel>().apply {
             for (i in 1..30) {
                 add(
                     StaffUIModel(
@@ -27,23 +24,12 @@ class StaffViewModel : ViewModel(){
             }
         }
 
-        _staff.postValue(staffList)
+        staffList.addAll(list)
     }
 
-    fun removeStaff(staffUIModel: StaffUIModel){
-          _staff.value = _staff.value?.toMutableList()?.apply {
-              remove(staffUIModel)
-          }
-    }
 
-    fun updateItem(){
-        _staff.value= _staff.value?.toMutableList()?.apply {
-            this[0] =  StaffUIModel(
-                50,
-                "",
-                "Custom Staff",
-                "Android Developer",true,"2h")
-        }
+    fun update(index: Int){
+        staffList[index] = staffList[index].copy(jobTitle = "Updated!")
     }
 
 }

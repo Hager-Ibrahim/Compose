@@ -9,10 +9,12 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.lifecycle.ViewModelProvider
 import com.example.compose.modules.staff.examples.b.StaffList
+import com.example.compose.modules.staff.examples.f.UpdateStaff
 
 
 class StaffFragment : Fragment() {
@@ -28,13 +30,14 @@ class StaffFragment : Fragment() {
 
         return ComposeView(requireContext()).apply {
             setContent {
+                val staff = viewModel.staffList
+
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    val staff = viewModel.staff.observeAsState().value ?: arrayListOf()
                     StaffList(staffList = staff)
-                    //UpdateStaff(staff, viewModel)
+                    //UpdateStaff(viewModel)
                 }
             }
         }
