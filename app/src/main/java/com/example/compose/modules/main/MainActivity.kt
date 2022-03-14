@@ -4,9 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.navigation.compose.rememberNavController
-import com.example.compose.ui.navigationexamples.eighth.SetupNavGraph
+import com.example.compose.ui.navigationexamples.a.SetupNavGraph
 import com.example.compose.ui.theme.ComposeTheme
-import dagger.hilt.android.AndroidEntryPoint
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

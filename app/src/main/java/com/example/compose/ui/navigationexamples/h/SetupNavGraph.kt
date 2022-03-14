@@ -1,4 +1,4 @@
-package com.example.compose.ui.navigationexamples.eighth
+package com.example.compose.ui.navigationexamples.h
 
 import android.util.Log
 import androidx.compose.foundation.clickable
@@ -23,7 +23,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.compose.ui.common.helper.visible
 import com.example.compose.ui.helper.Event
-import com.example.compose.ui.navigationexamples.eighth.Screens.*
+import com.example.compose.ui.navigationexamples.h.Screens.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 

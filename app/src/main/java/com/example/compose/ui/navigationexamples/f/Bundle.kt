@@ -1,22 +1,21 @@
-package com.example.compose.ui.navigationexamples.sixth
+package com.example.compose.ui.navigationexamples.f
 
 import android.os.Bundle
-import android.util.Log
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
+import androidx.navigation.compose.NavHost
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.sp
 import androidx.navigation.*
-import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.compose.modules.staff.model.StaffUIModel
 import com.example.compose.ui.navigation.navigate
 import com.example.compose.ui.navigation.getParcelable
-import com.example.compose.ui.navigationexamples.sixth.Screens.*
+import com.example.compose.ui.navigationexamples.f.Screens.*
 
 @Composable
 fun SetupNavGraph(navHostController: NavHostController) {
