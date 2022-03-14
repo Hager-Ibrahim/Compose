@@ -12,7 +12,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.compose.ui.commons.button.DefaultButton
-import com.example.compose.ui.commons.textField.StateTextField
+import com.example.compose.ui.commons.textField.CustomTextField
 
 
 @Composable
@@ -22,6 +22,8 @@ fun LoginScreen(
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colors.background
     ) {
+        Log.d("Test recomposition", "LoginScreen: ")
+
         val email = remember { mutableStateOf("") }
         val password = remember { mutableStateOf("") }
 
@@ -34,8 +36,8 @@ fun LoginScreen(
 
             Password(password = password.value, onPasswordChanged = { password.value = it })
 
+            Spacer(modifier = Modifier.padding(4.dp))
 
-            Spacer(modifier = Modifier.padding(12.dp))
             Button()
 
         }
@@ -49,7 +51,7 @@ fun Email(
 ) {
     Log.d("Test recomposition", "Email: ")
 
-    StateTextField(
+    CustomTextField(
         value = email,
         onValueChanged = {
             onEmailChanged(it)
@@ -62,10 +64,9 @@ fun Password(
     password: String,
     onPasswordChanged: (String) -> Unit,
 ) {
-    //  Log.d("Test", "Password: ")
     Log.d("Test recomposition", "Password: ")
 
-    StateTextField(
+    CustomTextField(
         value = password,
         onValueChanged = {
             onPasswordChanged(it)

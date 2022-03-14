@@ -8,17 +8,19 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import com.example.compose.ui.commons.textField.StateTextField
+import com.example.compose.ui.commons.textField.CustomTextField
 
 
 @Composable
 fun LoginScreen() {
     Column(Modifier.background(Color.White)) {
         val text = remember { mutableStateOf("")}
-        StateTextField(value = text.value,
+        Log.d("TEST", "LoginScreen: ${text.value}")
+
+        CustomTextField(value = text.value,
             onValueChanged = {
                 text.value = it
-                Log.d("TAG", "LoginStateSecond: ${text.value}")
+                Log.d("TEST", "onValueChanged: ${text.value}")
             })
     }
 }

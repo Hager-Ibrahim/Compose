@@ -18,7 +18,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.compose.ui.commons.button.DefaultButton
 import com.example.compose.ui.commons.modifiers.visible
-import com.example.compose.ui.commons.textField.StateTextField
+import com.example.compose.ui.commons.textField.CustomTextField
 import com.example.compose.ui.commons.livedata.Event
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -56,7 +56,7 @@ fun LoginContent(
     ) {
         Column() {
 
-            StateTextField(value = text,
+            CustomTextField(value = text,
                 onValueChanged = {
                     onTextChange(it)
                 },"Email")

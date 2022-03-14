@@ -11,9 +11,8 @@ import androidx.compose.ui.Modifier
 import androidx.lifecycle.LiveData
 
 import androidx.lifecycle.MutableLiveData
-import com.example.compose.ui.commons.textField.StateTextField
+import com.example.compose.ui.commons.textField.CustomTextField
 import androidx.lifecycle.ViewModel
-import com.example.compose.modules.login.stateexamples.g.LoginViewModel
 
 @Composable
 fun LoginScreen(
@@ -29,7 +28,7 @@ fun LoginScreen(
         Column {
 
 
-            StateTextField(
+            CustomTextField(
                 value = email.value ?:"",
                 onValueChanged = {
                     viewModel.updateEmail(it)

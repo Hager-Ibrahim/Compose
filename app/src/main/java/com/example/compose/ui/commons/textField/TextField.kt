@@ -48,7 +48,7 @@ fun DefaultTextField(
     )
 }
 @Composable
-fun StateTextField(value: String, onValueChanged: (String)-> Unit, text: String?="Password"){
+fun CustomTextField(value: String, onValueChanged: (String)-> Unit, text: String?="Password"){
     TextField(
         value = value,
         onValueChange = {

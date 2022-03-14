@@ -6,7 +6,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import com.example.compose.ui.commons.textField.StateTextField
+import com.example.compose.ui.commons.textField.CustomTextField
 import kotlinx.coroutines.flow.asStateFlow
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -23,8 +23,8 @@ fun LoginScreen(
         val email = viewModel.email.collectAsState()
 
         Column {
-            StateTextField(
-                value = email.value ?:"",
+            CustomTextField(
+                value = email.value,
                 onValueChanged = {
                     viewModel.updateEmail(it)
                 }, "Email"

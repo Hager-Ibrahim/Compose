@@ -7,8 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.compose.ui.platform.ComposeView
 import androidx.lifecycle.ViewModelProvider
-import com.example.compose.modules.login.stateexamples.g.LoginScreen
-import com.example.compose.modules.login.stateexamples.g.LoginViewModel
+import com.example.compose.modules.login.stateexamples.a.LoginScreen
+import com.example.compose.modules.login.stateexamples.e.LoginViewModel
 
 
 class LoginFragment : Fragment() {
