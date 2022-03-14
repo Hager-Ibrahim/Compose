@@ -24,7 +24,7 @@ class LoginFragment : Fragment() {
 
         return ComposeView(requireContext()).apply {
             setContent {
-                LoginScreen(viewModel)
+                LoginScreen()
             }
         }
     }
