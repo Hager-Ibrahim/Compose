@@ -53,6 +53,13 @@ fun MainScreen(navController: NavController, viewModel: MainViewModel) {
     val event = viewModel.navigate.observeAsState().value
     val isLoading: Boolean by viewModel.isLoading
 
+    DisposableEffect(key1 = isLoading) {
+        Log.d("TEST", "MainScreen: start")
+        onDispose {
+            Log.d("TEST", "MainScreen: stop")
+        }
+    }
+
     LaunchedEffect(event) {
         event?.getContentIfNotHandled()?.let {
             navController.navigate(route = DetailsScreen.route)
