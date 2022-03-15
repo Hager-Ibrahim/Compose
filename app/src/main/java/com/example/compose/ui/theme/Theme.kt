@@ -37,6 +37,8 @@ fun AppTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable ()
         LightColorPalette
     }
 
+    //MaterialTheme.colors.primary
+    //MaterialTheme.shapes.large
     MaterialTheme(
         colors = colors,
         typography = Typography,
