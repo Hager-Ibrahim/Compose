@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.sp
 
 @Preview
 @Composable
-fun PaddingExample() {
+fun ModifierExample() {
     Text(
         text = "Hello World!",
         color = Color.Gray,
