@@ -5,22 +5,22 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import com.example.compose.ui.commons.textField.CustomTextField
 
+//Recompostion
 
 @Composable
 fun LoginScreen() {
     Column(Modifier.background(Color.White).fillMaxHeight()) {
-        val text = mutableStateOf("")
-        Log.d("TEST", "LoginScreen: ${text.value}")
+        var text = ""
 
-        CustomTextField( value = text.value,
+        CustomTextField( value = text,
             onValueChanged = {
-                text.value = it
-                Log.d("TEST", "onValueChanged: ${text.value}")
+                text += it
+                Log.d("TEST", "onValueChanged: $text")
             })
     }
+
 }

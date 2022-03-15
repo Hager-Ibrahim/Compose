@@ -1,4 +1,4 @@
-package com.example.compose.modules.login.stateexamples.e
+package com.example.compose.modules.login.stateexamples.h
 
 
 import androidx.compose.foundation.layout.Column
@@ -14,24 +14,31 @@ import androidx.lifecycle.MutableLiveData
 import com.example.compose.ui.commons.textField.CustomTextField
 import androidx.lifecycle.ViewModel
 
+//stateful
 @Composable
-fun LoginScreen(
-    viewModel: LoginViewModel
+fun LoginScreen(viewModel: LoginViewModel){
+    val email = viewModel.email.observeAsState()
+
+    LoginContent(email.value?:""){
+        viewModel.updateEmail(it)
+    }
+}
+// stateless
+@Composable
+fun LoginContent(
+     email: String,
+     onEmailChanged: (String)-> Unit
 ) {
     Surface(
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colors.background
     ) {
-
-        val email = viewModel.email.observeAsState()
-
         Column {
 
-
             CustomTextField(
-                value = email.value ?:"",
+                value = email ,
                 onValueChanged = {
-                    viewModel.updateEmail(it)
+                    onEmailChanged(it)
                 }, "Email"
             )
         }
