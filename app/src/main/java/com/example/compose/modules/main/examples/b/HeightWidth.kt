@@ -28,3 +28,13 @@ fun FixedHeightWidthExample() {
             .requiredWidth(200.dp)
     )
 }
+
+@Preview(showBackground = true)
+@Composable
+fun MaxHeightWidthExample() {
+    TextField(
+        value = "", onValueChange = {},
+        Modifier.fillMaxSize()
+
+    )
+}

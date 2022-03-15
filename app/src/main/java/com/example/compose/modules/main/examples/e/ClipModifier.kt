@@ -21,7 +21,7 @@ fun ModifierExample() {
             .wrapContentHeight()
             .fillMaxWidth()
             .padding(10.dp)
-            .clip(RoundedCornerShape(25.dp))
+            .clip(RoundedCornerShape(24.dp))
             .background(Color.Blue)
             .padding(16.dp)
     )
