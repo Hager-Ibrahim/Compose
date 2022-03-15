@@ -36,15 +36,15 @@ fun StaffItem() {
             top.linkTo(parent.top)
             start.linkTo(image.end)
             bottom.linkTo(title.top)
-//            end.linkTo(parent.end)
-//            width = Dimension.fillToConstraints
+            end.linkTo(parent.end)
+            width = Dimension.fillToConstraints
         }
 
         constrain(title) {
             top.linkTo(name.bottom)
             start.linkTo(name.start)
-//            end.linkTo(parent.end)
-//            width = Dimension.fillToConstraints
+            end.linkTo(parent.end)
+            width = Dimension.fillToConstraints
         }
 
     }
