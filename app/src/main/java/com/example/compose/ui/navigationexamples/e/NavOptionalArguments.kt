@@ -31,6 +31,8 @@ fun SetupNavGraph(navHostController: NavHostController) {
             }, navArgument(NAME_ARG) {
                 type = NavType.StringType
                 defaultValue = ""
+//                defaultValue = null
+//                nullable = true
             })
         ) {
             DetailsScreen(
