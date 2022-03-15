@@ -24,7 +24,7 @@ fun FixedHeightWidthExample() {
     TextField(
         value = "", onValueChange = {},
         Modifier
-            .height(100.dp)
-            .width(200.dp)
+            .requiredHeight(100.dp)
+            .requiredWidth(200.dp)
     )
 }
