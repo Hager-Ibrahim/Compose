@@ -2,10 +2,7 @@ package com.example.compose.modules.login.alignment.f
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
@@ -29,7 +26,7 @@ fun AlignmentExample() {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .height(200.dp)
+            .requiredHeight(200.dp)
             .border(BorderStroke(1.dp, color = Color.Gray)),
         verticalArrangement = Arrangement.SpaceEvenly,
         horizontalAlignment = CenterHorizontally

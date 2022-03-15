@@ -21,7 +21,7 @@ fun AlignmentExample() {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(200.dp)
+                .requiredHeight(200.dp)
                 .border(BorderStroke(1.dp, color = Color.Gray),
                 ),
             verticalArrangement = Arrangement.Center
