@@ -47,24 +47,24 @@ fun FirstComposeFun() {
         )
 }
 
-@Composable
-fun FirstComposeFun2() {
-    Text(
-        text = stringResource(id = R.string.hello),
-        fontSize = 16.sp,
-        color = Purple700,
-        fontFamily = FontFamily(Font(R.font.cairo_bold)),
-        maxLines = 1,
-    )
-}
-
-@Composable
-fun FirstComposeFun3() {
-    Text(
-        text = stringResource(id = R.string.hello),
-        fontSize = 16.sp,
-        color = Color.Blue,
-        fontFamily = FontFamily(Font(R.font.cairo_bold)),
-        maxLines = 1,
-    )
-}
+//@Composable
+//fun FirstComposeFun2() {
+//    Text(
+//        text = stringResource(id = R.string.hello),
+//        fontSize = 16.sp,
+//        color = Purple700,
+//        fontFamily = FontFamily(Font(R.font.cairo_bold)),
+//        maxLines = 1,
+//    )
+//}
+//
+//@Composable
+//fun FirstComposeFun3() {
+//    Text(
+//        text = stringResource(id = R.string.hello),
+//        fontSize = 16.sp,
+//        color = Color.Blue,
+//        fontFamily = FontFamily(Font(R.font.cairo_bold)),
+//        maxLines = 1,
+//    )
+//}
