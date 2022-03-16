@@ -1,5 +1,6 @@
 package com.example.compose.modules.login.stateexamples.i
 
+import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -31,7 +32,16 @@ fun LoginScreen(viewModel: LoginViewModel, onButtonClicked: () -> Unit) {
     val isLoading: Boolean by viewModel.isLoading
     val navigate = viewModel.navigate.observeAsState().value
 
+    LaunchedEffect(navigate) {
+        Log.d("TEST", "LaunchedEffect: navigate $navigate")
+        navigate?.getContentIfNotHandled()?.let {
+            onButtonClicked()
+        }
+    }
 
+//    LaunchedEffect(isLoading) {
+//        Log.d("TEST", "LaunchedEffect: isloading $isLoading")
+//    }
 
     LoginContent(
         text = text.value ?:"",
