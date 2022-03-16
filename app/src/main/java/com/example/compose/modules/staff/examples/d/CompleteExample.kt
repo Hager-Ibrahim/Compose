@@ -53,7 +53,7 @@ fun StaffItem() {
     ConstraintLayout(
         constraints,
         modifier = Modifier
-            .fillMaxHeight()
+            .fillMaxSize()
             .padding(12.dp),
     ) {
 
