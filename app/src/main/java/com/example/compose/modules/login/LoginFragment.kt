@@ -5,11 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.material.Surface
 import androidx.compose.ui.platform.ComposeView
 import androidx.lifecycle.ViewModelProvider
-import com.example.compose.modules.login.stateexamples.b.LoginScreen
+import com.example.compose.modules.login.stateexamples.i.LoginScreen
 import com.example.compose.modules.login.stateexamples.i.LoginViewModel
-import com.example.compose.modules.staff.openStaff
 
 
 class LoginFragment : Fragment() {
@@ -25,7 +25,9 @@ class LoginFragment : Fragment() {
 
         return ComposeView(requireContext()).apply {
             setContent {
-                  LoginScreen()
+               Surface() {
+                    LoginScreen(viewModel)
+                }
 //                LoginScreen(viewModel = viewModel) {
 //                    openStaff()
 //                }
