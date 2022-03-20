@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.lifecycle.ViewModelProvider
 import com.example.compose.modules.staff.examples.d.StaffItem
+import com.example.compose.modules.staff.examples.f.AdvancedExample
 
 
 class StaffFragment : Fragment() {
@@ -32,7 +33,8 @@ class StaffFragment : Fragment() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                        StaffItem()
+                       // StaffItem()
+                        AdvancedExample()
 
 
                 }
