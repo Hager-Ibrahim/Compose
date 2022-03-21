@@ -1,4 +1,4 @@
-package com.example.compose.modules.staff.examples.g.lazycolumnitems
+package com.example.compose.modules.order.presentation.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

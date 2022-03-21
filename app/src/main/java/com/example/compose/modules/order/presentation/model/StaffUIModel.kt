@@ -1,4 +1,4 @@
-package com.example.compose.modules.staff.model
+package com.example.compose.modules.order.presentation.model
 
 data class StaffUIModel(
     val id: Int,

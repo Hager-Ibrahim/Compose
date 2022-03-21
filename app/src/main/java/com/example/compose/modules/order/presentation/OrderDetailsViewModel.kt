@@ -1,10 +1,10 @@
-package com.example.compose.modules.staff
+package com.example.compose.modules.order.presentation
 
 import androidx.compose.runtime.mutableStateListOf
 import androidx.lifecycle.ViewModel
-import com.example.compose.modules.staff.model.StaffUIModel
+import com.example.compose.modules.order.presentation.model.StaffUIModel
 
-class StaffViewModel : ViewModel(){
+class OrderDetailsViewModel : ViewModel(){
 
     var staffList = mutableStateListOf<StaffUIModel>()
     init {

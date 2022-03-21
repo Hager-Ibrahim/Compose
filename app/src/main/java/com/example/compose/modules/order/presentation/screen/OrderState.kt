@@ -1,4 +1,4 @@
-package com.example.compose.modules.staff.examples.g.lazycolumnitems
+package com.example.compose.modules.order.presentation.screen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -16,7 +16,6 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.constraintlayout.compose.ConstrainedLayoutReference
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.ConstraintLayoutScope
 import androidx.constraintlayout.compose.Dimension
