@@ -27,18 +27,12 @@ class OrderDetailsFragment : Fragment() {
 
         return ComposeView(requireContext()).apply {
             setContent {
-                val staff = viewModel.staffList
 
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    //StaffList(staffList = staff)
-                   // UpdateStaff(viewModel)
-                   // OrderItem()
-                   // WholesalerHeader()
-                    //ProductCount()
-                    OrderInfo()
+                    OrderScreen(viewModel)
                 }
             }
         }

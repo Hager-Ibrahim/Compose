@@ -10,6 +10,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -20,11 +21,12 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.ConstraintLayoutScope
 import androidx.constraintlayout.compose.Dimension
 import com.example.compose.R
+import com.example.compose.modules.order.presentation.model.OrderDetailsUIModel
 import com.example.compose.ui.theme.*
 
-@Preview
+
 @Composable
-fun OrderState() {
+fun OrderState(order: OrderDetailsUIModel) {
 
     Box(
         Modifier
@@ -60,7 +62,7 @@ fun OrderState() {
             val endGuideline = createGuidelineFromEnd(12.dp)
 
             Text(
-                text = "Order No #4576",
+                text = stringResource(id = R.string.order_number,order.orderNumber),
                 style = TextStyle(
                     color = Martinique,
                     fontFamily = FontFamily(Font(R.font.cairo_bold)),
@@ -92,7 +94,7 @@ fun OrderState() {
             )
 
             Text(
-                text = "3 address",
+                text = order.deliveryAddress,
                 style = TextStyle(
                     color = DustyGrey,
                     fontFamily = FontFamily(Font(R.font.cairo_regular)),
@@ -124,12 +126,12 @@ fun OrderState() {
                     .wrapContentWidth()
                     .constrainAs(phoneNumTitle) {
                         linkTo(deliveryAddress.bottom, orderDateTitle.top, topMargin = 8.dp)
-                        linkTo(orderNo.start, phoneNum.start)
+                        start.linkTo(orderNo.start)
                     }
             )
 
             Text(
-                text = "01098654456",
+                text = order.retailerPhoneNumber,
                 style = TextStyle(
                     color = DustyGrey,
                     fontFamily = FontFamily(Font(R.font.cairo_regular)),
@@ -167,7 +169,7 @@ fun OrderState() {
             )
 
             Text(
-                text = "26 Feb 2022",
+                text = order.orderCreationDate,
                 style = TextStyle(
                     color = DustyGrey,
                     fontFamily = FontFamily(Font(R.font.cairo_regular)),
@@ -204,7 +206,7 @@ fun OrderState() {
             )
 
             Text(
-                text = "In Review",
+                text = stringResource(id = order.status.name),
                 style = TextStyle(
                     color = Red,
                     fontFamily = FontFamily(Font(R.font.cairo_bold)),

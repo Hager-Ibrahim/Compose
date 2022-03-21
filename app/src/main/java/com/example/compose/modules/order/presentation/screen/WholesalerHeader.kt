@@ -20,11 +20,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.compose.R
+import com.example.compose.modules.order.presentation.model.OrderDetailsUIModel
 import com.example.compose.ui.theme.*
 
-@Preview
+
 @Composable
-fun WholesalerHeader(){
+fun WholesalerHeader(order: OrderDetailsUIModel) {
 
     Row(
         Modifier
@@ -37,7 +38,7 @@ fun WholesalerHeader(){
             .padding(horizontal = 12.dp, vertical = 8.dp)) {
 
         Image(
-            painter = painterResource(id = R.drawable.ic_launcher_background),
+            painter = painterResource(id = R.drawable.ic_kuzlo_placeholder),
             contentDescription = "",
             contentScale = ContentScale.Crop,
             modifier = Modifier
@@ -48,14 +49,14 @@ fun WholesalerHeader(){
         )
 
         Text(
-            text = "Wholesaler name",
+            text = order.wholesalerName ?:"",
             style = TextStyle(
                 color = Tangerine,
                 fontFamily = FontFamily(Font(R.font.cairo_bold)),
                 fontSize = 16.sp
             ),
             modifier = Modifier
-                .padding(horizontal = 12.dp)
+                .padding(start = 12.dp, end = 4.dp)
                 .wrapContentHeight()
                 .wrapContentWidth()
 
@@ -63,7 +64,7 @@ fun WholesalerHeader(){
 
 
         Text(
-            text = "(5)",
+            text = "(${order.numberOfProducts})",
             style = TextStyle(
                 color = Dawn,
                 fontFamily = FontFamily(Font(R.font.cairo_regular)),
