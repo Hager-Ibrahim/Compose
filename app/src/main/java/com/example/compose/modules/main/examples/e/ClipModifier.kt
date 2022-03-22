@@ -1,6 +1,7 @@
 package com.example.compose.modules.main.examples.e
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
@@ -22,6 +23,7 @@ fun ModifierExample() {
             .fillMaxWidth()
             .padding(10.dp)
             .clip(RoundedCornerShape(24.dp))
+            .border(2.dp, Color.Red,RoundedCornerShape(24.dp))
             .background(Color.Blue)
             .padding(16.dp)
     )

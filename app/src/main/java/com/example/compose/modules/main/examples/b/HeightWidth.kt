@@ -11,7 +11,9 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun ModifierExample() {
     TextField(
-        value = "", onValueChange = {},
+        value = "",
+        onValueChange = {},
+        modifier =
         Modifier
             .wrapContentHeight()
             .fillMaxWidth()
@@ -35,6 +37,6 @@ fun MaxHeightWidthExample() {
     TextField(
         value = "", onValueChange = {},
         Modifier.fillMaxSize()
-
+    //Modifier.fillMaxHeight().fillMaxWidth()
     )
 }
