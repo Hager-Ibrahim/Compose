@@ -1,24 +1,21 @@
 package com.example.compose.ui.navigation.navGraph
 
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
-import com.example.compose.modules.staff.StaffViewModel
-import com.example.compose.modules.fragment.staff.screen.StaffScreen
-import com.example.compose.ui.navigation.HOME_ROUTE
-import com.example.compose.ui.navigation.Screens
+import com.example.compose.modules.main.MainScreen
+import com.example.compose.ui.navigation.model.HOME_ROUTE
+import com.example.compose.ui.navigation.model.Screens
 
 
 fun NavGraphBuilder.homeNavGraph(){
     navigation(
-        startDestination = Screens.StaffScreen.route,
-        route= HOME_ROUTE
+        startDestination = Screens.MainScreen.route,
+        route = HOME_ROUTE
     ){
-        composable(route = Screens.StaffScreen.route,
+        composable(route = Screens.MainScreen.route,
         ) {
-            val staffViewModel: StaffViewModel = viewModel()
-            StaffScreen(staffViewModel)
+            MainScreen()
         }
     }
 

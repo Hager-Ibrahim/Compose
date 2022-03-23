@@ -1,13 +1,11 @@
 package com.example.compose.ui.navigation.navGraph
 
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.*
 import androidx.navigation.compose.composable
-import com.example.compose.modules.login.LoginViewModel
-import com.example.compose.modules.login.screen.LoginScreen
 import androidx.navigation.compose.navigation
-import com.example.compose.ui.navigation.AUTH_ROUTE
-import com.example.compose.ui.navigation.Screens
+import com.example.compose.modules.login.LoginScreen
+import com.example.compose.ui.navigation.model.AUTH_ROUTE
+import com.example.compose.ui.navigation.model.Screens
 
 
 fun NavGraphBuilder.authNavGraph(navHostController: NavHostController){
@@ -16,8 +14,7 @@ fun NavGraphBuilder.authNavGraph(navHostController: NavHostController){
         route= AUTH_ROUTE
     ){
         composable(route = Screens.LoginScreen.route) {
-            val loginViewModel: LoginViewModel = viewModel()
-            LoginScreen(loginViewModel, navHostController)
+            LoginScreen()
         }
     }
 
