@@ -1,25 +1,26 @@
 package com.example.compose.modules.main
 
+import SetupMainNavHost
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.navigation.NavDestination
+import androidx.navigation.*
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
-import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import androidx.navigation.compose.rememberNavController
 import com.example.compose.ui.navigation.model.BottomBarScreen
-import com.example.compose.ui.navigation.navGraph.BottomNavGraph
 
 @Composable
-fun MainScreen() {
-    val navController = rememberNavController()
+fun MainScreen(navController: NavHostController) {
     Scaffold(
-        bottomBar = { BottomBar(navController = navController) }
+        bottomBar = {
+            if(shouldShowBottomBar(navController = navController)){
+                BottomBar(navController = navController)
+            }
+        }
     ) {
-        BottomNavGraph(navController = navController)
+        SetupMainNavHost(navController)
     }
 }
 
@@ -71,4 +72,12 @@ fun RowScope.AddItem(
             }
         }
     )
+}
+
+val bottomBarTabs = BottomBarScreen.values()
+private val bottomBarRoutes = bottomBarTabs.map { it.route }
+
+@Composable
+fun shouldShowBottomBar(navController: NavHostController): Boolean{
+    return navController.currentBackStackEntryAsState().value?.destination?.route in bottomBarRoutes
 }
