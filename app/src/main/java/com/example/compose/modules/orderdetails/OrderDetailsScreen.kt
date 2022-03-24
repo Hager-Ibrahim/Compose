@@ -1,4 +1,4 @@
-package com.example.compose.modules.profiledetails
+package com.example.compose.modules.orderdetails
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -12,7 +12,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 
 @Composable
-fun ProfileDetailsScreen() {
+fun OrderDetailsScreen() {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -20,7 +20,7 @@ fun ProfileDetailsScreen() {
         contentAlignment = Alignment.Center
     ) {
         Text(
-            text = "PROFILE Details",
+            text = "ORDER Details",
             fontSize = MaterialTheme.typography.h3.fontSize,
             fontWeight = FontWeight.Bold,
             color = Color.White

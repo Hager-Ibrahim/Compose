@@ -12,6 +12,6 @@ enum class BottomBarScreen(
     val route: String
 ) {
     Home("Home", Icons.Default.Home, "home"),
-    Profile("Home", Icons.Default.Person, "profile"),
-    Settings("Home", Icons.Default.Settings, "settings"),
+    Orders("Orders", Icons.Default.Person, "order"),
+    Settings("Settings", Icons.Default.Settings, "settings"),
 }

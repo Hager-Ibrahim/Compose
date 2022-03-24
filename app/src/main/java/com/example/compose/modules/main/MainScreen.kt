@@ -1,12 +1,11 @@
 package com.example.compose.modules.main
 
 import SetupMainNavHost
+import android.util.Log
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
 import androidx.navigation.*
-import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.compose.ui.navigation.model.BottomBarScreen
@@ -15,7 +14,7 @@ import com.example.compose.ui.navigation.model.BottomBarScreen
 fun MainScreen(navController: NavHostController) {
     Scaffold(
         bottomBar = {
-            if(shouldShowBottomBar(navController = navController)){
+            if(navController.shouldShowBottomBar()){
                 BottomBar(navController = navController)
             }
         }
@@ -26,20 +25,16 @@ fun MainScreen(navController: NavHostController) {
 
 @Composable
 fun BottomBar(navController: NavHostController) {
-    val screens = listOf(
-        BottomBarScreen.Home,
-        BottomBarScreen.Profile,
-        BottomBarScreen.Settings,
-    )
-    val navBackStackEntry by navController.currentBackStackEntryAsState()
-    val currentDestination = navBackStackEntry?.destination
+    val screens = BottomBarScreen.values()
+
+    val currentDestinationRoute = navController.getCurrentDestinationRouteAsState()
 
     BottomNavigation {
         screens.forEach { screen ->
             AddItem(
                 screen = screen,
-                currentDestination = currentDestination,
-                navController = navController
+                navController = navController,
+                selected = currentDestinationRoute == screen.route
             )
         }
     }
@@ -48,8 +43,8 @@ fun BottomBar(navController: NavHostController) {
 @Composable
 fun RowScope.AddItem(
     screen: BottomBarScreen,
-    currentDestination: NavDestination?,
-    navController: NavHostController
+    navController: NavHostController,
+    selected: Boolean
 ) {
     BottomNavigationItem(
         label = {
@@ -61,15 +56,10 @@ fun RowScope.AddItem(
                 contentDescription = "Navigation Icon"
             )
         },
-        selected = currentDestination?.hierarchy?.any {
-            it.route == screen.route
-        } == true,
+        selected = selected,
         unselectedContentColor = LocalContentColor.current.copy(alpha = ContentAlpha.disabled),
         onClick = {
-            navController.navigate(screen.route) {
-                popUpTo(navController.graph.findStartDestination().id)
-                launchSingleTop = true
-            }
+            navController.navigate(screen.route)
         }
     )
 }
@@ -78,6 +68,9 @@ val bottomBarTabs = BottomBarScreen.values()
 private val bottomBarRoutes = bottomBarTabs.map { it.route }
 
 @Composable
-fun shouldShowBottomBar(navController: NavHostController): Boolean{
-    return navController.currentBackStackEntryAsState().value?.destination?.route in bottomBarRoutes
+fun NavHostController.getCurrentDestinationRouteAsState()= currentBackStackEntryAsState().value?.destination?.route
+
+@Composable
+fun NavHostController.shouldShowBottomBar(): Boolean{
+    return getCurrentDestinationRouteAsState() in bottomBarRoutes
 }

@@ -1,9 +1,9 @@
-package com.example.compose.modules.profile
+package com.example.compose.modules.orders
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
 
-class ProfileViewModel : ViewModel(){
+class OrdersViewModel : ViewModel(){
 
     init {
         fakeNetworkCall()
