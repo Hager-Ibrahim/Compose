@@ -38,8 +38,8 @@ fun AppTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable ()
         LightColorPalette
     }
 
-    //MaterialTheme.colors.primary
-    //MaterialTheme.shapes.large
+//    MaterialTheme.colors.primary
+//    MaterialTheme.shapes.large
     MaterialTheme(
         colors = colors,
         typography = Typography,
@@ -49,7 +49,7 @@ fun AppTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable ()
 }
 
 //@Composable
-//fun AppTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
+//fun AppTheme2(darkTheme: Boolean = isSystemInDarkTheme(), content: @Composable () -> Unit) {
 //    val colors = if (darkTheme) {
 //        DarkColorPalette
 //    } else {
