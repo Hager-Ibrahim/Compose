@@ -8,6 +8,6 @@ import com.example.compose.ui.commons.DefaultButton
 @Preview
 @Composable
 fun LoginScreen() {
-    AuthTextField(hint = "")
+    AuthTextField(hint = "Name")
     DefaultButton(buttonText = "Login") {}
 }

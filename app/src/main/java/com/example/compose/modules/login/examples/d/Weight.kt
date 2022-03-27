@@ -13,7 +13,6 @@ import com.example.compose.ui.commons.ImageFromRes
 fun LoginScreen() {
     Column() {
         ImageFromRes(
-            R.drawable.login,
             modifier = Modifier.fillMaxWidth().weight(1F))
         AuthTextField(hint = "Email")
         AuthTextField(hint = "Password")
