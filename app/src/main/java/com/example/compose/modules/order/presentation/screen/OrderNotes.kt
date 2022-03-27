@@ -8,12 +8,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.compose.R
 import com.example.compose.ui.theme.Martinique
 import com.example.compose.ui.theme.SilverChalice
 
+@Preview(showBackground = true)
 @Composable
 fun OrderNotes(){
     

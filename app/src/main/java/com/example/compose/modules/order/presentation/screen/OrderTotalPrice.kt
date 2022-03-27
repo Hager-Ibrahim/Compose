@@ -14,11 +14,16 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.compose.R
+import com.example.compose.modules.order.presentation.model.OrderDetailsPreviewParameterProvider
 import com.example.compose.modules.order.presentation.model.OrderDetailsUIModel
+import com.example.compose.modules.order.presentation.model.OrderStatus.Companion.getStatus
 import com.example.compose.ui.theme.OysterBay
+
 
 @Composable
 fun OrderTotalPrice(
@@ -41,4 +46,13 @@ fun OrderTotalPrice(
         ),
 
         )
+}
+
+@Preview(showBackground = true)
+@Composable
+fun OrderTotalPricePreview(
+    @PreviewParameter(OrderDetailsPreviewParameterProvider::class)
+    order: OrderDetailsUIModel
+) {
+    OrderTotalPrice(order)
 }

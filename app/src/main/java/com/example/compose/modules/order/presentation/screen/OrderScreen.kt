@@ -9,7 +9,6 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -17,27 +16,25 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.compose.R
 import com.example.compose.modules.order.presentation.OrderDetailsViewModel
 import com.example.compose.modules.order.presentation.model.OrderDetailsUIModel
-import com.example.compose.ui.theme.Dawn
 import com.example.compose.ui.theme.TitanWhite
 
 
 @Composable
-fun OrderScreen(orderViewModel: OrderDetailsViewModel) {
+fun OrderDetailsScreen(orderViewModel: OrderDetailsViewModel) {
 
     val orderUIModel by orderViewModel.orderDetails.observeAsState()
 
-    OrderDetailsScreen(orderUIModel = orderUIModel)
+    OrderDetailsContent(orderUIModel = orderUIModel)
 
 }
 
 @Composable
-fun OrderDetailsScreen(orderUIModel: OrderDetailsUIModel?) {
+fun OrderDetailsContent(orderUIModel: OrderDetailsUIModel?) {
     Column(
         modifier = Modifier
             .background(TitanWhite)
@@ -56,23 +53,23 @@ fun OrderDetailsList(orderUIModel: OrderDetailsUIModel?) {
 
             // Order status
             item {
-                OrderState(order)
+                OrderStatus(order)
             }
-
+            // total products
             item {
                 ProductCount(order)
             }
-
+            // wholesaler header
             item {
                 WholesalerHeader(order)
             }
-
+            // orders list
             order.items.forEach {
                 item {
                     OrderItem(it)
                 }
             }
-
+            // order info
             order.orderInfo.forEach {
                 item {
                     OrderInfo(it)

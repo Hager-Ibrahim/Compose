@@ -18,6 +18,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -82,7 +83,10 @@ fun OrderItem(cartModel: CartItemDomainModel) {
                 .constrainAs(name) {
                     linkTo(topGuideline, quantity.top)
                     linkTo(image.end, endGuideline, startMargin = 12.dp, bias = 0F)
-                }
+                    width = Dimension.preferredWrapContent
+                },
+            overflow = TextOverflow.Ellipsis,
+            maxLines = 1
         )
 
         Text(
@@ -173,3 +177,15 @@ private fun getQuantityText(quantity: Int)=
                 append(stringResource(R.string.number, quantity))
             }
         }.toString()
+
+@Preview(showBackground = true)
+@Composable
+private fun OrderItemPreview(){
+    OrderItem(CartItemDomainModel(
+        12221,
+        stringResource(id = R.string.long_string),
+        3,
+        50.0,
+        150.0,
+        "image",0,8,9))
+}

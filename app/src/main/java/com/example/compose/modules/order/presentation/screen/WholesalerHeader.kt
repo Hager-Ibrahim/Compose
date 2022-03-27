@@ -13,14 +13,19 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.compose.R
+import com.example.compose.modules.order.presentation.model.OrderDetailsPreviewParameterProvider
 import com.example.compose.modules.order.presentation.model.OrderDetailsUIModel
+import com.example.compose.modules.order.presentation.model.OrderStatus.Companion.getStatus
 import com.example.compose.ui.theme.*
 
 
@@ -58,7 +63,9 @@ fun WholesalerHeader(order: OrderDetailsUIModel) {
             modifier = Modifier
                 .padding(start = 12.dp, end = 4.dp)
                 .wrapContentHeight()
-                .wrapContentWidth()
+                .wrapContentWidth(),
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis
 
         )
 
@@ -77,4 +84,12 @@ fun WholesalerHeader(order: OrderDetailsUIModel) {
 
         )
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun WholesalerHeaderPreview(
+    @PreviewParameter(OrderDetailsPreviewParameterProvider::class)
+                              order: OrderDetailsUIModel) {
+    WholesalerHeader(order)
 }

@@ -13,12 +13,17 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
+import androidx.constraintlayout.compose.Dimension
 import com.example.compose.R
 import com.example.compose.modules.order.presentation.model.OrderInfoModel
 import com.example.compose.ui.theme.Martinique
+import kotlinx.coroutines.NonDisposableHandle.parent
 
 
 @Composable
@@ -46,7 +51,7 @@ fun OrderInfo(orderInfo: OrderInfoModel) {
             )
 
         Text(
-            text = stringResource(id = orderInfo.title),
+            text = "${stringResource(id = orderInfo.title)}:",
             style = TextStyle(
                 color = Martinique,
                 fontFamily = FontFamily(Font(R.font.cairo_bold)),
@@ -57,7 +62,7 @@ fun OrderInfo(orderInfo: OrderInfoModel) {
                 .wrapContentWidth()
                 .constrainAs(infoTitle) {
                     linkTo(image.top, image.bottom, bias = 0F)
-                    linkTo(image.end, parent.end, startMargin = 12.dp, bias = 0F)
+                    linkTo(image.end, infoContent.end, startMargin = 12.dp, bias = 0F)
                 }
         )
 
@@ -74,8 +79,21 @@ fun OrderInfo(orderInfo: OrderInfoModel) {
                 .constrainAs(infoContent) {
                     linkTo(infoTitle.top, infoTitle.bottom)
                     linkTo(infoTitle.end, parent.end, startMargin = 4.dp, bias = 0F)
-                }
+                },
+            overflow = TextOverflow.Ellipsis,
+            maxLines = 1,
+            textAlign = TextAlign.Center
         )
 
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun OrderInfoPreview(){
+    OrderInfo(
+        OrderInfoModel( R.string.order_delivery,
+            stringResource(id = R.string.long_string),
+            R.drawable.ic_delivery),
+    )
 }

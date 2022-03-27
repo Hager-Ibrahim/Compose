@@ -15,18 +15,22 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.ConstraintLayoutScope
 import androidx.constraintlayout.compose.Dimension
 import com.example.compose.R
+import com.example.compose.modules.order.presentation.model.CartItemDomainModel
+import com.example.compose.modules.order.presentation.model.OrderDetailsPreviewParameterProvider
 import com.example.compose.modules.order.presentation.model.OrderDetailsUIModel
+import com.example.compose.modules.order.presentation.model.OrderStatus.Companion.getStatus
 import com.example.compose.ui.theme.*
 
 
 @Composable
-fun OrderState(order: OrderDetailsUIModel) {
+fun OrderStatus(order: OrderDetailsUIModel) {
 
     Box(
         Modifier
@@ -105,7 +109,12 @@ fun OrderState(order: OrderDetailsUIModel) {
                     .wrapContentWidth()
                     .constrainAs(deliveryAddress) {
                         linkTo(deliveryAddressTitle.top, deliveryAddressTitle.bottom)
-                        linkTo(deliveryAddressTitle.end, endGuideline, startMargin = 8.dp, bias = 0F)
+                        linkTo(
+                            deliveryAddressTitle.end,
+                            endGuideline,
+                            startMargin = 8.dp,
+                            bias = 0F
+                        )
                     }
             )
 
@@ -232,7 +241,7 @@ fun OrderState(order: OrderDetailsUIModel) {
                     .padding(vertical = 8.dp)
                     .width(1.dp)
                     .constrainAs(line) {
-                        linkTo(dotOne.top, dotFour.bottom,bias = 0F)
+                        linkTo(dotOne.top, dotFour.bottom, bias = 0F)
                         linkTo(dotOne.start, dotOne.end)
                         height = Dimension.fillToConstraints
                     }
@@ -258,4 +267,13 @@ fun ConstraintLayoutScope.Dot(modifier: Modifier) {
         modifier =
         customModifier
     )
+}
+
+@Preview(showBackground = true)
+@Composable
+fun OrderStatusPreview(
+    @PreviewParameter(OrderDetailsPreviewParameterProvider::class)
+    order: OrderDetailsUIModel
+) {
+    OrderStatus(order)
 }

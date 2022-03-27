@@ -52,9 +52,7 @@ class OrderDetailsViewModel : ViewModel(){
                 "By retailer",
                 "Cash in delivery",
                 "0108765446",
-                 getInfoList(
-
-                 )
+                 getInfoList()
             )
         )
     }

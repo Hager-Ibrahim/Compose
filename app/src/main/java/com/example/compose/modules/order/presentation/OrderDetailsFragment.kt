@@ -32,7 +32,7 @@ class OrderDetailsFragment : Fragment() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    OrderScreen(viewModel)
+                    OrderDetailsScreen(viewModel)
                 }
             }
         }
