@@ -19,22 +19,23 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ChainStyle
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.Dimension
 import com.example.compose.R
-import com.example.compose.ui.theme.Flamingo
-import com.example.compose.ui.theme.SantasGrey
-import com.example.compose.ui.theme.Shapes
-import com.example.compose.ui.theme.Shark
+import com.example.compose.modules.staff.model.Product
+import com.example.compose.modules.staff.model.ProductPreviewParameterProvider
+import com.example.compose.ui.theme.*
 import kotlinx.coroutines.NonDisposableHandle.parent
 
-@Preview
+
 @Composable
-fun AdvancedExample() {
+fun AdvancedExample(product: Product) {
     Card(
         Modifier
             .fillMaxWidth()
@@ -49,7 +50,7 @@ fun AdvancedExample() {
             Modifier
                 .fillMaxWidth()
                 .wrapContentHeight()
-                .background(Color(0xFFF7F7F7))
+                .background(Grey)
         ) {
 
             val (productImage, productName, wholesalerImage, soldBy, price) = createRefs()
@@ -71,7 +72,7 @@ fun AdvancedExample() {
                     })
 
             Text(
-                text = "Product name",
+                text = product.productName,
                 style = TextStyle(
                     color = Shark,
                     fontFamily = FontFamily(Font(R.font.cairo_regular)),
@@ -83,8 +84,11 @@ fun AdvancedExample() {
                     .constrainAs(productName) {
                         linkTo(topGuideLine, wholesalerImage.bottom)
                         linkTo(productImage.end, endGuideline, startMargin = 8.dp, bias = 0F)
-                    }
-
+                        //app:layout_constrainedWidth="true"
+                        width = Dimension.preferredWrapContent
+                    },
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis
 
             )
 
@@ -96,12 +100,11 @@ fun AdvancedExample() {
                     .requiredWidth(16.dp)
                     .constrainAs(wholesalerImage) {
                         linkTo(productName.bottom, price.bottom, topMargin = 8.dp)
-                        linkTo(productName.start, soldBy.end, bias = 0F)
-
+                        start.linkTo(productName.start)
                     })
 
             Text(
-                text = "Sold by wholesaler",
+                text = "Sold by ${product.wholesalerName}",
                 style = TextStyle(
                     color = SantasGrey,
                     fontFamily = FontFamily(Font(R.font.cairo_regular)),
@@ -112,8 +115,11 @@ fun AdvancedExample() {
                     .wrapContentWidth()
                     .constrainAs(soldBy) {
                         linkTo(wholesalerImage.top, wholesalerImage.bottom)
-                        linkTo(wholesalerImage.end, parent.end, startMargin = 8.dp, bias = 0F)                    }
-
+                        linkTo(wholesalerImage.end, endGuideline, startMargin = 8.dp, bias = 0F)
+                        width = Dimension.preferredWrapContent
+                    },
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis
 
             )
 
@@ -129,7 +135,7 @@ fun AdvancedExample() {
                     .wrapContentWidth()
                     .constrainAs(price) {
                         linkTo(wholesalerImage.bottom, bottomGuideLine, topMargin = 8.dp)
-                        linkTo(wholesalerImage.start, parent.end, bias = 0F)
+                        linkTo(wholesalerImage.start, endGuideline, bias = 0F)
                     }
 
 
@@ -144,4 +150,13 @@ fun AdvancedExample() {
 
     }
 
+}
+
+
+@Preview
+@Composable
+fun ProductPreview(
+    @PreviewParameter(ProductPreviewParameterProvider::class) product: Product){
+
+    AdvancedExample(product = product)
 }

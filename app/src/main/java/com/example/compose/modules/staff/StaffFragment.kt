@@ -14,6 +14,7 @@ import androidx.compose.ui.platform.ComposeView
 import androidx.lifecycle.ViewModelProvider
 import com.example.compose.modules.staff.examples.d.StaffItem
 import com.example.compose.modules.staff.examples.f.AdvancedExample
+import com.example.compose.modules.staff.model.Product
 
 
 class StaffFragment : Fragment() {
@@ -27,6 +28,9 @@ class StaffFragment : Fragment() {
     ): View {
         viewModel = ViewModelProvider(this).get(StaffViewModel::class.java)
 
+        val product =  Product(
+            "Product name",
+            "Wholesaler name")
         return ComposeView(requireContext()).apply {
             setContent {
                 Surface(
@@ -34,7 +38,7 @@ class StaffFragment : Fragment() {
                     color = MaterialTheme.colors.background
                 ) {
                        StaffItem()
-                        //AdvancedExample()
+                       // AdvancedExample(product)
 
 
                 }
