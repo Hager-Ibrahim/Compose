@@ -14,9 +14,11 @@ import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.ConstraintSet
 import androidx.constraintlayout.compose.Dimension
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.compose.R
 import com.example.compose.ui.commons.imageView.ImageFromRes
 import com.example.compose.ui.commons.text.DefaultText
+import kotlinx.coroutines.NonDisposableHandle.parent
 
 @Preview(showBackground = true)
 @Composable
@@ -74,7 +76,7 @@ fun StaffItem() {
             fontSize = 18.sp,
             Modifier
                 .padding(horizontal = 12.dp)
-                .background(Color.Red)
+               // .background(Color.Red)
                 .layoutId("name")
 
         )

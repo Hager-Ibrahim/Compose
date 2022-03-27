@@ -33,8 +33,8 @@ class StaffFragment : Fragment() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                       // StaffItem()
-                        AdvancedExample()
+                       StaffItem()
+                        //AdvancedExample()
 
 
                 }

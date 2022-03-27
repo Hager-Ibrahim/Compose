@@ -65,10 +65,13 @@ fun StaffItem() {
             Modifier
                 .padding(horizontal = 12.dp)
                 .constrainAs(title){
-                    start.linkTo(name.start)
-                    bottom.linkTo(parent.bottom)
-                    end.linkTo(parent.end)
-                    top.linkTo(name.bottom)
+//                    start.linkTo(name.start)
+//                    end.linkTo(parent.end)
+                    linkTo(name.start, parent.end)
+
+//                    bottom.linkTo(parent.bottom)
+//                    top.linkTo(name.bottom)
+                    linkTo(name.bottom, parent.bottom)
                     width = Dimension.fillToConstraints
                 }
 

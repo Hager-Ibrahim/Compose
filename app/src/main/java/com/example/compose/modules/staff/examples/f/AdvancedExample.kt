@@ -66,7 +66,7 @@ fun AdvancedExample() {
                     .requiredWidth(86.dp)
                     .constrainAs(productImage) {
                         linkTo(topGuideLine, bottomGuideLine)
-                        linkTo(startGuideline, parent.end, bias = 0F)
+                        start.linkTo(startGuideline)
                     })
 
             Text(
