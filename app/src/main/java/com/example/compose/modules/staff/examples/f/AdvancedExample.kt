@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
@@ -55,8 +56,8 @@ fun AdvancedExample() {
 
             val topGuideLine = createGuidelineFromTop(16.dp)
             val bottomGuideLine = createGuidelineFromBottom(16.dp)
-            val startGuideline = createGuidelineFromStart(16.dp)
-            val endGuideline = createGuidelineFromEnd(16.dp)
+            val startGuideline = createGuidelineFromStart(dimensionResource(id = R.dimen.guide_screen_spacer))
+            val endGuideline = createGuidelineFromEnd(dimensionResource(id = R.dimen.guide_screen_spacer))
 
             Image(painter = painterResource(id = R.drawable.ic_kuzlo_placeholder),
                 contentDescription = "",
