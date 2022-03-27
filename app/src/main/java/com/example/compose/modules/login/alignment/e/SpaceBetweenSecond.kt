@@ -1,4 +1,4 @@
-package com.example.compose.modules.login.alignment.f
+package com.example.compose.modules.login.alignment.e
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
@@ -15,14 +15,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 /**
-Arrangement.SpaceEvenly:
-puts the same amount of space between items,
-the start and the end. It differentiates from space around
-because the spacing in start and end is the same as the spacing
-in the middle
+ * Arrangement.SpaceBetween:
+ * places first item in the main axis start and the last item
+ * in the main axis end, then distribute the remaining items
+ * evenly in the space left.
  */
-
-@Preview
+@Preview("Space between")
 @Composable
 fun AlignmentExample() {
     Row(
@@ -30,7 +28,7 @@ fun AlignmentExample() {
             .fillMaxWidth()
             .wrapContentHeight()
             .border(BorderStroke(1.dp, color = Color.Gray)),
-        horizontalArrangement = Arrangement.SpaceEvenly,
+        horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
         Text(
@@ -52,6 +50,40 @@ fun AlignmentExample() {
             fontSize = 18.sp,
             color = Color.White,
             modifier = Modifier.background(Color.Yellow)
+        )
+    }
+}
+
+@Preview("Weight")
+@Composable
+fun AlignmentExampleWeight() {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .wrapContentHeight()
+            .border(BorderStroke(1.dp, color = Color.Gray)),
+//        horizontalArrangement = Arrangement.SpaceBetween,
+//        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Text(
+            text = "Test1",
+            fontSize = 18.sp,
+            color = Color.White,
+            modifier = Modifier.background(Color.Gray).weight(1F)
+        )
+
+        Text(
+            text = "Test2",
+            fontSize = 18.sp,
+            color = Color.White,
+            modifier = Modifier.background(Color.Red).weight(1F)
+        )
+
+        Text(
+            text = "Test3",
+            fontSize = 18.sp,
+            color = Color.White,
+            modifier = Modifier.background(Color.Yellow).weight(1F)
         )
     }
 }

@@ -1,16 +1,22 @@
 package com.example.compose.modules.login.alignment.e
 
+
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment.Companion.CenterHorizontally
+import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.compose.R
 
 /**
  * Arrangement.SpaceBetween:
@@ -20,31 +26,28 @@ import androidx.compose.ui.unit.sp
  */
 @Preview
 @Composable
-fun AlignmentExample() {
-    Column(
+fun AlignmentExampleRow() {
+    Row(
         modifier = Modifier
             .fillMaxWidth()
-            .requiredHeight(200.dp)
-            .border(BorderStroke(1.dp, color = Color.Gray)),
-        verticalArrangement = Arrangement.SpaceBetween,
-        horizontalAlignment = CenterHorizontally
+            .wrapContentHeight()
+            .border(BorderStroke(1.dp, color = Color.Gray))
+            .padding(16.dp)
+        ,
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = CenterVertically
     ) {
         Text(
-            text = "Test1",
+            text = "Logout",
             fontSize = 18.sp,
             color = Color.White
+        )
+        Image(
+            painter = painterResource(R.drawable.ic_logout),
+            contentDescription = "",
+            modifier = Modifier.wrapContentSize(),
+            contentScale = ContentScale.Crop
         )
 
-        Text(
-            text = "Test2",
-            fontSize = 18.sp,
-            color = Color.White
-        )
-
-        Text(
-            text = "Test3",
-            fontSize = 18.sp,
-            color = Color.White
-        )
     }
 }
