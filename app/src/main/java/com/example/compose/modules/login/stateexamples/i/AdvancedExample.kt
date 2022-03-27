@@ -15,6 +15,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -28,7 +29,7 @@ fun LoginScreen(viewModel: LoginViewModel) {
     val text = viewModel.email.observeAsState()
 
     NormalTextField(
-        value = text.value ,
+        text = text.value ,
         stringResource(id = R.string.phone)
     ) {
         viewModel.updateEmail(it)
@@ -38,7 +39,7 @@ fun LoginScreen(viewModel: LoginViewModel) {
 
 @Composable
 fun NormalTextField(
-    value: String?,
+    text: String?,
     hint: String? = "",
     onValueChanged: (String) -> Unit,
 
@@ -49,20 +50,20 @@ fun NormalTextField(
         .padding(16.dp)
         .clip(RoundedCornerShape(16.dp))
         .border(
-            BorderStroke(1.dp, if (value?.isEmpty() == true) Color.Red else Color.Transparent),
+            BorderStroke(1.dp, if (text?.isEmpty() == true) Color.Red else Color.Transparent),
             RoundedCornerShape(16.dp)
         )
 
 
     TextField(
-        value = value ?:"",
+        value = text ?:"",
         onValueChange = {
             onValueChanged(it)
         },
         modifier = modifier,
         colors = TextFieldDefaults.textFieldColors(
-            textColor = LightGrey,
-            backgroundColor = DarkGrey,
+            textColor = DarkGrey,
+            backgroundColor = LightGrey,
             focusedIndicatorColor = Color.Transparent,
             unfocusedIndicatorColor = Color.Transparent,
         ), placeholder = {
@@ -70,7 +71,7 @@ fun NormalTextField(
         },leadingIcon={
             CountryCode()
         }, trailingIcon = {
-            ErrorIcon(value)
+            ErrorIcon(text)
         }
         , keyboardOptions = KeyboardOptions(
             keyboardType= KeyboardType.Text,
@@ -99,7 +100,6 @@ fun CountryCode(){
         )
     }
 }
-
 @Composable
 fun ErrorIcon(text: String?){
     if (text?.isEmpty() == true ) {
@@ -123,4 +123,10 @@ class LoginViewModel : ViewModel() {
     fun updateEmail(newValue: String) {
         _email.value = newValue
     }
+}
+
+@Preview
+@Composable
+fun PreviewNormalEditText(){
+    NormalTextField(text = "", onValueChanged = {})
 }

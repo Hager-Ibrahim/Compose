@@ -5,17 +5,9 @@
     app:startDestination="@id/loginFragment">
 
     <fragment
-        android:id="@+id/mainFragment"
-        android:name="com.example.compose.modules.main.MainFragment"
-        android:label="MainFragment" />
-    <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.compose.modules.login.LoginFragment"
         android:label="LoginFragment" />
-    <fragment
-        android:id="@+id/staffFragment"
-        android:name="com.example.compose.modules.staff.StaffFragment"
-        android:label="StaffFragment" />
 
 
 </navigation>
