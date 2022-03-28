@@ -30,8 +30,7 @@ fun DefaultButton(
             .requiredHeight(50.dp)
         ,colors = ButtonDefaults.textButtonColors(
             backgroundColor = Color(0xFF354b60),
-            contentColor = Color.White
         )
-    ) { Text(text = buttonText) }
+    ) { Text(text = buttonText, color = Color.White) }
 
 }

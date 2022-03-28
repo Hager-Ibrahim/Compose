@@ -7,7 +7,7 @@ import androidx.compose.ui.tooling.preview.Preview
 
 @Preview
 @Composable
-fun TestRow() {
+fun LoginScreen() {
     Row() {
         Text(text = "One")
         Text(text = "Two")
