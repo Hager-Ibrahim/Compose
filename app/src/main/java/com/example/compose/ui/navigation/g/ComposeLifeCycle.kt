@@ -1,4 +1,4 @@
-package com.example.compose.ui.navigationexamples.g
+package com.example.compose.ui.navigation.g
 
 import android.util.Log
 import androidx.compose.foundation.clickable
@@ -15,7 +15,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.compose.ui.navigationexamples.c.Screens.*
+import com.example.compose.ui.navigation.c.Screens.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

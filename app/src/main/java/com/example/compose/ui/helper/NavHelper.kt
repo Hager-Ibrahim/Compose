@@ -1,13 +1,13 @@
-package com.example.compose.ui.navigation
+package com.example.compose.ui.helper
 
 import android.os.Parcelable
-import androidx.navigation.*
-
+import androidx.navigation.NavBackStackEntry
+import androidx.navigation.NavController
 
 fun NavController.navigate(route: String, vararg args: Pair<String, Parcelable>) {
     navigate(route)
 
-    requireNotNull(currentBackStackEntry?.arguments).apply {
+    currentBackStackEntry?.arguments?.apply {
         args.forEach { (key: String, arg: Parcelable) ->
             putParcelable(key, arg)
         }

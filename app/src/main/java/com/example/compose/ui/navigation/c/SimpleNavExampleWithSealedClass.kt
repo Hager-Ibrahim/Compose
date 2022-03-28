@@ -1,4 +1,4 @@
-package com.example.compose.ui.navigationexamples.d
+package com.example.compose.ui.navigation.c
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxSize
@@ -7,11 +7,11 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.sp
-import androidx.navigation.*
+import androidx.navigation.NavController
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.compose.ui.navigationexamples.d.Screens.*
+import com.example.compose.ui.navigation.c.Screens.*
 
 @Composable
 fun SetupNavGraph(navHostController: NavHostController) {
@@ -23,23 +23,15 @@ fun SetupNavGraph(navHostController: NavHostController) {
             MainScreen(navHostController)
         }
 
-        composable(
-            route = DetailsScreen.route,
-            arguments = listOf(navArgument(DETAILS_ID_ARG) {
-                type = NavType.IntType
-            })){
-            DetailsScreen(it.arguments?.getInt(DETAILS_ID_ARG))
+        composable(route = DetailsScreen.route){
+            DetailsScreen()
         }
     }
 }
 
-const val DETAILS_ID_ARG="id"
 sealed class Screens(val route: String) {
     object MainScreen: Screens("main_screen")
-    object DetailsScreen: Screens("detail_screen/{${DETAILS_ID_ARG}}"){
-        fun passId(id: Int): String =
-            "detail_screen/$id"
-    }
+    object DetailsScreen: Screens("detail_screen")
 }
 
 @Composable
@@ -49,19 +41,19 @@ fun MainScreen(navController: NavController) {
         modifier = Modifier.fillMaxSize()) {
 
         Text("Main screen", Modifier.clickable {
-            navController.navigate(route =DetailsScreen.passId(8))
+            navController.navigate(route = DetailsScreen.route)
         })
     }
 
 }
 
 @Composable
-fun DetailsScreen(id: Int?) {
+fun DetailsScreen() {
     Surface(
         color = Color.White,
         modifier = Modifier.fillMaxSize()) {
 
-        Text("Detail screen  $id", fontSize = 18.sp)
+        Text("Detail screen")
     }
 
 }

@@ -1,4 +1,4 @@
-package com.example.compose.ui.navigationexamples.e
+package com.example.compose.ui.navigation.e
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxSize
@@ -9,9 +9,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.sp
 import androidx.navigation.*
-import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.compose.ui.navigationexamples.e.Screens.*
+import com.example.compose.ui.navigation.e.Screens.*
+import androidx.navigation.compose.NavHost
 
 @Composable
 fun SetupNavGraph(navHostController: NavHostController) {

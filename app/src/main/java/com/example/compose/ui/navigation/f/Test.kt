@@ -1,11 +1,10 @@
-package com.example.compose.ui.navigationexamples.f
+package com.example.compose.ui.navigation.f
 
 import android.os.Bundle
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
-import androidx.navigation.compose.NavHost
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -13,9 +12,10 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.*
 import androidx.navigation.compose.composable
 import com.example.compose.modules.staff.model.StaffUIModel
-import com.example.compose.ui.navigation.navigate
-import com.example.compose.ui.navigation.getParcelable
-import com.example.compose.ui.navigationexamples.f.Screens.*
+import com.example.compose.ui.navigation.f.Screens.*
+import androidx.navigation.compose.NavHost
+import com.example.compose.ui.helper.getParcelable
+import com.example.compose.ui.helper.navigate
 
 @Composable
 fun SetupNavGraph(navHostController: NavHostController) {

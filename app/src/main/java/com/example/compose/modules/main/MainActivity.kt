@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.navigation.compose.rememberNavController
-import com.example.compose.ui.navigationexamples.b.SetupNavGraph
+import com.example.compose.ui.navigation.b.SetupNavGraph
 import com.example.compose.ui.theme.ComposeTheme
 
 class MainActivity : AppCompatActivity() {

@@ -1,4 +1,4 @@
-package com.example.compose.ui.navigationexamples.b
+package com.example.compose.ui.navigation.a
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxSize
@@ -35,7 +35,7 @@ fun MainScreen(navController: NavController) {
         modifier = Modifier.fillMaxSize()) {
 
         Text("Main screen", Modifier.clickable {
-            navController.navigate(route = "detail_screen")
+
         })
     }
 
