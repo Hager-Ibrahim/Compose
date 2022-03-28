@@ -1,6 +1,8 @@
 package com.example.compose
 
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.MaterialTheme.colors
+import androidx.compose.material.MaterialTheme.typography
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.TextStyle
@@ -19,25 +21,25 @@ import androidx.compose.ui.unit.sp
 fun ComposeFun(text: String) {
     Text(
         text = text,
-        color = MaterialTheme.colors.primary,
+        color = colors.primary,
         maxLines = 1,
         textAlign = TextAlign.Center,
-        style = TextStyle(
-            fontFamily = FontFamily(Font(R.font.cairo_bold)),
-            fontSize = 20.sp,
-        ),
+        style = typography.h1,
         overflow = TextOverflow.Ellipsis,
     )
+
+   // typography.h1
+    //spacing.large
 }
 
 
-
+//
 //@Preview(showBackground = true)
 //@Composable
-//fun ForthComposeFunPreview(){
+//fun ComposeFunPreview(){
 //    ComposeFun("Text")
 //}
-//
+
 
 
 
@@ -55,7 +57,7 @@ fun ComposeFun(text: String) {
 //
 //class NameProvider: PreviewParameterProvider<String> {
 //    override val values: Sequence<String> = sequenceOf(
-//        "Short text",
+//        "short",
 //        "Long Textttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt"
 //    )
 //}

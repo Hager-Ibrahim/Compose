@@ -70,29 +70,29 @@ fun FirstComposeFun() {
     )
 }
 
-//@Composable
-//fun SecondComposeFun() {
-//    Text(
-//        text = "text",
-//        color = Purple700,
-//        maxLines = 1,
-//        style = typography.h1,
-//    )
-//}
-//
-//@Composable
-//fun ThirdComposeFun3() {
-//    Text(
-//        text = stringResource(id = R.string.hello),
-//        color = Color.Blue,
-//        maxLines = 1,
-//        style = typography.h1,
-//    )
-//
-//   // dimensionResource(id = R.dimen.auth_guide_screen_spacer)
-//
-//
-//    //typography.h2
-//    //spacing.medium
-//
-//}
+@Composable
+fun SecondComposeFun() {
+    Text(
+        text = "text",
+        color = Purple700,
+        maxLines = 1,
+        style = typography.h1,
+    )
+}
+
+@Composable
+fun ThirdComposeFun3() {
+    Text(
+        text = stringResource(id = R.string.hello),
+        color = Color.Blue,
+        maxLines = 1,
+        style = typography.h1,
+    )
+
+  //  dimensionResource(id = R.dimen.auth_guide_screen_spacer)
+
+
+    //typography.h2
+    //spacing.medium
+
+}
