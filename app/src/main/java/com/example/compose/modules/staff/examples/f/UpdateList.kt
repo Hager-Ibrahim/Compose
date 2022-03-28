@@ -18,7 +18,7 @@ import com.example.compose.modules.staff.screen.StaffCard
 import com.example.compose.modules.staff.screen.StaffItem
 
 @Composable
-fun UpdateStaff(viewModel: StaffViewModel) {
+fun StaffScreen(viewModel: StaffViewModel) {
     val staffList = remember{viewModel.staffList}
 
 
