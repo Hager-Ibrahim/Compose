@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import androidx.compose.material.Surface
 import androidx.compose.ui.platform.ComposeView
 import androidx.lifecycle.ViewModelProvider
-import com.example.compose.modules.login.stateexamples.b.LoginScreen
-import com.example.compose.modules.login.stateexamples.i.LoginViewModel
+import com.example.compose.modules.login.stateexamples.j.LoginScreen
+import com.example.compose.modules.login.stateexamples.j.LoginViewModel
 
 
 class LoginFragment : Fragment() {
@@ -26,8 +26,8 @@ class LoginFragment : Fragment() {
         return ComposeView(requireContext()).apply {
             setContent {
                Surface() {
-                    LoginScreen()
-                   // LoginScreen(viewModel = viewModel)
+                    //LoginScreen()
+                   LoginScreen(viewModel = viewModel)
                }
 
             }
