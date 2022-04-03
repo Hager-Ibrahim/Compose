@@ -8,7 +8,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.runtime.*
-import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -30,36 +29,36 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun LoginScreen(viewModel: LoginViewModel) {
-    val states by viewModel.state.collectAsState()
+    val loginState by viewModel.state.collectAsState()
 
-    val pass = states.password
     var passwordVisibility by remember { mutableStateOf(false) }
-    val email = states.email
 
 
     Column() {
+
         PasswordTextField(
-            text = pass,
-            stringResource(id = R.string.phone),
-            passwordVisibility, {
-                viewModel.updatePassword(it)
-            }, {
+            text = loginState.password,
+            hint = stringResource(id = R.string.phone),
+            isPasswordVisible = passwordVisibility,
+            onValueChanged = { viewModel.updatePassword(it) },
+            onPasswordIconClicked = {
                 passwordVisibility = !passwordVisibility
             })
 
-        NormalTextField(text = email, onValueChanged = {
-            viewModel.updateEmail(it)
-        })
+        NormalTextField(
+            text = loginState.email,
+            onValueChanged = { viewModel.updateEmail(it) }
+        )
 
         Button(
             onClick = { /*TODO*/ },
-            enabled = states?.submitButtonEnabled ?: false) {
+            enabled = loginState.submitButtonEnabled
+        ) {
             Text(text = stringResource(id = R.string.app_name))
         }
 
     }
 }
-
 
 
 @Composable
@@ -70,17 +69,19 @@ fun PasswordTextField(
     onValueChanged: (String) -> Unit,
     onPasswordIconClicked: () -> Unit
 
-    ) {
+) {
+
     val borderColor = if (text?.isEmpty() == true) Color.Red else Color.Transparent
-    val passwordIcon = if(isPasswordVisible) R.drawable.ic_visibility_on else R.drawable.ic_visibility_off
-    val visualTransformation =  if(isPasswordVisible)
+    val passwordIcon =
+        if (isPasswordVisible) R.drawable.ic_visibility_on else R.drawable.ic_visibility_off
+    val visualTransformation = if (isPasswordVisible)
         PasswordVisualTransformation()
     else VisualTransformation.None
 
 
 
     TextField(
-        value = text ?:"",
+        value = text ?: "",
         onValueChange = {
             onValueChanged(it)
         },
@@ -100,30 +101,30 @@ fun PasswordTextField(
         ), placeholder = {
             Text(hint ?: "")
         }, trailingIcon = {
-            PasswordIcon(icon = passwordIcon){
+            PasswordIcon(icon = passwordIcon) {
                 onPasswordIconClicked()
             }
-        }
-        , keyboardOptions = KeyboardOptions(
-            keyboardType= KeyboardType.Password,
-            imeAction = ImeAction.Done)
-    , visualTransformation = visualTransformation)
+        }, keyboardOptions = KeyboardOptions(
+            keyboardType = KeyboardType.Password,
+            imeAction = ImeAction.Done
+        ), visualTransformation = visualTransformation
+    )
 }
 
 @Composable
-fun PasswordIcon(icon: Int, onPasswordIconClicked: () -> Unit){
-        Icon(
-            painterResource(id = icon),
-            contentDescription = null,
-            modifier = Modifier.clickable {
-                onPasswordIconClicked()
-            }
-        )
+fun PasswordIcon(icon: Int, onPasswordIconClicked: () -> Unit) {
+    Icon(
+        painterResource(id = icon),
+        contentDescription = null,
+        modifier = Modifier.clickable {
+            onPasswordIconClicked()
+        }
+    )
 }
 
 class LoginViewModel : ViewModel() {
 
-    private val initialState : LoginState by lazy { LoginState() }
+    private val initialState: LoginState by lazy { LoginState() }
 
     private val _state = MutableStateFlow(initialState)
     val state get() = _state.asStateFlow()
@@ -144,18 +145,22 @@ class LoginViewModel : ViewModel() {
                         _state.value = _state.value.copy(
                             email = it.newValue,
                             submitButtonEnabled = it.newValue.isNotEmpty()
-                                    && _state.value.password?.isNotEmpty() == true)
+                                    && _state.value.password?.isNotEmpty() == true
+                        )
                     is LoginEvent.PasswordChange ->
-                        _state.value = _state.value.copy(password = it.newValue,
+                        _state.value = _state.value.copy(
+                            password = it.newValue,
                             submitButtonEnabled = it.newValue.isNotEmpty()
-                                    && _state.value.email?.isNotEmpty() == true)
+                                    && _state.value.email?.isNotEmpty() == true
+                        )
 
                     else -> {}
                 }
             }
         }
     }
-    fun setEvent(event: LoginEvent) {
+
+    private fun setEvent(event: LoginEvent) {
         viewModelScope.launch {
             _event.emit(event)
         }
@@ -163,7 +168,6 @@ class LoginViewModel : ViewModel() {
 
 
     fun updateEmail(newValue: String) {
-
         setEvent(
             LoginEvent.EmailChange(
                 newValue
@@ -182,6 +186,6 @@ class LoginViewModel : ViewModel() {
 
 @Preview
 @Composable
-fun PreviewPasswordEditText(){
-    PasswordTextField(text = "","", true, {  },{})
+fun PreviewPasswordEditText() {
+    PasswordTextField(text = "", "", true, { }, {})
 }
