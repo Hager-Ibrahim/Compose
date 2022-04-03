@@ -1,6 +1,7 @@
 package com.example.compose.modules.login.stateexamples.j
 
 
+import android.util.Log
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -24,14 +25,16 @@ import com.example.compose.R
 import com.example.compose.modules.login.stateexamples.i.NormalTextField
 import com.example.compose.ui.theme.DarkGrey
 import com.example.compose.ui.theme.LightGrey
+import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.launch
 
 @Composable
 fun LoginScreen(viewModel: LoginViewModel) {
-    val states by viewModel.uiState.observeAsState()
+    val states by viewModel.state.collectAsState()
 
-    val pass = states?.password
+    val pass = states.password
     var passwordVisibility by remember { mutableStateOf(false) }
-    val email = states?.email
+    val email = states.email
 
 
     Column() {
@@ -120,20 +123,60 @@ fun PasswordIcon(icon: Int, onPasswordIconClicked: () -> Unit){
 
 class LoginViewModel : ViewModel() {
 
-    private val _uiState = MutableLiveData<LoginState>()
-    val uiState: LiveData<LoginState>
-        get() = _uiState
+    private val initialState : LoginState by lazy { LoginState() }
+
+    private val _state = MutableStateFlow(initialState)
+    val state get() = _state.asStateFlow()
+
+    private val _event = MutableSharedFlow<LoginEvent>()
+    private val event get() = _event.asSharedFlow()
+
+    init {
+        subscribeEvents()
+    }
+
+
+    private fun subscribeEvents() {
+        viewModelScope.launch {
+            event.collect {
+                when (it) {
+                    is LoginEvent.EmailChange ->
+                        _state.value = _state.value.copy(
+                            email = it.newValue,
+                            submitButtonEnabled = it.newValue.isNotEmpty()
+                                    && _state.value.password?.isNotEmpty() == true)
+                    is LoginEvent.PasswordChange ->
+                        _state.value = _state.value.copy(password = it.newValue,
+                            submitButtonEnabled = it.newValue.isNotEmpty()
+                                    && _state.value.email?.isNotEmpty() == true)
+
+                    else -> {}
+                }
+            }
+        }
+    }
+    fun setEvent(event: LoginEvent) {
+        viewModelScope.launch {
+            _event.emit(event)
+        }
+    }
 
 
     fun updateEmail(newValue: String) {
 
-        _uiState.value =LoginEvent.EmailChange.EmailData(newValue).updatePreviousState(
-            uiState.value ?: LoginState())
+        setEvent(
+            LoginEvent.EmailChange(
+                newValue
+            )
+        )
     }
 
     fun updatePassword(newValue: String) {
-        _uiState.value =LoginEvent.PasswordChange.PasswordData(newValue).updatePreviousState(
-            uiState.value ?: LoginState())
+        setEvent(
+            LoginEvent.PasswordChange(
+                newValue
+            )
+        )
     }
 }
 

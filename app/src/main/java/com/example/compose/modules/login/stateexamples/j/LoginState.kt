@@ -19,35 +19,18 @@ package com.example.compose.modules.login.stateexamples.j
 //@Stable
 
 data class LoginState(
-    val email: String = "",
-    val password: String = "",
+    val email: String? = null,
+    val password: String? = null,
     val submitButtonEnabled: Boolean = false
 ) /** * one-time event */
 
 
 // user actions
 sealed class LoginEvent {
-    abstract fun updatePreviousState(previousState: LoginState): LoginState
 
-    sealed class EmailChange : LoginEvent() {
-        data class EmailData( val newValue: String) : LoginEvent() {
-            override fun updatePreviousState(previousState: LoginState): LoginState {
-                return previousState.copy(
-                    email = newValue,
-                    submitButtonEnabled = newValue.isNotEmpty() && previousState.password.isNotEmpty())
-            }
-        }
-    }
-    sealed class PasswordChange : LoginEvent() {
-        data class PasswordData( val newValue: String) : LoginEvent() {
-            override fun updatePreviousState(previousState: LoginState): LoginState {
-                return previousState.copy(
-                    password = newValue,
-                    submitButtonEnabled = newValue.isNotEmpty() && previousState.email.isNotEmpty())
-            }
-        }
-    }
-
+    data class EmailChange(val newValue: String) : LoginEvent()
+    data class PasswordChange( val newValue: String) : LoginEvent()
+    data class LoginClicked(val email: String, val password: String) : LoginEvent()
     sealed class ShowPassword : LoginEvent()
 }
 
