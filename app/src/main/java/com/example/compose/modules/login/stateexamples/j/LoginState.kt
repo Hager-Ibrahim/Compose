@@ -27,11 +27,10 @@ data class LoginState(
 
 // user actions
 sealed class LoginEvent {
-
     data class EmailChange(val newValue: String) : LoginEvent()
     data class PasswordChange( val newValue: String) : LoginEvent()
     data class LoginClicked(val email: String, val password: String) : LoginEvent()
-    sealed class ShowPassword : LoginEvent()
+    object ShowPassword : LoginEvent()
 }
 
 

@@ -2,9 +2,12 @@ package com.example.compose.modules.login.stateexamples.j
 
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.*
 import com.example.compose.R
@@ -24,7 +27,7 @@ fun LoginScreen(viewModel: LoginViewModel) {
 
         PasswordTextField(
             text = loginState.password,
-            hint = stringResource(id = R.string.phone),
+            hint = stringResource(id = R.string.password),
             isPasswordVisible = passwordVisibility,
             onValueChanged = { viewModel.updatePassword(it) },
             onPasswordIconClicked = {
@@ -33,7 +36,11 @@ fun LoginScreen(viewModel: LoginViewModel) {
 
         NormalTextField(
             text = loginState.email,
-            onValueChanged = { viewModel.updateEmail(it) }
+            hint = stringResource(id = R.string.phone),
+            onValueChanged = { viewModel.updateEmail(it) },
+            keyboardOptions  = KeyboardOptions(
+                keyboardType= KeyboardType.Text,
+                imeAction = ImeAction.Done)
         )
 
         Button(
