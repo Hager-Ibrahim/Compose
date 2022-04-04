@@ -7,7 +7,7 @@ import androidx.compose.material.icons.filled.Settings
 import androidx.compose.ui.graphics.vector.ImageVector
 
 enum class BottomBarScreen(
-     val title: String,
+    val title: String,
     val icon: ImageVector,
     val route: String
 ) {

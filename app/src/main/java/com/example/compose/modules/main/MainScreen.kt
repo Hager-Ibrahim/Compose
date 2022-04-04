@@ -2,6 +2,7 @@ package com.example.compose.modules.main
 
 import SetupMainNavHost
 import android.util.Log
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
@@ -29,6 +30,9 @@ fun BottomBar(navController: NavHostController) {
 
     val currentDestinationRoute = navController.getCurrentDestinationRouteAsState()
 
+//    Row{
+//
+//    }
     BottomNavigation {
         screens.forEach { screen ->
             AddItem(
