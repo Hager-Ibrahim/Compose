@@ -1,6 +1,5 @@
 package com.example.compose.modules.login.stateexamples.j
 
-
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
@@ -18,26 +17,49 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun LoginScreen(viewModel: LoginViewModel) {
-    val loginState by viewModel.state.collectAsState()
+    val loginState by viewModel.state.collectAsState(LoginState())
 
-    var passwordVisibility by remember { mutableStateOf(false) }
+    val updatePassword: (text: String) -> Unit = remember {
+        { viewModel.updatePassword(it) }
+    }
+    val updateEmail: (text: String) -> Unit = remember {
+        { viewModel.updateEmail(it) }
+    }
+    LoginContent(
+        password = loginState.password,
+        email = loginState.email,
+        passwordVisibility = false,
+        submitButtonEnabled = loginState.submitButtonEnabled,
+        onEmailChange = {updateEmail(it)},
+        onPasswordChange ={updatePassword(it)},
+    )
 
+}
 
+@Composable
+fun LoginContent(
+    password: String?,
+    email: String?,
+    passwordVisibility: Boolean,
+    submitButtonEnabled: Boolean,
+    onEmailChange: (String) -> Unit,
+    onPasswordChange: (String) -> Unit,
+){
     Column() {
 
         PasswordTextField(
-            text = loginState.password,
+            text = password,
             hint = stringResource(id = R.string.password),
             isPasswordVisible = passwordVisibility,
-            onValueChanged = { viewModel.updatePassword(it) },
+            onValueChanged = { onPasswordChange(it) },
             onPasswordIconClicked = {
-                passwordVisibility = !passwordVisibility
+               // passwordVisibility = !passwordVisibility
             })
 
         NormalTextField(
-            text = loginState.email,
+            text = email,
             hint = stringResource(id = R.string.phone),
-            onValueChanged = { viewModel.updateEmail(it) },
+            onValueChanged = {  onEmailChange(it) },
             keyboardOptions  = KeyboardOptions(
                 keyboardType= KeyboardType.Text,
                 imeAction = ImeAction.Done)
@@ -45,15 +67,13 @@ fun LoginScreen(viewModel: LoginViewModel) {
 
         Button(
             onClick = { /*TODO*/ },
-            enabled = loginState.submitButtonEnabled
+            enabled = submitButtonEnabled
         ) {
             Text(text = stringResource(id = R.string.app_name))
         }
 
     }
 }
-
-
 
 class LoginViewModel : ViewModel() {
 
