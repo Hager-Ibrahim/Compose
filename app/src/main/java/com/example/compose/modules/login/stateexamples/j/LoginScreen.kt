@@ -18,20 +18,14 @@ import kotlinx.coroutines.launch
 @Composable
 fun LoginScreen(viewModel: LoginViewModel) {
     val loginState by viewModel.state.collectAsState(LoginState())
-
-    val updatePassword: (text: String) -> Unit = remember {
-        { viewModel.updatePassword(it) }
-    }
-    val updateEmail: (text: String) -> Unit = remember {
-        { viewModel.updateEmail(it) }
-    }
+    
     LoginContent(
         password = loginState.password,
         email = loginState.email,
         passwordVisibility = false,
         submitButtonEnabled = loginState.submitButtonEnabled,
-        onEmailChange = {updateEmail(it)},
-        onPasswordChange ={updatePassword(it)},
+        onEmailChange = viewModel::updateEmail,
+        onPassChange =viewModel::updatePassword,
     )
 
 }
@@ -43,7 +37,7 @@ fun LoginContent(
     passwordVisibility: Boolean,
     submitButtonEnabled: Boolean,
     onEmailChange: (String) -> Unit,
-    onPasswordChange: (String) -> Unit,
+    onPassChange: (String) -> Unit,
 ){
     Column() {
 
@@ -51,7 +45,9 @@ fun LoginContent(
             text = password,
             hint = stringResource(id = R.string.password),
             isPasswordVisible = passwordVisibility,
-            onValueChanged = { onPasswordChange(it) },
+            onValueChanged = {
+                onPassChange(it)
+            },
             onPasswordIconClicked = {
                // passwordVisibility = !passwordVisibility
             })
