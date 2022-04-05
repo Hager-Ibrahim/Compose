@@ -3,6 +3,7 @@ package com.example.compose.modules.login.presentation
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.compose.modules.login.presentation.screen.LoginEvent
+import com.example.compose.modules.login.presentation.screen.LoginEvent.*
 import com.example.compose.modules.login.presentation.screen.LoginState
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -26,19 +27,22 @@ class LoginViewModel : ViewModel() {
         viewModelScope.launch {
             event.collect {
                 when (it) {
-                    is LoginEvent.ChangePhone ->
+                    is ChangePhone ->
                         _state.value = _state.value.copy(
                             phone = it.phone,
                             submitButtonEnabled = it.phone.isNotEmpty()
                                     && _state.value.password?.isNotEmpty() == true
                         )
-                    is LoginEvent.ChangePassword ->
+                    is ChangePassword ->
                         _state.value = _state.value.copy(
                             password = it.password,
                             submitButtonEnabled = it.password.isNotEmpty()
                                     && _state.value.phone?.isNotEmpty() == true
                         )
-
+                    ShowPassword ->
+                        _state.value = _state.value.copy(
+                            showPassword = !_state.value.showPassword
+                        )
                     else -> {}
                 }
             }
@@ -53,10 +57,14 @@ class LoginViewModel : ViewModel() {
 
 
     fun updatePhone(newValue: String) {
-        setEvent(LoginEvent.ChangePhone(newValue))
+        setEvent(ChangePhone(newValue))
     }
 
     fun updatePassword(newValue: String) {
-        setEvent(LoginEvent.ChangePassword(newValue))
+        setEvent(ChangePassword(newValue))
+    }
+
+    fun updatePasswordVisibility() {
+        setEvent(ShowPassword)
     }
 }

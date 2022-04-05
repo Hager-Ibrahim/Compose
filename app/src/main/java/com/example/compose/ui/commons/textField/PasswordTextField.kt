@@ -35,14 +35,14 @@ fun PasswordTextField(
     onPasswordIconClicked: () -> Unit
 
 ) {
-    Log.d("TAG", "PasswordTextField: text: $text")
+    Log.d("TAG", "PasswordTextField: text:")
 
     val borderColor = if (text?.isEmpty() == true) Color.Red else Color.Transparent
     val passwordIcon =
         if (isPasswordVisible) R.drawable.ic_visibility_on else R.drawable.ic_visibility_off
     val visualTransformation = if (isPasswordVisible)
-        PasswordVisualTransformation()
-    else VisualTransformation.None
+         VisualTransformation.None
+    else PasswordVisualTransformation()
 
 
 

@@ -1,5 +1,6 @@
 package com.example.compose.modules.login.presentation.screen
 
+import android.util.Log
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
@@ -20,10 +21,11 @@ fun LoginScreen(viewModel: LoginViewModel) {
     LoginContent(
         password = loginState.password,
         phone = loginState.phone,
-        passwordVisibility = false,
+        passwordVisibility = loginState.showPassword,
         submitButtonEnabled = loginState.submitButtonEnabled,
         onPhoneChanged = viewModel::updatePhone,
         onPasswordChanged = viewModel::updatePassword,
+        updatePasswordVisibility = viewModel::updatePasswordVisibility,
     )
 
 }
@@ -36,6 +38,7 @@ fun LoginContent(
     submitButtonEnabled: Boolean,
     onPhoneChanged: (String) -> Unit,
     onPasswordChanged: (String) -> Unit,
+    updatePasswordVisibility: () -> Unit,
 ) {
     Column {
 
@@ -47,7 +50,7 @@ fun LoginContent(
                 onPasswordChanged(it)
             },
             onPasswordIconClicked = {
-                // passwordVisibility = !passwordVisibility
+                updatePasswordVisibility()
             })
 
         NormalTextField(
