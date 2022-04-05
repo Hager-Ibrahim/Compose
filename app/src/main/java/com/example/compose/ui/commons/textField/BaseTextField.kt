@@ -28,14 +28,17 @@ import com.example.compose.ui.theme.LightGrey
 fun BaseTextField(
     text: String?,
     hint: String? = "",
-    leadingIcon: @Composable () -> Unit = {},
+    leadingIcon: @Composable (() -> Unit)? = {},
     trailingIcon: @Composable () -> Unit = {},
     keyboardOptions: KeyboardOptions,
     onValueChanged: (String) -> Unit,
 
     ) {
     val borderColor = if (text?.isEmpty() == true) Color.Red else Color.Transparent
-    val isErrorIconVisible = text?.isEmpty() == true
+    val navIcon: (@Composable () -> Unit)? = if (leadingIcon != null) {
+        { leadingIcon() }
+    } else null
+
 
     TextField(
         value = text ?:"",
@@ -56,10 +59,9 @@ fun BaseTextField(
             unfocusedIndicatorColor = Color.Transparent,
         ), placeholder = {
             Text(hint ?: "")
-        },leadingIcon={
-            leadingIcon()
-        }, trailingIcon = {
-            if(isErrorIconVisible) ErrorIcon()
+        },leadingIcon=  navIcon
+        , trailingIcon = {
+            trailingIcon()
         }
         , keyboardOptions = keyboardOptions
     )

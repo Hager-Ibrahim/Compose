@@ -1,6 +1,5 @@
 package com.example.compose.modules.login.presentation.screen
 
-import android.util.Log
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
@@ -51,7 +50,10 @@ fun LoginContent(
             },
             onPasswordIconClicked = {
                 updatePasswordVisibility()
-            })
+            }, keyboardOptions = KeyboardOptions(
+                keyboardType = KeyboardType.Number,
+                imeAction = ImeAction.Done
+            ))
 
         NormalTextField(
             text = phone,
@@ -78,5 +80,8 @@ fun LoginContent(
 @Preview
 @Composable
 fun PreviewPasswordEditText() {
-    PasswordTextField(text = "", "", true, { }, {})
+    PasswordTextField(text = "", "", true, KeyboardOptions(
+        keyboardType = KeyboardType.Number,
+        imeAction = ImeAction.Done
+    ),{ }, {}, )
 }

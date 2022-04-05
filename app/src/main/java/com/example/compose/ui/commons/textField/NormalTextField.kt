@@ -1,6 +1,5 @@
 package com.example.compose.ui.commons.textField
 
-import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
@@ -16,7 +15,8 @@ fun NormalTextField(
              hint: String? = "",
              keyboardOptions: KeyboardOptions,
              onValueChanged: (String) -> Unit,){
-    Log.d("TAG", "NormalTextField: $text")
+    val isErrorIconVisible = text?.isEmpty() == true
+
     BaseTextField(
         text = text,
         hint = hint,
@@ -24,12 +24,12 @@ fun NormalTextField(
             CountryCode()
         },
         trailingIcon = {
-            ErrorIcon()
+            if(isErrorIconVisible) ErrorIcon()
         },
-        keyboardOptions = keyboardOptions,
-        onValueChanged = {
-            onValueChanged(it)
-        } )
+        keyboardOptions = keyboardOptions
+    ) {
+        onValueChanged(it)
+    }
 }
 
 @Composable
