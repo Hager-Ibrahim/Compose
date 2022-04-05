@@ -1,4 +1,4 @@
-package com.example.compose.modules.login
+package com.example.compose.modules.login.presentation
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,9 +8,7 @@ import android.view.ViewGroup
 import androidx.compose.material.Surface
 import androidx.compose.ui.platform.ComposeView
 import androidx.lifecycle.ViewModelProvider
-import com.example.compose.modules.login.stateexamples.j.LoginScreen
-import com.example.compose.modules.login.stateexamples.j.LoginViewModel
-
+import com.example.compose.modules.login.presentation.screen.LoginScreen
 
 class LoginFragment : Fragment() {
 
@@ -26,10 +24,8 @@ class LoginFragment : Fragment() {
         return ComposeView(requireContext()).apply {
             setContent {
                Surface() {
-                    //LoginScreen()
                    LoginScreen(viewModel = viewModel)
                }
-
             }
         }
     }
