@@ -4,7 +4,6 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
@@ -16,8 +15,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.input.ImeAction
-import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.example.compose.R
 import com.example.compose.ui.theme.DarkGrey
@@ -34,8 +31,9 @@ fun BaseTextField(
     onValueChanged: (String) -> Unit,
 
     ) {
+
     val borderColor = if (text?.isEmpty() == true) Color.Red else Color.Transparent
-    val navIcon: (@Composable () -> Unit)? = if (leadingIcon != null) {
+    val leadingIcon: (@Composable () -> Unit)? = if (leadingIcon != null) {
         { leadingIcon() }
     } else null
 
@@ -59,7 +57,7 @@ fun BaseTextField(
             unfocusedIndicatorColor = Color.Transparent,
         ), placeholder = {
             Text(hint ?: "")
-        },leadingIcon=  navIcon
+        },leadingIcon=  leadingIcon
         , trailingIcon = {
             trailingIcon()
         }
