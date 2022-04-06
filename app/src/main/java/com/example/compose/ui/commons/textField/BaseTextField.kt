@@ -1,5 +1,6 @@
 package com.example.compose.ui.commons.textField
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -15,25 +16,27 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import com.example.compose.R
 import com.example.compose.ui.theme.DarkGrey
 import com.example.compose.ui.theme.LightGrey
 
-
+@SuppressLint("ModifierParameter")
 @Composable
 fun BaseTextField(
     text: String?,
     hint: String? = "",
+    modifier: Modifier= Modifier,
     leadingIcon: @Composable (() -> Unit)? = {},
     trailingIcon: @Composable () -> Unit = {},
     keyboardOptions: KeyboardOptions,
+    visualTransformation: VisualTransformation = VisualTransformation.None,
     onValueChanged: (String) -> Unit,
-
     ) {
 
     val borderColor = if (text?.isEmpty() == true) Color.Red else Color.Transparent
-    val leadingIcon: (@Composable () -> Unit)? = if (leadingIcon != null) {
+    val baseLeadingIcon: (@Composable () -> Unit)? = if (leadingIcon != null) {
         { leadingIcon() }
     } else null
 
@@ -49,7 +52,7 @@ fun BaseTextField(
             .clip(RoundedCornerShape(16.dp))
             .border(
                 1.dp, borderColor, RoundedCornerShape(16.dp)
-            ),
+            ).then(modifier),
         colors = TextFieldDefaults.textFieldColors(
             textColor = DarkGrey,
             backgroundColor = LightGrey,
@@ -57,11 +60,12 @@ fun BaseTextField(
             unfocusedIndicatorColor = Color.Transparent,
         ), placeholder = {
             Text(hint ?: "")
-        },leadingIcon=  leadingIcon
+        },leadingIcon=  baseLeadingIcon
         , trailingIcon = {
             trailingIcon()
         }
         , keyboardOptions = keyboardOptions
+        , visualTransformation = visualTransformation
     )
 }
 

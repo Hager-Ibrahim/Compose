@@ -1,5 +1,6 @@
 package com.example.compose.ui.commons.textField
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
@@ -9,12 +10,14 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.compose.R
 
+@SuppressLint("ModifierParameter")
 @Composable
 fun NormalTextField(
              text: String?,
              hint: String? = "",
              keyboardOptions: KeyboardOptions,
-             onValueChanged: (String) -> Unit,){
+             modifier: Modifier= Modifier,
+             onValueChanged: (String) -> Unit, ){
     val isErrorIconVisible = text?.isEmpty() == true
 
     BaseTextField(
@@ -26,7 +29,8 @@ fun NormalTextField(
         trailingIcon = {
             if(isErrorIconVisible) ErrorIcon()
         },
-        keyboardOptions = keyboardOptions
+        keyboardOptions = keyboardOptions,
+        modifier = modifier,
     ) {
         onValueChanged(it)
     }

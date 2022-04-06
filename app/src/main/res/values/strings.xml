@@ -2,5 +2,14 @@
     <string name="app_name">Compose</string>
     <string name="phone">Phone</string>
     <string name="password">Password</string>
-
+    <string name="sign_in">Sign in</string>
+    <string name="forgot_password_question">Forgot password?</string>
+    <string name="login_via_social">Or login via social media</string>
+    <string name="login_via_facebook">Login via Facebook</string>
+    <string name="register_new_account">Register a new account</string>
+    <string name="register">Register</string>
+    <string name="no_account">No account?</string>
+    <string name="welcome_back_again">Welcome back again!</string>
+    <string name="login">Login</string>
+    <string name="create_new_account">Create new account</string>
 </resources>
