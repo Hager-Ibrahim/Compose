@@ -31,13 +31,13 @@ class LoginViewModel : ViewModel() {
                     is ChangePhone ->
                         _state.update { state->
                             state.copy(
-                                phone = state.phone.copy(initialText = it.phone),
+                                phone = state.phone.copy(text = it.phone),
                             )}
 
                     is ChangePassword ->
                         _state.update { state->
                             state.copy(
-                                password = state.password.copy(initialText = it.password),
+                                password = state.password.copy(text = it.password),
                             )}
 
                     ShowPassword ->
@@ -69,5 +69,9 @@ class LoginViewModel : ViewModel() {
 
     fun updatePasswordVisibility() {
         setEvent(ShowPassword)
+    }
+
+    fun login(email: String?, pass: String?){
+        setEvent(Login(email, pass))
     }
 }

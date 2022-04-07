@@ -13,6 +13,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
@@ -35,29 +36,26 @@ fun LoginScreen(viewModel: LoginViewModel) {
     val loginState by viewModel.state.collectAsState(LoginState())
 
     LoginContent(
-        password = loginState.password.initialText,
-        phone = loginState.phone.initialText,
+        password = loginState.password,
+        phone = loginState.phone,
         passwordVisibility = loginState.showPassword,
-        submitButtonEnabled = listOf(
-            loginState.phone,
-            loginState.password
-        ).all { it.isValid },
         onPhoneChanged = viewModel::updatePhone,
         onPasswordChanged = viewModel::updatePassword,
         updatePasswordVisibility = viewModel::updatePasswordVisibility,
+        onLoginClicked = viewModel::login
     )
 
 }
 
 @Composable
 private fun LoginContent(
-    password: String?,
-    phone: String?,
+    password: BaseTextFieldState,
+    phone: BaseTextFieldState,
     passwordVisibility: Boolean,
-    submitButtonEnabled: Boolean,
     onPhoneChanged: (String) -> Unit,
     onPasswordChanged: (String) -> Unit,
     updatePasswordVisibility: () -> Unit,
+    onLoginClicked: (String?, String?)-> Unit
 ) {
 
     Box(modifier = Modifier.fillMaxWidth()) {
@@ -138,7 +136,7 @@ private fun LoginContent(
                 onPhoneChanged = onPhoneChanged,
                 onPasswordChanged = onPasswordChanged,
                 updatePasswordVisibility = updatePasswordVisibility,
-                submitButtonEnabled = submitButtonEnabled,
+                onLoginClicked = onLoginClicked,
                 modifier = Modifier.constrainAs(loginCard) {
                     linkTo(startGuideline, endGuideline)
                     top.linkTo(welcomeText.bottom)
@@ -153,13 +151,13 @@ private fun LoginContent(
 @Composable
 fun LoginCard(
     modifier: Modifier = Modifier,
-    password: String?,
-    phone: String?,
+    password: BaseTextFieldState,
+    phone: BaseTextFieldState,
     passwordVisibility: Boolean,
-    submitButtonEnabled: Boolean,
     onPhoneChanged: (String) -> Unit,
     onPasswordChanged: (String) -> Unit,
     updatePasswordVisibility: () -> Unit,
+    onLoginClicked: (String?, String?)-> Unit
 ) {
 
     Column(
@@ -173,7 +171,7 @@ fun LoginCard(
 
         // region Phone text field
         NormalTextField(
-            text = phone,
+            text = phone.text,
             hint = stringResource(id = R.string.phone),
             onValueChanged = { onPhoneChanged(it) },
             keyboardOptions = KeyboardOptions(
@@ -187,7 +185,7 @@ fun LoginCard(
 
         //region Password text field
         PasswordTextField(
-            text = password,
+            text = password.text,
             hint = stringResource(id = R.string.password),
             isPasswordVisible = passwordVisibility,
             onValueChanged = {
@@ -196,7 +194,7 @@ fun LoginCard(
             onPasswordIconClicked = {
                 updatePasswordVisibility()
             }, keyboardOptions = KeyboardOptions(
-                keyboardType = KeyboardType.Number,
+                keyboardType = KeyboardType.Text,
                 imeAction = ImeAction.Done
             )
         )
@@ -228,8 +226,8 @@ fun LoginCard(
         //region Submit Button
         GradientButton(
             gradient = buttonGradient(),
-            isEnabled = submitButtonEnabled,
-            onClick = { /* Do something! */ },
+            isEnabled = listOf(phone, password).all { it.isValid(LocalContext.current) },
+            onClick = { onLoginClicked(phone.text, password.text) },
         ) {
             Text(
                 stringResource(id = R.string.login),

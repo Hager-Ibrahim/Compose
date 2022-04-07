@@ -12,4 +12,28 @@
     <string name="welcome_back_again">Welcome back again!</string>
     <string name="login">Login</string>
     <string name="create_new_account">Create new account</string>
+    <string name="something_wrong">Something went wrong</string>
+    <string name="not_authorized" translatable="false">User not authorized!</string>
+    <string name="no_connection">No connection!</string>
+    <string name="permission_rationale">Location services is required to check in and out!</string>
+    <string name="google_services_error">There was a problem with Google play services. So, some features may not be available like location.</string>
+    <string name="minutes">Minutes</string>
+    <string name="hours">Hours</string>
+    <string name="english">English</string>
+    <string name="arabic">عربي</string>
+    <string name="cant_be_empty">%s can\'t be empty!</string>
+    <string name="too_short_less_than">%s is too short (less than %d characters)!</string>
+    <string name="too_short_less_than_phone">%s is too short (less than %d numbers)!</string>
+    <string name="too_short_less_than_character">%s is too short (less than %d characters)!</string>
+    <string name="shouldnt_contain">%s should\'nt contain %s</string>
+    <string name="phone_number">Phone number</string>
+    <string name="activation_code">Activation code</string>
+    <string name="phone_number_error">Phone number error (too short or contains something other than numbers)</string>
+    <string name="should_be_digits_only">%s should be digits only</string>
+    <string name="password_include_number_upper_case">%s must include characters &amp; a number</string>
+    <string name="invalid_email">Invalid email</string>
+    <string name="time">Time</string>
+    <string name="field">field</string>
+    <string name="temp_pass">Temporary password</string>
+    <string name="email">Email</string>
 </resources>

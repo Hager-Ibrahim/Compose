@@ -1,14 +1,12 @@
 package com.example.compose.modules.login.presentation.screen
 
-import android.util.Log
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.setValue
-import com.example.compose.ui.commons.textField.ErrorTextFieldState
+import android.content.Context
+import com.example.compose.ui.commons.enums.TextInputValidator
+
 
 data class LoginState(
-    val phone: BaseTextFieldState = BaseTextFieldState(),
-    val password: BaseTextFieldState = BaseTextFieldState(),
+    val phone: BaseTextFieldState = BaseTextFieldState(inputValidator = TextInputValidator.PhoneNumberValidator()),
+    val password: BaseTextFieldState = BaseTextFieldState(inputValidator = TextInputValidator.OldPasswordValidator()),
     val showPassword: Boolean = false
 )
 
@@ -17,15 +15,15 @@ data class LoginState(
 sealed class LoginEvent {
     data class ChangePhone(val phone: String) : LoginEvent()
     data class ChangePassword(val password: String) : LoginEvent()
-    data class LoginClicked(val email: String, val password: String) : LoginEvent()
+    data class Login(val email: String?, val password: String?) : LoginEvent()
     object ShowPassword : LoginEvent()
 }
 
 data class BaseTextFieldState(
-    val initialText: String? = null,
+    val text: String? = null,
+    var inputValidator: TextInputValidator,
 ) {
-
-    val isValid = initialText?.isNotEmpty() ?: false
-
+    fun isValid(context: Context)= inputValidator.isValid(text?:"")?.getString(context) == null
+   // fun getErrorMessage(context: Context) = inputValidator.isValid(initialText?:"")?.getString(context)
 }
 
