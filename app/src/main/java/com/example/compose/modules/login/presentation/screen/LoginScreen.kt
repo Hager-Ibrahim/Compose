@@ -35,10 +35,13 @@ fun LoginScreen(viewModel: LoginViewModel) {
     val loginState by viewModel.state.collectAsState(LoginState())
 
     LoginContent(
-        password = loginState.password,
-        phone = loginState.phone,
+        password = loginState.password.initialText,
+        phone = loginState.phone.initialText,
         passwordVisibility = loginState.showPassword,
-        submitButtonEnabled = loginState.submitButtonEnabled,
+        submitButtonEnabled = listOf(
+            loginState.phone,
+            loginState.password
+        ).all { it.isValid },
         onPhoneChanged = viewModel::updatePhone,
         onPasswordChanged = viewModel::updatePassword,
         updatePasswordVisibility = viewModel::updatePasswordVisibility,
@@ -175,7 +178,7 @@ fun LoginCard(
             onValueChanged = { onPhoneChanged(it) },
             keyboardOptions = KeyboardOptions(
                 keyboardType = KeyboardType.Phone,
-                imeAction = ImeAction.Done
+                imeAction = ImeAction.Next
             )
         )
         // endregion
@@ -206,7 +209,7 @@ fun LoginCard(
             onClick = { /* Do something! */ },
             colors = ButtonDefaults.textButtonColors(
                 backgroundColor = Color.Transparent
-            ), modifier = Modifier.align(Alignment.End),
+            ), modifier = Modifier.align(Alignment.Start),
             elevation = null,
         ) {
             Text(

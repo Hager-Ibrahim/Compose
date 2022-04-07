@@ -1,5 +1,6 @@
 package com.example.compose.modules.login.presentation
 
+
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.compose.modules.login.presentation.screen.LoginEvent
@@ -28,21 +29,23 @@ class LoginViewModel : ViewModel() {
             event.collect {
                 when (it) {
                     is ChangePhone ->
-                        _state.value = _state.value.copy(
-                            phone = it.phone,
-                            submitButtonEnabled = it.phone.isNotEmpty()
-                                    && _state.value.password?.isNotEmpty() == true
-                        )
+                        _state.update { state->
+                            state.copy(
+                                phone = state.phone.copy(initialText = it.phone),
+                            )}
+
                     is ChangePassword ->
-                        _state.value = _state.value.copy(
-                            password = it.password,
-                            submitButtonEnabled = it.password.isNotEmpty()
-                                    && _state.value.phone?.isNotEmpty() == true
-                        )
+                        _state.update { state->
+                            state.copy(
+                                password = state.password.copy(initialText = it.password),
+                            )}
+
                     ShowPassword ->
-                        _state.value = _state.value.copy(
-                            showPassword = !_state.value.showPassword
-                        )
+                        _state.update { state->
+                            state.copy(
+                                showPassword = !state.showPassword
+                            )}
+
                     else -> {}
                 }
             }
