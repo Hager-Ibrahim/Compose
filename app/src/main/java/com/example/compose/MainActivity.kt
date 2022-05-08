@@ -49,11 +49,6 @@ class MainActivity : ComponentActivity() {
 }
 
 
-//
-//@Preview("large font", fontScale = 4f,showBackground = true)
-//@Preview(showBackground = true, showSystemUi = true)
-//@Preview("locale", locale = "ar",showBackground = true)
-//@Preview(showBackground = true)
 
 @Composable
 fun FirstComposeFun() {
@@ -62,37 +57,30 @@ fun FirstComposeFun() {
         color = MaterialTheme.colors.primary,
         maxLines = 1,
         textAlign = TextAlign.Center,
+        style = typography.h1,
+        overflow = TextOverflow.Ellipsis,
+    )
+}
+
+//
+//@Preview("large font", fontScale = 4f,showBackground = true)
+//@Preview("full screen",showBackground = true, showSystemUi = true)
+//@Preview("locale", locale = "ar",showBackground = true)
+//@Preview("default",showBackground = true)
+
+
+
+@Composable
+fun ComposeFun() {
+    Text(
+        text = stringResource(id = R.string.hello),
+        color = Purple700,
+        maxLines = 1,
+        textAlign = TextAlign.Center,
         style = TextStyle(
             fontFamily = FontFamily(Font(R.font.cairo_bold)),
             fontSize = 20.sp,
         ),
         overflow = TextOverflow.Ellipsis,
     )
-}
-
-@Composable
-fun SecondComposeFun() {
-    Text(
-        text = "text",
-        color = Purple700,
-        maxLines = 1,
-        style = typography.h1,
-    )
-}
-
-@Composable
-fun ThirdComposeFun3() {
-    Text(
-        text = stringResource(id = R.string.hello),
-        color = Color.Blue,
-        maxLines = 1,
-        style = typography.h1,
-    )
-
-  //  dimensionResource(id = R.dimen.auth_guide_screen_spacer)
-
-
-    //typography.h2
-    //spacing.medium
-
 }
