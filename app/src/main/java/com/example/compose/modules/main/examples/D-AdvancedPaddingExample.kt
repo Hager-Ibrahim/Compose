@@ -1,4 +1,4 @@
-package com.example.compose.modules.main.examples.d
+package com.example.compose.modules.main.examples
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -14,7 +14,7 @@ import androidx.compose.ui.unit.sp
 
 @Preview
 @Composable
-fun ModifierExample() {
+fun AdvancedPaddingExample() {
     Text(
         text = "Hello World!",
         color = Color.Gray,

@@ -10,7 +10,6 @@ import androidx.compose.material.Surface
 import androidx.fragment.app.Fragment
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.Modifier
-import com.example.compose.modules.main.examples.a.ModifierExample
 
 class MainFragment : Fragment() {
 
@@ -25,7 +24,7 @@ class MainFragment : Fragment() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    ModifierExample()
+
                 }
             }
         }

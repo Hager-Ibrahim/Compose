@@ -1,4 +1,4 @@
-package com.example.compose.modules.main.examples.b
+package com.example.compose.modules.main.examples
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.TextField
@@ -9,7 +9,7 @@ import androidx.compose.ui.unit.dp
 
 @Preview(showBackground = true)
 @Composable
-fun ModifierExample() {
+fun HeightWidthExample() {
     TextField(
         value = "",
         onValueChange = {},

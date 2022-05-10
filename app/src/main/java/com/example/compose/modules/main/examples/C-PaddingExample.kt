@@ -1,4 +1,4 @@
-package com.example.compose.modules.main.examples.c
+package com.example.compose.modules.main.examples
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -15,7 +15,7 @@ import com.example.compose.ui.theme.LightGray
 
 @Preview
 @Composable
-fun ModifierExample() {
+fun PaddingExample() {
     TextField(
         value = "", onValueChange = {},
         Modifier
