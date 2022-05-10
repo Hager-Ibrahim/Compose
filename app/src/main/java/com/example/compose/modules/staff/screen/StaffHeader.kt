@@ -1,5 +1,7 @@
 package com.example.compose.modules.staff.screen
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -14,6 +16,6 @@ fun StaffHeader() {
         text = "Staff",
         color = Color(0xFF34495e),
         fontSize = 22.sp,
-        Modifier.padding(8.dp)
+        Modifier.fillMaxSize().background(Color.White).padding(8.dp)
     )
 }

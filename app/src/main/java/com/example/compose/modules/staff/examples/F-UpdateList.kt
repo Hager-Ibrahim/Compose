@@ -1,4 +1,4 @@
-package com.example.compose.modules.staff.examples.f
+package com.example.compose.modules.staff.examples
 
 import android.util.Log
 import androidx.compose.foundation.clickable
@@ -11,42 +11,45 @@ import androidx.compose.material.Card
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.compose.modules.staff.StaffViewModel
 import com.example.compose.modules.staff.model.StaffUIModel
-import com.example.compose.modules.staff.screen.StaffCard
 import com.example.compose.modules.staff.screen.StaffItem
 
 @Composable
 fun StaffScreen(viewModel: StaffViewModel) {
-    val staffList = remember{viewModel.staffList}
+    val staffList = remember { viewModel.staffList }
 
 
     StaffContent(onClick = {
-          viewModel.update(it)
+        viewModel.update(it)
     }, staff = staffList)
 
 }
 
 @Composable
-fun StaffContent(onClick: (Int) -> Unit, staff: List<StaffUIModel>){
+fun StaffContent(onClick: (Int) -> Unit, staff: List<StaffUIModel>) {
     LazyColumn(
         contentPadding = PaddingValues(12.dp)
     ) {
 
         staff.forEachIndexed { index, staff ->
             item {
-                StaffCard(staff = staff, index){
-                   onClick(index)
+                StaffCard(staff = staff, index) {
+                    onClick(index)
                 }
             }
         }
     }
 }
+
 @Composable
-fun StaffCard(staff: StaffUIModel,
-              position: Int,
-              onClick: (StaffUIModel)-> Unit) {
+fun StaffCard(
+    staff: StaffUIModel,
+    position: Int,
+    onClick: (StaffUIModel) -> Unit
+) {
     Log.d("TEST", "StaffCard:  $position")
     Card(
         elevation = 4.dp,
@@ -60,4 +63,11 @@ fun StaffCard(staff: StaffUIModel,
     ) {
         StaffItem(staff)
     }
+}
+
+@Preview
+@Composable
+fun PreviewUpdateList() {
+    val viewModel = StaffViewModel()
+    StaffScreen(viewModel)
 }

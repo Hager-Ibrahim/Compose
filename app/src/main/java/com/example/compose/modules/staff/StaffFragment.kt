@@ -11,8 +11,7 @@ import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.lifecycle.ViewModelProvider
-import com.example.compose.modules.staff.examples.b.StaffList
-import com.example.compose.modules.staff.examples.f.StaffScreen
+import com.example.compose.modules.staff.examples.StaffList
 
 
 class StaffFragment : Fragment() {
