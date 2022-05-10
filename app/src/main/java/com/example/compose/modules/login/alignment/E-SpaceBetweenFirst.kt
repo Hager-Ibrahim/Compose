@@ -1,4 +1,4 @@
-package com.example.compose.modules.login.alignment.e
+package com.example.compose.modules.login.alignment
 
 
 import androidx.compose.foundation.BorderStroke
@@ -26,7 +26,7 @@ import com.example.compose.R
  */
 @Preview
 @Composable
-fun AlignmentExampleRow() {
+fun SpaceBetweenFirstExample() {
     Row(
         modifier = Modifier
             .fillMaxWidth()

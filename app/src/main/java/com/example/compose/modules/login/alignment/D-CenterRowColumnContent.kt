@@ -1,4 +1,4 @@
-package com.example.compose.modules.login.alignment.d
+package com.example.compose.modules.login.alignment
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.ui.Alignment
@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.sp
 
 @Preview
 @Composable
-fun AlignmentExample() {
+fun CenterRowColumnContent() {
 
     Column() {
         Column(

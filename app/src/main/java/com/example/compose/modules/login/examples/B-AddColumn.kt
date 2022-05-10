@@ -1,4 +1,4 @@
-package com.example.compose.modules.login.examples.b
+package com.example.compose.modules.login.examples
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
@@ -8,7 +8,7 @@ import com.example.compose.ui.commons.DefaultButton
 
 @Preview
 @Composable
-fun LoginScreen() {
+fun AddColumn() {
     Column() {
         AuthTextField(hint = "")
         DefaultButton(buttonText = "Login") {}

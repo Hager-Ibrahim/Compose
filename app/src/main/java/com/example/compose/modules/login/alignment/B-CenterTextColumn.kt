@@ -1,5 +1,6 @@
-package com.example.compose.modules.login.alignment.a
+package com.example.compose.modules.login.alignment
 
+import androidx.compose.ui.Alignment
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
@@ -17,7 +18,7 @@ import androidx.compose.ui.unit.sp
 
 @Preview
 @Composable
-fun AlignmentExample() {
+fun CenterTextColumn() {
 
     Column(
         modifier = Modifier
@@ -28,8 +29,9 @@ fun AlignmentExample() {
         Text(
             text = "Test",
             fontSize = 18.sp,
-            color = Color.Blue
+            color = Color.Blue,
+            modifier = Modifier.align(Alignment.CenterHorizontally)
 
-            )
+        )
     }
 }
