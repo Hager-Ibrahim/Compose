@@ -1,10 +1,10 @@
-package com.example.compose.modules.staff.examples.b
+package com.example.compose.modules.staff.examples
 
 import androidx.compose.runtime.Composable
 import androidx.constraintlayout.compose.ConstraintSet
 
 @Composable
-fun StaffItem() {
+fun ConstraintID() {
 
     val constraints = ConstraintSet {
         val image = createRefFor("image")

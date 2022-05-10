@@ -1,6 +1,5 @@
-package com.example.compose.modules.staff.examples.d
+package com.example.compose.modules.staff.examples
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
@@ -14,15 +13,13 @@ import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.ConstraintSet
 import androidx.constraintlayout.compose.Dimension
-import androidx.constraintlayout.widget.ConstraintLayout
 import com.example.compose.R
 import com.example.compose.ui.commons.imageView.ImageFromRes
 import com.example.compose.ui.commons.text.DefaultText
-import kotlinx.coroutines.NonDisposableHandle.parent
 
 @Preview(showBackground = true)
 @Composable
-fun StaffItem() {
+fun CompleteExample() {
     val constraints = ConstraintSet {
         val image = createRefFor("image")
         val name = createRefFor("name")

@@ -1,4 +1,4 @@
-package com.example.compose.modules.staff.examples.e
+package com.example.compose.modules.staff.examples
 
 
 import androidx.compose.foundation.layout.*

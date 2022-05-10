@@ -1,13 +1,12 @@
-package com.example.compose.modules.staff.examples.c
+package com.example.compose.modules.staff.examples
 
 
 import androidx.compose.runtime.Composable
 import androidx.constraintlayout.compose.ConstraintSet
-import kotlinx.coroutines.NonDisposableHandle.parent
 
 
 @Composable
-fun StaffItem() {
+fun AddConstraints() {
     val constraints = ConstraintSet {
         val image = createRefFor("image")
         val name = createRefFor("name")
