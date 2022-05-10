@@ -1,5 +1,6 @@
-package com.example.compose.ui.navigation.e
+package com.example.compose.ui.navigation
 
+import android.util.Log.e
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Surface
@@ -7,26 +8,34 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import androidx.navigation.*
 import androidx.navigation.compose.composable
-import com.example.compose.ui.navigation.e.Screens.*
+import com.example.compose.ui.navigation.ScreensE.*
 import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.rememberNavController
 
+@Preview
 @Composable
-fun SetupNavGraph(navHostController: NavHostController) {
+fun PreviewNavOptionalArgument() {
+    val navController = rememberNavController()
+    SetupNavGraphE(navController)
+}
+@Composable
+fun SetupNavGraphE(navHostController: NavHostController) {
     NavHost(
         navController = navHostController,
-        startDestination = MainScreen.route
+        startDestination = MainScreenE.route
     ) {
 
-        composable(route = MainScreen.route) {
-            MainScreen(navHostController)
+        composable(route = MainScreenE.route) {
+            MainScreenE(navHostController)
         }
 
         composable(
-            route = DetailsScreen.route,
-            arguments = listOf(navArgument(DETAILS_ID_ARG) {
+            route = DetailsScreenE.route,
+            arguments = listOf(navArgument(DETAILS_ID_ARGE) {
                 type = NavType.IntType
             }, navArgument(NAME_ARG) {
                 type = NavType.StringType
@@ -35,20 +44,20 @@ fun SetupNavGraph(navHostController: NavHostController) {
 //                nullable = true
             })
         ) {
-            DetailsScreen(
-                it.arguments?.getInt(DETAILS_ID_ARG),
+            DetailsScreenE(
+                it.arguments?.getInt(DETAILS_ID_ARGE),
                 it.arguments?.getString(NAME_ARG)
             )
         }
     }
 }
 
-const val DETAILS_ID_ARG = "id"
+const val DETAILS_ID_ARGE = "id"
 const val NAME_ARG = "name"
 
-sealed class Screens(val route: String) {
-    object MainScreen : Screens("main_screen")
-    object DetailsScreen : Screens("detail_screen/{$DETAILS_ID_ARG}?$NAME_ARG={name}") {
+sealed class ScreensE(val route: String) {
+    object MainScreenE : ScreensE("main_screen")
+    object DetailsScreenE : ScreensE("detail_screen/{$DETAILS_ID_ARGE}?$NAME_ARG={name}") {
         fun passId(id: Int): String =
             "detail_screen/$id"
 
@@ -58,15 +67,15 @@ sealed class Screens(val route: String) {
 }
 
 @Composable
-fun MainScreen(navController: NavController) {
+fun MainScreenE(navController: NavController) {
     Surface(
         color = Color.White,
         modifier = Modifier.fillMaxSize()
     ) {
 
         Text("Main screen", Modifier.clickable {
-            //  navController.navigate(route =DetailsScreen.passId(8))
-            navController.navigate(route = DetailsScreen.passIdAndName(8, "Hager"))
+            //  navController.navigate(route =DetailsScreenE.passId(8))
+            navController.navigate(route = DetailsScreenE.passIdAndName(8, "Hager"))
 
         })
     }
@@ -74,7 +83,7 @@ fun MainScreen(navController: NavController) {
 }
 
 @Composable
-fun DetailsScreen(id: Int?, name: String?) {
+fun DetailsScreenE(id: Int?, name: String?) {
     Surface(
         color = Color.White,
         modifier = Modifier.fillMaxSize()

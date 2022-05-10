@@ -1,4 +1,4 @@
-package com.example.compose.ui.navigation.a
+package com.example.compose.ui.navigation
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxSize

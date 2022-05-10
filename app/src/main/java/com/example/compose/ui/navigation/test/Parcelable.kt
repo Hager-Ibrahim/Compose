@@ -1,4 +1,4 @@
-package com.example.compose.ui.navigation.f
+package com.example.compose.ui.navigation.test
 
 import android.os.Bundle
 import androidx.compose.foundation.clickable
@@ -8,15 +8,24 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.sp
 import androidx.navigation.*
 import androidx.navigation.compose.composable
 import com.example.compose.modules.staff.model.StaffUIModel
-import com.example.compose.ui.navigation.f.Screens.*
+import com.example.compose.ui.navigation.test.Screens.*
 import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.rememberNavController
 import com.example.compose.ui.helper.getParcelable
 import com.example.compose.ui.helper.navigate
+import com.example.compose.ui.navigation.SetupNavGraphE
 
+@Preview
+@Composable
+fun PreviewParcelableExample() {
+    val navController = rememberNavController()
+    SetupNavGraph(navController)
+}
 @Composable
 fun SetupNavGraph(navHostController: NavHostController) {
     NavHost(
