@@ -1,4 +1,4 @@
-package com.example.compose.modules.login.stateexamples.i
+package com.example.compose.modules.login.stateexamples
 
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
@@ -25,7 +25,7 @@ import com.example.compose.ui.theme.DarkGrey
 import com.example.compose.ui.theme.LightGrey
 
 @Composable
-fun LoginScreen(viewModel: LoginViewModel) {
+fun LoginScreen(viewModel: LoginViewModel3) {
     val text = viewModel.phone.observeAsState()
 
     NormalTextField(
@@ -106,7 +106,7 @@ fun ErrorIcon(){
         contentDescription = null,
     )
 }
-class LoginViewModel : ViewModel() {
+class LoginViewModel3 : ViewModel() {
 
 
     private val _phone = MutableLiveData<String>()
@@ -120,6 +120,7 @@ class LoginViewModel : ViewModel() {
 
 @Preview
 @Composable
-fun PreviewNormalEditText(){
-    NormalTextField(text = "", onValueChanged = {})
+fun PreviewAdvancedExample(){
+    val viewModel = LoginViewModel3()
+    LoginScreen(viewModel)
 }

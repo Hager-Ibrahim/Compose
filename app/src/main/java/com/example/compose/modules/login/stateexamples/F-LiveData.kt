@@ -1,4 +1,4 @@
-package com.example.compose.modules.login.stateexamples.h
+package com.example.compose.modules.login.stateexamples
 
 
 import androidx.compose.foundation.layout.Column
@@ -8,44 +8,44 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.*
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.LiveData
-
 import androidx.lifecycle.MutableLiveData
 import com.example.compose.ui.commons.textField.CustomTextField
 import androidx.lifecycle.ViewModel
 
-//stateful
+@Preview
 @Composable
-fun LoginScreen(viewModel: LoginViewModel){
-    val email = viewModel.email.observeAsState()
-
-    LoginContent(email.value?:""){
-        viewModel.updateEmail(it)
-    }
+fun LiveDataExampleScreenPreview() {
+    val viewModel = LiveDataExampleViewModel()
+    LiveDataExampleScreen(viewModel)
 }
-// stateless
+
 @Composable
-fun LoginContent(
-     email: String,
-     onEmailChanged: (String)-> Unit
+fun LiveDataExampleScreen(
+    viewModel: LiveDataExampleViewModel
 ) {
     Surface(
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colors.background
     ) {
+
+        val email = viewModel.email.observeAsState()
+
         Column {
 
+
             CustomTextField(
-                value = email ,
+                value = email.value ?:"",
                 onValueChanged = {
-                    onEmailChanged(it)
+                    viewModel.updateEmail(it)
                 }, "Email"
             )
         }
     }
 }
 
-class LoginViewModel : ViewModel() {
+class LiveDataExampleViewModel : ViewModel() {
 
 
     private val _email = MutableLiveData<String>()

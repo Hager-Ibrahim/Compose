@@ -1,4 +1,4 @@
-package com.example.compose.modules.login.stateexamples.e
+package com.example.compose.modules.login.stateexamples
 
 
 import android.util.Log
@@ -10,19 +10,19 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.compose.ui.commons.button.DefaultButton
 import com.example.compose.ui.commons.textField.CustomTextField
 
-
+@Preview
 @Composable
-fun LoginScreen(
-) {
+fun RecompositionExample() {
     Surface(
         modifier = Modifier.fillMaxSize(),
         color = MaterialTheme.colors.background
     ) {
-        Log.d("Test recomposition", "LoginScreen: ")
+        Log.d("TEST STATE", "LoginScreen: ")
 
         val email = remember { mutableStateOf("") }
         val password = remember { mutableStateOf("") }
@@ -49,7 +49,7 @@ fun Email(
     email: String,
     onEmailChanged: (String) -> Unit,
 ) {
-    Log.d("Test recomposition", "Email: ")
+    Log.d("TEST STATE", "Email: ")
 
     CustomTextField(
         value = email,
@@ -64,7 +64,7 @@ fun Password(
     password: String,
     onPasswordChanged: (String) -> Unit,
 ) {
-    Log.d("Test recomposition", "Password: ")
+    Log.d("TEST STATE", "Password: ")
 
     CustomTextField(
         value = password,
@@ -76,7 +76,7 @@ fun Password(
 
 @Composable
 fun Button() {
-    Log.d("Test recomposition", "Button: ")
+    Log.d("TEST STATE", "Button: ")
 
     DefaultButton("Login") {
 
