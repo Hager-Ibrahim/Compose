@@ -70,17 +70,19 @@ fun FirstComposeFun() {
 
 
 
+
 @Composable
 fun ComposeFun() {
     Text(
         text = stringResource(id = R.string.hello),
-        color = Purple700,
+        color = Black,
         maxLines = 1,
         textAlign = TextAlign.Center,
         style = TextStyle(
             fontFamily = FontFamily(Font(R.font.cairo_bold)),
             fontSize = 20.sp,
         ),
+     //   style =typography.h1,
         overflow = TextOverflow.Ellipsis,
     )
 }
