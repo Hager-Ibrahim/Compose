@@ -29,7 +29,7 @@ fun CenterRowColumnContent() {
             Text(
                 text = "Test",
                 fontSize = 18.sp,
-                color = Color.White,
+                color = Color.Blue,
                 modifier = Modifier.align(Alignment.CenterHorizontally)
 
             )
@@ -45,7 +45,7 @@ fun CenterRowColumnContent() {
             Text(
                 text = "Test",
                 fontSize = 18.sp,
-                color = Color.White,
+                color = Color.Blue,
                 modifier = Modifier.align(Alignment.CenterVertically)
 
             )

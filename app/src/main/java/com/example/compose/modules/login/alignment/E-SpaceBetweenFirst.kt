@@ -40,7 +40,7 @@ fun SpaceBetweenFirstExample() {
         Text(
             text = "Logout",
             fontSize = 18.sp,
-            color = Color.White
+            color = Color.Blue
         )
         Image(
             painter = painterResource(R.drawable.ic_logout),
