@@ -11,7 +11,6 @@ import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.lifecycle.ViewModelProvider
-import com.example.compose.modules.login.screen.LoginScreenFirst
 
 
 class LoginFragment : Fragment() {
@@ -31,7 +30,7 @@ class LoginFragment : Fragment() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    LoginScreenFirst()
+
                 }
             }
         }
