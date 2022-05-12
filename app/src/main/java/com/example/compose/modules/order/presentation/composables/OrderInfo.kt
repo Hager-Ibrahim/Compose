@@ -1,4 +1,4 @@
-package com.example.compose.modules.order.presentation.screen
+package com.example.compose.modules.order.presentation.composables
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -19,11 +19,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.constraintlayout.compose.ConstraintLayout
-import androidx.constraintlayout.compose.Dimension
 import com.example.compose.R
 import com.example.compose.modules.order.presentation.model.OrderInfoModel
 import com.example.compose.ui.theme.Martinique
-import kotlinx.coroutines.NonDisposableHandle.parent
 
 
 @Composable

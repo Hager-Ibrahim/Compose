@@ -1,4 +1,4 @@
-package com.example.compose.modules.order.presentation.screen
+package com.example.compose.modules.order.presentation.composables
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column

@@ -1,4 +1,4 @@
-package com.example.compose.modules.order.presentation.screen
+package com.example.compose.modules.order.presentation.composables
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -22,10 +22,8 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.constraintlayout.compose.ConstraintLayoutScope
 import androidx.constraintlayout.compose.Dimension
 import com.example.compose.R
-import com.example.compose.modules.order.presentation.model.CartItemDomainModel
 import com.example.compose.modules.order.presentation.model.OrderDetailsPreviewParameterProvider
 import com.example.compose.modules.order.presentation.model.OrderDetailsUIModel
-import com.example.compose.modules.order.presentation.model.OrderStatus.Companion.getStatus
 import com.example.compose.ui.theme.*
 
 

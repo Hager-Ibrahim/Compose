@@ -1,4 +1,4 @@
-package com.example.compose.modules.order.presentation.screen
+package com.example.compose.modules.order.presentation.composables
 
 import android.text.SpannableStringBuilder
 import androidx.compose.foundation.Image

@@ -1,4 +1,4 @@
-package com.example.compose.modules.order.presentation.screen
+package com.example.compose.modules.order.presentation.composables
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -18,7 +18,6 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import com.example.compose.R
 import com.example.compose.modules.order.presentation.model.OrderDetailsPreviewParameterProvider
 import com.example.compose.modules.order.presentation.model.OrderDetailsUIModel
-import com.example.compose.modules.order.presentation.model.OrderStatus.Companion.getStatus
 import com.example.compose.ui.theme.PrussianBlue
 
 @Composable
