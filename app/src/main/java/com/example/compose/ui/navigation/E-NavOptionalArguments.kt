@@ -1,6 +1,5 @@
 package com.example.compose.ui.navigation
 
-import android.util.Log.e
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Surface
@@ -20,10 +19,10 @@ import androidx.navigation.compose.rememberNavController
 @Composable
 fun PreviewNavOptionalArgument() {
     val navController = rememberNavController()
-    SetupNavGraphE(navController)
+    SetupNavHostE(navController)
 }
 @Composable
-fun SetupNavGraphE(navHostController: NavHostController) {
+fun SetupNavHostE(navHostController: NavHostController) {
     NavHost(
         navController = navHostController,
         startDestination = MainScreenE.route

@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -18,10 +19,10 @@ import androidx.navigation.compose.rememberNavController
 @Composable
 fun PreviewSetupNavBetweenScreens() {
     val navController = rememberNavController()
-    SetupNavGraphB(navController)
+    SetupNavHostB(navController)
 }
 @Composable
-fun SetupNavGraphB(navHostController: NavHostController) {
+fun SetupNavHostB(navHostController: NavHostController) {
     NavHost(
         navController = navHostController,
         startDestination = "main_screen"){
@@ -42,7 +43,10 @@ fun MainScreenB(navController: NavController) {
         color = Color.White,
         modifier = Modifier.fillMaxSize()) {
 
-        Text("Main screen", Modifier.clickable {
+        Text(
+            text ="Main screen",
+            fontSize = 20.sp,
+            modifier = Modifier.clickable {
             navController.navigate(route = "detail_screen")
         })
     }
@@ -55,7 +59,7 @@ fun DetailsScreenB() {
         color = Color.White,
         modifier = Modifier.fillMaxSize()) {
 
-        Text("Detail screen")
+        Text("Detail screen", fontSize = 20.sp,)
     }
 
 }

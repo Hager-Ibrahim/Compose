@@ -20,11 +20,11 @@ import androidx.navigation.compose.rememberNavController
 @Composable
 fun PreviewNavRequiredArgument() {
     val navController = rememberNavController()
-    SetupNavGraphD(navController)
+    SetupNavHostD(navController)
 }
 
 @Composable
-fun SetupNavGraphD(navHostController: NavHostController) {
+fun SetupNavHostD(navHostController: NavHostController) {
     NavHost(
         navController = navHostController,
         startDestination = MainScreenD.route){
@@ -58,7 +58,10 @@ fun MainScreenD(navController: NavController) {
         color = Color.White,
         modifier = Modifier.fillMaxSize()) {
 
-        Text("Main screen", Modifier.clickable {
+        Text(
+            "Main screen",
+            fontSize =20.sp,
+            modifier= Modifier.clickable {
             navController.navigate(route =DetailsScreenD.passId(8))
         })
     }

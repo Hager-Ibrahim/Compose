@@ -13,16 +13,16 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.compose.ui.navigation.ScreensC.*
+import com.example.compose.ui.navigation.Screens.*
 
 @Preview
 @Composable
 fun PreviewNavExampleWithSealedClass() {
     val navController = rememberNavController()
-    SetupNavGraphC(navController)
+    SetupNavHostC(navController)
 }
 @Composable
-fun SetupNavGraphC(navHostController: NavHostController) {
+fun SetupNavHostC(navHostController: NavHostController) {
     NavHost(
         navController = navHostController,
         startDestination = MainScreenC.route){
@@ -37,9 +37,9 @@ fun SetupNavGraphC(navHostController: NavHostController) {
     }
 }
 
-sealed class ScreensC(val route: String) {
-    object MainScreenC: ScreensC("main_screen")
-    object DetailsScreenC: ScreensC("detail_screen")
+sealed class Screens(val route: String) {
+    object MainScreenC: Screens("main_screen")
+    object DetailsScreenC: Screens("detail_screen")
 }
 
 @Composable

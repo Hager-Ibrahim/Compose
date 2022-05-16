@@ -18,7 +18,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import com.example.compose.ui.helper.getParcelable
 import com.example.compose.ui.helper.navigate
-import com.example.compose.ui.navigation.SetupNavGraphE
 
 @Preview
 @Composable
