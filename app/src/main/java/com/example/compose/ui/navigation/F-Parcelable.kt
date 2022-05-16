@@ -58,7 +58,7 @@ const val STAFF_ARG="staff_bundle"
 const val STAFF_KEY="staff_key"
 
 @Composable
-fun MainScreen(navController: NavController) {
+private fun MainScreen(navController: NavController) {
     Surface(
         color = Color.White,
         modifier = Modifier.fillMaxSize()) {
@@ -74,7 +74,7 @@ fun MainScreen(navController: NavController) {
 }
 
 @Composable
-fun DetailsScreen(id: Int?, bundle: Bundle) {
+private fun DetailsScreen(id: Int?, bundle: Bundle) {
     Surface(
         color = Color.White,
         modifier = Modifier.fillMaxSize()) {

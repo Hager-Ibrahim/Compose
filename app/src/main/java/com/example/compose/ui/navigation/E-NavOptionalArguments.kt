@@ -25,15 +25,15 @@ fun PreviewNavOptionalArgument() {
 fun SetupNavHostE(navHostController: NavHostController) {
     NavHost(
         navController = navHostController,
-        startDestination = MainScreenE.route
+        startDestination = MainScreen.route
     ) {
 
-        composable(route = MainScreenE.route) {
-            MainScreenE(navHostController)
+        composable(route = MainScreen.route) {
+            MainScreen(navHostController)
         }
 
         composable(
-            route = DetailsScreenE.route,
+            route = DetailsScreen.route,
             arguments = listOf(navArgument(DETAILS_ID_ARGE) {
                 type = NavType.IntType
             }, navArgument(NAME_ARG) {
@@ -43,7 +43,7 @@ fun SetupNavHostE(navHostController: NavHostController) {
 //                nullable = true
             })
         ) {
-            DetailsScreenE(
+            DetailsScreen(
                 it.arguments?.getInt(DETAILS_ID_ARGE),
                 it.arguments?.getString(NAME_ARG)
             )
@@ -55,8 +55,8 @@ const val DETAILS_ID_ARGE = "id"
 const val NAME_ARG = "name"
 
 sealed class ScreensE(val route: String) {
-    object MainScreenE : ScreensE("main_screen")
-    object DetailsScreenE : ScreensE("detail_screen/{$DETAILS_ID_ARGE}?$NAME_ARG={name}") {
+    object MainScreen : ScreensE("main_screen")
+    object DetailsScreen : ScreensE("detail_screen/{$DETAILS_ID_ARGE}?$NAME_ARG={name}") {
         fun passId(id: Int): String =
             "detail_screen/$id"
 
@@ -66,7 +66,7 @@ sealed class ScreensE(val route: String) {
 }
 
 @Composable
-fun MainScreenE(navController: NavController) {
+private fun MainScreen(navController: NavController) {
     Surface(
         color = Color.White,
         modifier = Modifier.fillMaxSize()
@@ -74,7 +74,7 @@ fun MainScreenE(navController: NavController) {
 
         Text("Main screen", Modifier.clickable {
             //  navController.navigate(route =DetailsScreenE.passId(8))
-            navController.navigate(route = DetailsScreenE.passIdAndName(8, "Hager"))
+            navController.navigate(route = DetailsScreen.passIdAndName(8, "Hager"))
 
         })
     }
@@ -82,7 +82,7 @@ fun MainScreenE(navController: NavController) {
 }
 
 @Composable
-fun DetailsScreenE(id: Int?, name: String?) {
+private fun DetailsScreen(id: Int?, name: String?) {
     Surface(
         color = Color.White,
         modifier = Modifier.fillMaxSize()

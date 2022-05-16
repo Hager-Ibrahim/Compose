@@ -22,23 +22,23 @@ fun PreviewSetupNavBetweenScreens() {
     SetupNavHostB(navController)
 }
 @Composable
-fun SetupNavHostB(navHostController: NavHostController) {
+private fun SetupNavHostB(navHostController: NavHostController) {
     NavHost(
         navController = navHostController,
         startDestination = "main_screen"){
 
         composable(route = "main_screen"){
-            MainScreenB(navHostController)
+            MainScreen(navHostController)
         }
 
         composable(route = "detail_screen"){
-            DetailsScreenB()
+            DetailsScreen()
         }
     }
 }
 
 @Composable
-fun MainScreenB(navController: NavController) {
+private fun MainScreen(navController: NavController) {
     Surface(
         color = Color.White,
         modifier = Modifier.fillMaxSize()) {
@@ -54,7 +54,7 @@ fun MainScreenB(navController: NavController) {
 }
 
 @Composable
-fun DetailsScreenB() {
+private fun DetailsScreen() {
     Surface(
         color = Color.White,
         modifier = Modifier.fillMaxSize()) {

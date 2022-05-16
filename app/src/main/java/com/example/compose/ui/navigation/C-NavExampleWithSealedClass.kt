@@ -25,38 +25,37 @@ fun PreviewNavExampleWithSealedClass() {
 fun SetupNavHostC(navHostController: NavHostController) {
     NavHost(
         navController = navHostController,
-        startDestination = MainScreenC.route){
+        startDestination = MainScreen.route){
 
-        composable(route = MainScreenC.route){
-            MainScreenC(navHostController)
+        composable(route = MainScreen.route){
+            MainScreen(navHostController)
         }
 
-        composable(route = DetailsScreenC.route){
-            DetailsScreenC()
+        composable(route = DetailsScreen.route){
+            DetailsScreen()
         }
     }
 }
-
 sealed class Screens(val route: String) {
-    object MainScreenC: Screens("main_screen")
-    object DetailsScreenC: Screens("detail_screen")
+    object MainScreen: Screens("main_screen")
+    object DetailsScreen: Screens("detail_screen")
 }
 
 @Composable
-fun MainScreenC(navController: NavController) {
+private fun MainScreen(navController: NavController) {
     Surface(
         color = Color.White,
         modifier = Modifier.fillMaxSize()) {
 
         Text("Main screen", Modifier.clickable {
-            navController.navigate(route = DetailsScreenC.route)
+            navController.navigate(route = DetailsScreen.route)
         })
     }
 
 }
 
 @Composable
-fun DetailsScreenC() {
+private fun DetailsScreen() {
     Surface(
         color = Color.White,
         modifier = Modifier.fillMaxSize()) {
