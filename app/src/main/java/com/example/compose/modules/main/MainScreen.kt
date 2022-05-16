@@ -63,7 +63,19 @@ fun RowScope.AddItem(
         selected = selected,
         unselectedContentColor = LocalContentColor.current.copy(alpha = ContentAlpha.disabled),
         onClick = {
-            navController.navigate(screen.route)
+            navController.navigate(screen.route) {
+                // Avoid multiple copies of the same destination when
+                // reselecting the same item
+                launchSingleTop = true
+                // Restore state when reselecting a previously selected item
+                restoreState = true
+                // Pop up to the start destination of the graph to
+                // avoid building up a large stack of destinations
+                // on the back stack as users select items
+                popUpTo(navController.findStartDestinationId()) {
+                    saveState = true
+                }
+            }
         }
     )
 }
@@ -78,3 +90,6 @@ fun NavHostController.getCurrentDestinationRouteAsState()= currentBackStackEntry
 fun NavHostController.shouldShowBottomBar(): Boolean{
     return getCurrentDestinationRouteAsState() in bottomBarRoutes
 }
+
+fun NavHostController.findStartDestinationId()= graph.findStartDestination().id
+
