@@ -9,6 +9,9 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.*
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.example.compose.ui.common.extentions.findStartDestinationId
+import com.example.compose.ui.common.extentions.getCurrentDestinationRouteAsState
+import com.example.compose.ui.common.extentions.shouldShowBottomBar
 import com.example.compose.ui.navigation.model.BottomBarScreen
 
 @Composable
@@ -25,15 +28,12 @@ fun MainScreen(navController: NavHostController) {
         floatingActionButton = {
 
         }
-    ) {
-        SetupMainNavHost(navController)
-    }
+    ) { SetupMainNavHost(navController) }
 }
 
 @Composable
 fun BottomBar(navController: NavHostController) {
     val screens = BottomBarScreen.values()
-
     val currentDestinationRoute = navController.getCurrentDestinationRouteAsState()
 
 //    Row{
@@ -86,17 +86,4 @@ fun RowScope.AddItem(
     )
 }
 
-val bottomBarTabs = BottomBarScreen.values()
-private val bottomBarRoutes = bottomBarTabs.map { it.route }
-
-@Composable
-fun NavHostController.getCurrentDestinationRouteAsState() =
-    currentBackStackEntryAsState().value?.destination?.route
-
-@Composable
-fun NavHostController.shouldShowBottomBar(): Boolean {
-    return getCurrentDestinationRouteAsState() in bottomBarRoutes
-}
-
-fun NavHostController.findStartDestinationId() = graph.findStartDestination().id
 
