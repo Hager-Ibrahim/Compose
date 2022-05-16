@@ -1,4 +1,4 @@
-package com.example.compose.ui.navigation.test
+package com.example.compose.ui.navigation
 
 import android.os.Bundle
 import androidx.compose.foundation.clickable
@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.*
 import androidx.navigation.compose.composable
 import com.example.compose.modules.staff.model.StaffUIModel
-import com.example.compose.ui.navigation.test.Screens.*
+import com.example.compose.ui.navigation.ScreensF.*
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import com.example.compose.ui.helper.getParcelable
@@ -23,10 +23,10 @@ import com.example.compose.ui.helper.navigate
 @Composable
 fun PreviewParcelableExample() {
     val navController = rememberNavController()
-    SetupNavGraph(navController)
+    SetupNavHostF(navController)
 }
 @Composable
-fun SetupNavGraph(navHostController: NavHostController) {
+fun SetupNavHostF(navHostController: NavHostController) {
     NavHost(
         navController = navHostController,
         startDestination = MainScreen.route){
@@ -37,18 +37,18 @@ fun SetupNavGraph(navHostController: NavHostController) {
 
         composable(
             route = DetailsScreen.route,
-            arguments = listOf(navArgument(DETAILS_ID_ARG) {
+            arguments = listOf(navArgument(DETAILS_ID_ARGF) {
                 type = NavType.IntType
             })){
-            DetailsScreen(it.arguments?.getInt(DETAILS_ID_ARG), it.getParcelable(STAFF_ARG) as Bundle)
+            DetailsScreen(it.arguments?.getInt(DETAILS_ID_ARGF), it.getParcelable(STAFF_ARG) as Bundle)
         }
     }
 }
 
-const val DETAILS_ID_ARG="id"
-sealed class Screens(val route: String) {
-    object MainScreen: Screens("main_screen")
-    object DetailsScreen: Screens("detail_screen/{${DETAILS_ID_ARG}}"){
+private const val DETAILS_ID_ARGF="id"
+sealed class ScreensF(val route: String) {
+    object MainScreen: ScreensF("main_screen")
+    object DetailsScreen: ScreensF("detail_screen/{${DETAILS_ID_ARGF}}"){
         fun passId(id: Int): String =
             "detail_screen/$id"
     }
@@ -81,7 +81,7 @@ fun DetailsScreen(id: Int?, bundle: Bundle) {
 
         val staff = bundle.getParcelable<StaffUIModel>(STAFF_KEY)
 
-        Text("Detail screen  $id".plus("\n").plus(staff), fontSize = 18.sp)
+        Text("Detail screen  $id".plus("\n \n").plus(staff), fontSize = 18.sp)
     }
 
 }
