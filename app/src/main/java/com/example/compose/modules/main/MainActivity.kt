@@ -12,7 +12,6 @@ class MainActivity : AppCompatActivity() {
         setContent {
             ComposeTheme() {
                 val navController = rememberNavController()
-               // SetupMainNavGraph(navController)
                 MainScreen(navController = navController)
             }
         }

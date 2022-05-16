@@ -15,9 +15,15 @@ import com.example.compose.ui.navigation.model.BottomBarScreen
 fun MainScreen(navController: NavHostController) {
     Scaffold(
         bottomBar = {
-            if(navController.shouldShowBottomBar()){
+            if (navController.shouldShowBottomBar()) {
                 BottomBar(navController = navController)
             }
+        },
+        topBar = {
+
+        },
+        floatingActionButton = {
+
         }
     ) {
         SetupMainNavHost(navController)
@@ -84,12 +90,13 @@ val bottomBarTabs = BottomBarScreen.values()
 private val bottomBarRoutes = bottomBarTabs.map { it.route }
 
 @Composable
-fun NavHostController.getCurrentDestinationRouteAsState()= currentBackStackEntryAsState().value?.destination?.route
+fun NavHostController.getCurrentDestinationRouteAsState() =
+    currentBackStackEntryAsState().value?.destination?.route
 
 @Composable
-fun NavHostController.shouldShowBottomBar(): Boolean{
+fun NavHostController.shouldShowBottomBar(): Boolean {
     return getCurrentDestinationRouteAsState() in bottomBarRoutes
 }
 
-fun NavHostController.findStartDestinationId()= graph.findStartDestination().id
+fun NavHostController.findStartDestinationId() = graph.findStartDestination().id
 
