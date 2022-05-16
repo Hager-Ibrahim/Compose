@@ -19,7 +19,7 @@ fun SetupNavGraph(navHostController: NavHostController) {
         startDestination = "main_screen"){
 
         composable(route = "main_screen"){
-            MainScreen(navHostController)
+            MainScreen()
         }
 
         composable(route = "detail_screen"){
@@ -29,7 +29,7 @@ fun SetupNavGraph(navHostController: NavHostController) {
 }
 
 @Composable
-fun MainScreen(navController: NavController) {
+fun MainScreen() {
     Surface(
         color = Color.White,
         modifier = Modifier.fillMaxSize()) {
