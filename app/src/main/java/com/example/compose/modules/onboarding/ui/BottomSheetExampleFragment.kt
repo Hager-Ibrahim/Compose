@@ -13,10 +13,10 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
-import com.example.compose.modules.onboarding.ui.compsables.BottomSheet
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import androidx.activity.addCallback
+import com.example.compose.modules.onboarding.ui.compsables.BottomSheetExample
 
 
 class BottomSheetExampleFragment : Fragment() {
@@ -49,7 +49,7 @@ class BottomSheetExampleFragment : Fragment() {
 
                     Column() {
                         OpenBottomSheetButton(scope, sheetState)
-                        BottomSheet(scaffoldState)
+                        BottomSheetExample(scaffoldState)
 
                     }
                 }
