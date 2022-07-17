@@ -16,6 +16,8 @@ import androidx.fragment.app.Fragment
 import com.example.compose.modules.onboarding.ui.compsables.BottomSheet
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
+import androidx.activity.addCallback
+
 
 class BottomSheetExampleFragment : Fragment() {
 
@@ -27,9 +29,9 @@ class BottomSheetExampleFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
+
         return ComposeView(requireContext()).apply {
             setContent {
-
 
                 Surface(
                     modifier = Modifier.fillMaxSize(),
@@ -41,10 +43,12 @@ class BottomSheetExampleFragment : Fragment() {
                     val scaffoldState = rememberBottomSheetScaffoldState(
                         bottomSheetState = sheetState
                     )
+
                     val scope = rememberCoroutineScope()
+                    setScreenBackListener(scope, sheetState)
 
                     Column() {
-                        OpenBottomSheetButton(scope = scope, sheetState = sheetState)
+                        OpenBottomSheetButton(scope, sheetState)
                         BottomSheet(scaffoldState)
 
                     }
@@ -53,6 +57,21 @@ class BottomSheetExampleFragment : Fragment() {
         }
     }
 
+    @OptIn(ExperimentalMaterialApi::class)
+    fun setScreenBackListener(
+        scope: CoroutineScope,
+        sheetState: BottomSheetState){
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            scope.launch {
+                if (sheetState.isExpanded) {
+                    sheetState.collapse()
+                }
+                else {
+                    requireActivity().finish()
+                }
+            }
+        }
+    }
     @OptIn(ExperimentalMaterialApi::class)
     @Composable
     fun OpenBottomSheetButton(
