@@ -5,9 +5,9 @@ import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import androidx.navigation.*
-import com.example.compose.ui.common.extentions.findStartDestinationId
+import androidx.navigation.NavHostController
 import com.example.compose.ui.common.extentions.getCurrentDestinationRouteAsState
+import com.example.compose.ui.common.extentions.openScreen
 import com.example.compose.ui.common.extentions.shouldShowBottomBar
 import com.example.compose.ui.navigation.model.BottomBarScreen
 import com.example.compose.ui.theme.LightBlueGray
@@ -66,19 +66,7 @@ fun RowScope.AddItem(
         selectedContentColor = TextPrimary,
         unselectedContentColor = LightBlueGray,
         onClick = {
-            navController.navigate(screen.route) {
-                // Avoid multiple copies of the same destination when
-                // reselecting the same item
-                launchSingleTop = true
-                // Restore state when reselecting a previously selected item
-                restoreState = true
-                // Pop up to the start destination of the graph to
-                // avoid building up a large stack of destinations
-                // on the back stack as users select items
-                popUpTo(navController.findStartDestinationId()) {
-                    saveState = true
-                }
-            }
+            navController.openScreen(screen.route)
         }
     )
 }
