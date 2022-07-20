@@ -1,18 +1,17 @@
 package com.example.compose.modules.main
 
 import SetupMainNavHost
-import android.util.Log
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.navigation.*
-import androidx.navigation.NavGraph.Companion.findStartDestination
-import androidx.navigation.compose.currentBackStackEntryAsState
 import com.example.compose.ui.common.extentions.findStartDestinationId
 import com.example.compose.ui.common.extentions.getCurrentDestinationRouteAsState
 import com.example.compose.ui.common.extentions.shouldShowBottomBar
 import com.example.compose.ui.navigation.model.BottomBarScreen
+import com.example.compose.ui.theme.LightBlueGray
+import com.example.compose.ui.theme.TextPrimary
 
 @Composable
 fun MainScreen(navController: NavHostController) {
@@ -36,10 +35,7 @@ fun BottomBar(navController: NavHostController) {
     val screens = BottomBarScreen.values()
     val currentDestinationRoute = navController.getCurrentDestinationRouteAsState()
 
-//    Row{
-//
-//    }
-    BottomNavigation {
+    BottomNavigation(backgroundColor = Color.White) {
         screens.forEach { screen ->
             AddItem(
                 screen = screen,
@@ -67,7 +63,8 @@ fun RowScope.AddItem(
             )
         },
         selected = selected,
-        unselectedContentColor = LocalContentColor.current.copy(alpha = ContentAlpha.disabled),
+        selectedContentColor = TextPrimary,
+        unselectedContentColor = LightBlueGray,
         onClick = {
             navController.navigate(screen.route) {
                 // Avoid multiple copies of the same destination when

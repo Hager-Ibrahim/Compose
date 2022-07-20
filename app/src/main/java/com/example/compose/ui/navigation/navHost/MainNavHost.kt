@@ -4,7 +4,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
-import com.example.compose.modules.home.HomeViewModel
 import com.example.compose.modules.orderdetails.OrderDetailsScreen
 import com.example.compose.modules.orderdetails.OrderDetailsViewModel
 import com.example.compose.ui.navigation.model.BottomBarScreen

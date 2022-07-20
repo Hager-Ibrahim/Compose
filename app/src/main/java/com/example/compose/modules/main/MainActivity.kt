@@ -1,8 +1,8 @@
 package com.example.compose.modules.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.compose.setContent
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.compose.rememberNavController
 import com.example.compose.ui.theme.ComposeTheme
 
