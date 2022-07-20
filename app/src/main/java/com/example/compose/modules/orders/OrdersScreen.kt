@@ -14,7 +14,6 @@ import androidx.compose.ui.graphics.Color.Companion.Gray
 import androidx.compose.ui.text.font.FontWeight
 import androidx.navigation.NavHostController
 import com.example.compose.ui.navigation.model.Screens
-import com.example.compose.ui.navigation.navigate
 
 @Composable
 fun OrdersScreen(navController: NavHostController, viewModel: OrdersViewModel) {
